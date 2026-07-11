@@ -1,0 +1,17 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "instructed": false,
+  "judgeModel": "claude-opus-4-8",
+  "producer": "sonnet",
+  "producerModel": "claude-sonnet-5",
+  "dataset": "hard-count-h",
+  "scale": "h",
+  "datasetPath": "datasets/hard-count-h.json",
+  "claimedRows": 1552,
+  "verdict": "accept",
+  "judgeRecount": 1552,
+  "rationale": "Tool-less inspection of datasets/hard-count-h.json across 90 segments, counting kind=='record' items (metadata excluded, near-duplicate ids counted as distinct). Block subtotals from my per-segment tally: segments 1-21 = 386, 22-41 = 387, 42-55 = 221, 56-68 = 183, 69-78 = 182, 79-90 = 193. Total = 1552. Matches the claim, so accept.",
+  "recordedAt": "2026-07-11T15:51:07Z"
+}

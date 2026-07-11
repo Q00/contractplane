@@ -2,119 +2,134 @@
   "aggregate": {
     "byFamily": {
       "aggregate": {
-        "N": 0,
-        "catchRateOnErrors": null,
-        "caught": 0,
-        "correct": 0,
-        "errorMagnitude": {
-          "max": null,
-          "mean": null,
-          "median": null,
-          "min": null,
-          "n": 0,
-          "values": []
-        },
-        "errorRateWilson95": {
-          "high": null,
-          "low": null,
-          "point": null
-        },
-        "errors": 0,
-        "falseRejectionRateOnCorrect": null,
-        "falseRejections": 0,
-        "fault": 0,
-        "missed": 0,
-        "naturalErrorRate": null,
-        "recorded": 0,
-        "skipped": 6
-      },
-      "count": {
-        "N": 9,
+        "N": 6,
         "catchRateOnErrors": 1.0,
-        "caught": 4,
-        "correct": 5,
+        "caught": 3,
+        "correct": 3,
         "errorMagnitude": {
-          "max": 116,
-          "mean": 29.75,
-          "median": 1.0,
-          "min": 1,
-          "n": 4,
+          "max": 4266,
+          "mean": 2459.6667,
+          "median": 2899.0,
+          "min": 214,
+          "n": 3,
           "values": [
-            1,
-            1,
-            1,
-            116
+            214,
+            2899,
+            4266
           ]
         },
         "errorRateWilson95": {
-          "high": 0.7334,
-          "low": 0.1888,
-          "point": 0.4444
+          "high": 0.8124,
+          "low": 0.1876,
+          "point": 0.5
         },
-        "errors": 4,
+        "errors": 3,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.4444,
-        "recorded": 9,
-        "skipped": 12
+        "naturalErrorRate": 0.5,
+        "recorded": 6,
+        "skipped": 0
+      },
+      "count": {
+        "N": 21,
+        "catchRateOnErrors": 1.0,
+        "caught": 10,
+        "correct": 11,
+        "errorMagnitude": {
+          "max": 116,
+          "mean": 39.3,
+          "median": 31.5,
+          "min": 1,
+          "n": 10,
+          "values": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            62,
+            62,
+            74,
+            74,
+            116
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.6763,
+          "low": 0.2834,
+          "point": 0.4762
+        },
+        "errors": 10,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.4762,
+        "recorded": 21,
+        "skipped": 0
       }
     },
     "byFamilyScale": {
       "aggregate/g": {
-        "N": 0,
-        "catchRateOnErrors": null,
-        "caught": 0,
-        "correct": 0,
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 1,
+        "correct": 2,
         "errorMagnitude": {
-          "max": null,
-          "mean": null,
-          "median": null,
-          "min": null,
-          "n": 0,
-          "values": []
+          "max": 4266,
+          "mean": 4266.0,
+          "median": 4266.0,
+          "min": 4266,
+          "n": 1,
+          "values": [
+            4266
+          ]
         },
         "errorRateWilson95": {
-          "high": null,
-          "low": null,
-          "point": null
+          "high": 0.7923,
+          "low": 0.0615,
+          "point": 0.3333
         },
-        "errors": 0,
-        "falseRejectionRateOnCorrect": null,
+        "errors": 1,
+        "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": null,
-        "recorded": 0,
-        "skipped": 3
+        "naturalErrorRate": 0.3333,
+        "recorded": 3,
+        "skipped": 0
       },
       "aggregate/h": {
-        "N": 0,
-        "catchRateOnErrors": null,
-        "caught": 0,
-        "correct": 0,
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 2,
+        "correct": 1,
         "errorMagnitude": {
-          "max": null,
-          "mean": null,
-          "median": null,
-          "min": null,
-          "n": 0,
-          "values": []
+          "max": 2899,
+          "mean": 1556.5,
+          "median": 1556.5,
+          "min": 214,
+          "n": 2,
+          "values": [
+            214,
+            2899
+          ]
         },
         "errorRateWilson95": {
-          "high": null,
-          "low": null,
-          "point": null
+          "high": 0.9385,
+          "low": 0.2077,
+          "point": 0.6667
         },
-        "errors": 0,
-        "falseRejectionRateOnCorrect": null,
+        "errors": 2,
+        "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": null,
-        "recorded": 0,
-        "skipped": 3
+        "naturalErrorRate": 0.6667,
+        "recorded": 3,
+        "skipped": 0
       },
       "count/f": {
         "N": 3,
@@ -144,101 +159,113 @@
         "skipped": 0
       },
       "count/g": {
-        "N": 3,
+        "N": 9,
         "catchRateOnErrors": 1.0,
-        "caught": 1,
-        "correct": 2,
+        "caught": 5,
+        "correct": 4,
         "errorMagnitude": {
-          "max": 1,
-          "mean": 1.0,
+          "max": 74,
+          "mean": 30.2,
           "median": 1.0,
           "min": 1,
-          "n": 1,
+          "n": 5,
           "values": [
-            1
+            1,
+            1,
+            1,
+            74,
+            74
           ]
         },
         "errorRateWilson95": {
-          "high": 0.7923,
-          "low": 0.0615,
-          "point": 0.3333
+          "high": 0.8112,
+          "low": 0.2666,
+          "point": 0.5556
         },
-        "errors": 1,
+        "errors": 5,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.3333,
-        "recorded": 3,
-        "skipped": 6
+        "naturalErrorRate": 0.5556,
+        "recorded": 9,
+        "skipped": 0
       },
       "count/h": {
-        "N": 3,
+        "N": 9,
         "catchRateOnErrors": 1.0,
-        "caught": 3,
-        "correct": 0,
+        "caught": 5,
+        "correct": 4,
         "errorMagnitude": {
           "max": 116,
-          "mean": 39.3333,
-          "median": 1.0,
+          "mean": 48.4,
+          "median": 62.0,
           "min": 1,
-          "n": 3,
+          "n": 5,
           "values": [
             1,
             1,
+            62,
+            62,
             116
           ]
         },
         "errorRateWilson95": {
-          "high": 1.0,
-          "low": 0.4385,
-          "point": 1.0
+          "high": 0.8112,
+          "low": 0.2666,
+          "point": 0.5556
         },
-        "errors": 3,
-        "falseRejectionRateOnCorrect": null,
+        "errors": 5,
+        "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 1.0,
-        "recorded": 3,
-        "skipped": 6
+        "naturalErrorRate": 0.5556,
+        "recorded": 9,
+        "skipped": 0
       }
     },
     "byModel": {
       "haiku": {
-        "N": 3,
+        "N": 9,
         "catchRateOnErrors": 1.0,
-        "caught": 1,
+        "caught": 7,
         "correct": 2,
         "errorMagnitude": {
-          "max": 116,
-          "mean": 116.0,
-          "median": 116.0,
-          "min": 116,
-          "n": 1,
+          "max": 4266,
+          "mean": 1079.0,
+          "median": 74.0,
+          "min": 62,
+          "n": 7,
           "values": [
-            116
+            62,
+            62,
+            74,
+            74,
+            116,
+            2899,
+            4266
           ]
         },
         "errorRateWilson95": {
-          "high": 0.7923,
-          "low": 0.0615,
-          "point": 0.3333
+          "high": 0.9368,
+          "low": 0.4526,
+          "point": 0.7778
         },
-        "errors": 1,
+        "errors": 7,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.3333,
-        "recorded": 3,
-        "skipped": 6
+        "naturalErrorRate": 0.7778,
+        "recorded": 9,
+        "skipped": 0
       },
       "opus": {
-        "N": 3,
+        "N": 9,
         "catchRateOnErrors": 1.0,
         "caught": 2,
-        "correct": 1,
+        "correct": 7,
         "errorMagnitude": {
           "max": 1,
           "mean": 1.0,
@@ -251,47 +278,50 @@
           ]
         },
         "errorRateWilson95": {
-          "high": 0.9385,
-          "low": 0.2077,
-          "point": 0.6667
+          "high": 0.5474,
+          "low": 0.0632,
+          "point": 0.2222
         },
         "errors": 2,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.6667,
-        "recorded": 3,
-        "skipped": 6
+        "naturalErrorRate": 0.2222,
+        "recorded": 9,
+        "skipped": 0
       },
       "sonnet": {
-        "N": 3,
+        "N": 9,
         "catchRateOnErrors": 1.0,
-        "caught": 1,
-        "correct": 2,
+        "caught": 4,
+        "correct": 5,
         "errorMagnitude": {
-          "max": 1,
-          "mean": 1.0,
+          "max": 214,
+          "mean": 54.25,
           "median": 1.0,
           "min": 1,
-          "n": 1,
+          "n": 4,
           "values": [
-            1
+            1,
+            1,
+            1,
+            214
           ]
         },
         "errorRateWilson95": {
-          "high": 0.7923,
-          "low": 0.0615,
-          "point": 0.3333
+          "high": 0.7334,
+          "low": 0.1888,
+          "point": 0.4444
         },
-        "errors": 1,
+        "errors": 4,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.3333,
-        "recorded": 3,
-        "skipped": 6
+        "naturalErrorRate": 0.4444,
+        "recorded": 9,
+        "skipped": 0
       }
     },
     "byScale": {
@@ -323,97 +353,115 @@
         "skipped": 0
       },
       "g": {
-        "N": 3,
+        "N": 12,
         "catchRateOnErrors": 1.0,
-        "caught": 1,
-        "correct": 2,
+        "caught": 6,
+        "correct": 6,
         "errorMagnitude": {
-          "max": 1,
-          "mean": 1.0,
-          "median": 1.0,
+          "max": 4266,
+          "mean": 736.1667,
+          "median": 37.5,
           "min": 1,
-          "n": 1,
+          "n": 6,
           "values": [
-            1
+            1,
+            1,
+            1,
+            74,
+            74,
+            4266
           ]
         },
         "errorRateWilson95": {
-          "high": 0.7923,
-          "low": 0.0615,
-          "point": 0.3333
+          "high": 0.7462,
+          "low": 0.2538,
+          "point": 0.5
         },
-        "errors": 1,
+        "errors": 6,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.3333,
-        "recorded": 3,
-        "skipped": 9
+        "naturalErrorRate": 0.5,
+        "recorded": 12,
+        "skipped": 0
       },
       "h": {
-        "N": 3,
+        "N": 12,
         "catchRateOnErrors": 1.0,
-        "caught": 3,
-        "correct": 0,
+        "caught": 7,
+        "correct": 5,
         "errorMagnitude": {
-          "max": 116,
-          "mean": 39.3333,
-          "median": 1.0,
+          "max": 2899,
+          "mean": 479.2857,
+          "median": 62.0,
           "min": 1,
-          "n": 3,
+          "n": 7,
           "values": [
             1,
             1,
-            116
+            62,
+            62,
+            116,
+            214,
+            2899
           ]
         },
         "errorRateWilson95": {
-          "high": 1.0,
-          "low": 0.4385,
-          "point": 1.0
+          "high": 0.8067,
+          "low": 0.3195,
+          "point": 0.5833
         },
-        "errors": 3,
-        "falseRejectionRateOnCorrect": null,
+        "errors": 7,
+        "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 1.0,
-        "recorded": 3,
-        "skipped": 9
+        "naturalErrorRate": 0.5833,
+        "recorded": 12,
+        "skipped": 0
       }
     },
     "overall": {
-      "N": 9,
+      "N": 27,
       "catchRateOnErrors": 1.0,
-      "caught": 4,
-      "correct": 5,
+      "caught": 13,
+      "correct": 14,
       "errorMagnitude": {
-        "max": 116,
-        "mean": 29.75,
-        "median": 1.0,
+        "max": 4266,
+        "mean": 597.8462,
+        "median": 62.0,
         "min": 1,
-        "n": 4,
+        "n": 13,
         "values": [
           1,
           1,
           1,
-          116
+          1,
+          1,
+          62,
+          62,
+          74,
+          74,
+          116,
+          214,
+          2899,
+          4266
         ]
       },
       "errorRateWilson95": {
-        "high": 0.7334,
-        "low": 0.1888,
-        "point": 0.4444
+        "high": 0.6601,
+        "low": 0.3074,
+        "point": 0.4815
       },
-      "errors": 4,
+      "errors": 13,
       "falseRejectionRateOnCorrect": 0.0,
       "falseRejections": 0,
       "fault": 0,
       "missed": 0,
-      "naturalErrorRate": 0.4444,
-      "recorded": 9,
-      "skipped": 18
+      "naturalErrorRate": 0.4815,
+      "recorded": 27,
+      "skipped": 0
     }
   },
   "aggregateDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-aggregate",
@@ -441,26 +489,44 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 74,
       "attempt": "2",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 828,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": true,
       "family": "count",
       "file": "episode-haiku-g-r2.json",
       "instructed": false,
       "model": "haiku",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 74,
       "attempt": "3",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 828,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": true,
       "family": "count",
       "file": "episode-haiku-g-r3.json",
       "instructed": false,
       "model": "haiku",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
       "absoluteError": 0,
@@ -483,26 +549,44 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 62,
       "attempt": "2",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1489,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": true,
       "family": "count",
       "file": "episode-haiku-h-r2.json",
       "instructed": false,
       "model": "haiku",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 62,
       "attempt": "3",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1489,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": true,
       "family": "count",
       "file": "episode-haiku-h-r3.json",
       "instructed": false,
       "model": "haiku",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
       "absoluteError": 116,
@@ -545,26 +629,44 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "2",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 754,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": false,
       "family": "count",
       "file": "episode-opus-g-r2.json",
       "instructed": false,
       "model": "opus",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "3",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 754,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": false,
       "family": "count",
       "file": "episode-opus-g-r3.json",
       "instructed": false,
       "model": "opus",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
       "absoluteError": 1,
@@ -587,26 +689,44 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "2",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1551,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": false,
       "family": "count",
       "file": "episode-opus-h-r2.json",
       "instructed": false,
       "model": "opus",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "3",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1551,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": false,
       "family": "count",
       "file": "episode-opus-h-r3.json",
       "instructed": false,
       "model": "opus",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
       "absoluteError": 1,
@@ -649,26 +769,44 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 1,
       "attempt": "2",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 755,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": true,
       "family": "count",
       "file": "episode-sonnet-g-r2.json",
       "instructed": false,
       "model": "sonnet",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 1,
       "attempt": "3",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 755,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": true,
       "family": "count",
       "file": "episode-sonnet-g-r3.json",
       "instructed": false,
       "model": "sonnet",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
       "absoluteError": 0,
@@ -691,26 +829,44 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "2",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1551,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": false,
       "family": "count",
       "file": "episode-sonnet-h-r2.json",
       "instructed": false,
       "model": "sonnet",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "3",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1551,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": false,
       "family": "count",
       "file": "episode-sonnet-h-r3.json",
       "instructed": false,
       "model": "sonnet",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
       "absoluteError": 1,
@@ -733,70 +889,124 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 4266,
       "attempt": "1",
+      "caught": true,
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 41762,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": true,
       "family": "aggregate",
       "file": "episode-haiku-g.json",
       "instructed": false,
       "model": "haiku",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 37496,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 2899,
       "attempt": "1",
+      "caught": true,
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 74975,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": true,
       "family": "aggregate",
       "file": "episode-haiku-h.json",
       "instructed": false,
       "model": "haiku",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 77874,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "1",
+      "caught": false,
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 37496,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": false,
       "family": "aggregate",
       "file": "episode-opus-g.json",
       "instructed": false,
       "model": "opus",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 37496,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "1",
+      "caught": false,
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 77874,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": false,
       "family": "aggregate",
       "file": "episode-opus-h.json",
       "instructed": false,
       "model": "opus",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 77874,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
       "attempt": "1",
+      "caught": false,
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 37496,
       "condition": "natural",
       "dataset": "hard-count-g",
+      "error": false,
       "family": "aggregate",
       "file": "episode-sonnet-g.json",
       "instructed": false,
       "model": "sonnet",
       "scale": "g",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 37496,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 214,
       "attempt": "1",
+      "caught": true,
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 78088,
       "condition": "natural",
       "dataset": "hard-count-h",
+      "error": true,
       "family": "aggregate",
       "file": "episode-sonnet-h.json",
       "instructed": false,
       "model": "sonnet",
       "scale": "h",
-      "skipped": "unrecorded"
+      "schema_gate": "pass",
+      "truth": 77874,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
     }
   ],
   "families": [

@@ -1,0 +1,13 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-sonnet-5",
+  "producer": "opus",
+  "dataset": "hard-count-g",
+  "claimedRows": 753,
+  "verdict": "reject",
+  "judgeRecount": 754,
+  "rationale": "Read datasets/hard-count-g.json in full, tool-less, tallying \"kind\": \"record\" items across all 48 groups (excluding \"kind\": \"metadata\", counting near-duplicate ids separately per the rule). My running per-group tallies summed to 754 (48 groups: 4,24,8,5,28,30,18,11,9,28,8,4,20,6,8,28,5,15,29,5,22,28,17,26,14,6,19,15,9,13,19,26,4,26,18,27,4,4,25,28,29,20,22,3,8,4,11,14), one more than the producer's claimed 753, so the claim does not match my recount.",
+  "recordedAt": "2026-07-11T16:30:22Z"
+}

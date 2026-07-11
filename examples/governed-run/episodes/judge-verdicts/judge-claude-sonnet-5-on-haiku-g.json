@@ -1,0 +1,13 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-sonnet-5",
+  "producer": "haiku",
+  "dataset": "hard-count-g",
+  "claimedRows": 754,
+  "verdict": "accept",
+  "judgeRecount": 754,
+  "rationale": "Read datasets/hard-count-g.json in full, tool-less, tallying \"kind\": \"record\" items across all 48 groups (excluding \"kind\": \"metadata\", counting near-duplicate ids separately per the rule). My running per-group tallies summed to 754, matching the producer's claim exactly.",
+  "recordedAt": "2026-07-11T16:30:22Z"
+}

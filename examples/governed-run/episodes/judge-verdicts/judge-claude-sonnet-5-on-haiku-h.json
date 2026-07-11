@@ -1,0 +1,13 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-sonnet-5",
+  "producer": "haiku",
+  "dataset": "hard-count-h",
+  "claimedRows": 1435,
+  "verdict": "reject",
+  "judgeRecount": 1548,
+  "rationale": "Read datasets/hard-count-h.json in full, tool-less, tallying \"kind\": \"record\" items across all 90 groups (excluding \"kind\": \"metadata\", counting near-duplicate ids separately per the rule). My running per-group tallies summed to 1548, substantially above the producer's claimed 1435 (a gap of 113, far larger than the plausible margin of error in my own manual tally), so the claim clearly does not match my recount.",
+  "recordedAt": "2026-07-11T16:30:22Z"
+}

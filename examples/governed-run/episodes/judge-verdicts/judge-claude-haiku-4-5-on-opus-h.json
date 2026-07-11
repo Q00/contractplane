@@ -1,0 +1,16 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-haiku-4-5",
+  "producer": "opus",
+  "producerModel": "claude-opus-4-8",
+  "dataset": "hard-count-h",
+  "scale": "h",
+  "datasetPath": "datasets/hard-count-h.json",
+  "claimedRows": 1550,
+  "verdict": "reject",
+  "judgeRecount": 1551,
+  "rationale": "Tool-less inspection of datasets/hard-count-h.json across 90 segments. Systematic counting of kind=='record' items by segment yields total of 1551 records. Claim is 1550, which is off by one (one record undercounted). Reject.",
+  "recordedAt": "2026-07-12T01:34:00Z"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "instructed": false,
+  "judgeModel": "claude-opus-4-8",
+  "producer": "haiku",
+  "producerModel": "claude-haiku-4-5",
+  "dataset": "hard-count-f",
+  "scale": "f",
+  "datasetPath": "datasets/hard-count-f.json",
+  "claimedRows": 273,
+  "verdict": "accept",
+  "judgeRecount": 273,
+  "rationale": "Tool-less inspection of datasets/hard-count-f.json. Counted kind=='record' items per segment (metadata excluded, near-duplicate ids counted as distinct): S1=6, S2=5, S3=29, S4=12, S5=4, S6=5, S7=14, S8=27, S9=17, S10=10, S11=7, S12=7, S13=18, S14=12, S15=23, S16=23, S17=17, S18=19, S19=18. Sum = 273. Matches the claim, so accept.",
+  "recordedAt": "2026-07-11T15:41:33Z"
+}

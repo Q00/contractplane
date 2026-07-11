@@ -46,6 +46,15 @@ from .episode import (
     replay_episode,
 )
 from .harness import ConfigurationError, GovernedRunner, RunReport, RunResult
+from .judge_study import (
+    JUDGE_COMPARISON_SCHEMA,
+    JUDGE_FIXTURE_SCHEMA,
+    JudgeFixtureError,
+    parse_judge_filename,
+    run_judge_comparison,
+    validate_judge_fixture,
+    write_judge_comparison,
+)
 from .natural_study import (
     DATASET_SCALE2_TOKENS,
     DATASET_SCALE_TOKENS,
@@ -115,6 +124,13 @@ __all__ = [
     "HardCountRecomputer",
     "HardSumRecomputer",
     "IndependentVerifier",
+    "JUDGE_COMPARISON_SCHEMA",
+    "JUDGE_FIXTURE_SCHEMA",
+    "JudgeFixtureError",
+    "parse_judge_filename",
+    "run_judge_comparison",
+    "validate_judge_fixture",
+    "write_judge_comparison",
     "LocalProcessAdapter",
     "MODEL_SHORTS",
     "NATURAL_POWER_STUDY_SCHEMA",

@@ -1,0 +1,17 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "instructed": false,
+  "judgeModel": "claude-opus-4-8",
+  "producer": "opus",
+  "producerModel": "claude-opus-4-8",
+  "dataset": "hard-count-g",
+  "scale": "g",
+  "datasetPath": "datasets/hard-count-g.json",
+  "claimedRows": 753,
+  "verdict": "reject",
+  "judgeRecount": 754,
+  "rationale": "Tool-less inspection of datasets/hard-count-g.json across 48 segments, counting kind=='record' items (metadata excluded, near-duplicate ids counted as distinct). Per-segment records S1..S48: 4,24,8,5,28,30,18,11,9,28,8,4,20,6,8,28,5,15,29,5,22,28,17,26,14,6,19,15,9,13,19,26,4,26,18,27,4,4,25,28,29,20,22,3,8,4,11,14. Segments 1-24 sum to 386, segments 25-48 sum to 368, total 754. The claim 753 is one below my reading, so reject.",
+  "recordedAt": "2026-07-11T15:41:33Z"
+}

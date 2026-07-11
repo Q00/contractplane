@@ -1,0 +1,13 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-sonnet-5",
+  "producer": "opus",
+  "dataset": "hard-count-f",
+  "claimedRows": 273,
+  "verdict": "accept",
+  "judgeRecount": 273,
+  "rationale": "Read datasets/hard-count-f.json in full, tool-less, tallying items with \"kind\": \"record\" per group (19 groups/\"segment 1\" through \"segment 19\") while excluding \"kind\": \"metadata\" items and counting near-duplicate ids as separate records per the stated rule. Running per-group tallies (6, 5, 29, 12, 4, 5, 14, 27, 17, 10, 7, 7, 18, 12, 23, 23, 17, 19, 18) sum to 273, matching the producer's claim exactly.",
+  "recordedAt": "2026-07-11T16:30:22Z"
+}
