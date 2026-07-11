@@ -1,0 +1,48 @@
+{
+  "apiVersion": "contractplane.dev/v1alpha1",
+  "compiledPlans": [
+    {
+      "entrypoint": "respond",
+      "flow": "respond",
+      "path": "conformance/incident-response/respond.plan.json",
+      "planDigest": "187a6a1e20a3fd4078490a2a15849cbdc06c55e8d684cec89126cf1258324ed8",
+      "sha256": "e9a25c53fe60c22c26c883abf62e320b299d65833349720200c41bffd27fdc80",
+      "status": "reference-fixture"
+    }
+  ],
+  "contractplaneVersion": "0.1.0",
+  "domain": "incident-response",
+  "domainVersion": "0.1.0",
+  "note": "Authored natively in this repository; no upstream source to pin, unlike openclip/SOURCE.lock.json.",
+  "origin": "native",
+  "packPath": "incident-response.yaml",
+  "packSha256": "8f80a3596b0bdc7ac17b8525355f9a10c3da7b82b614ed6545b2a9f378a4cce3",
+  "roleContracts": [
+    {
+      "path": "roles/ir-forensic-investigator.md",
+      "role": "ir-forensic-investigator",
+      "sha256": "15c012a94bff306105f4ca4f17ec615d1cedfe968efda6876819720b2d2bdb35"
+    },
+    {
+      "path": "roles/ir-mitigation-planner.md",
+      "role": "ir-mitigation-planner",
+      "sha256": "bf0d63bf76494041c66882334640cc456fe31bcdd022b93ceb28f66b01477641"
+    },
+    {
+      "path": "roles/ir-postmortem-author.md",
+      "role": "ir-postmortem-author",
+      "sha256": "d999f6a1df9f965f8c21e742e1db1b9615ad0708e1291cd22d588216b47337d0"
+    },
+    {
+      "path": "roles/ir-postmortem-reviewer.md",
+      "role": "ir-postmortem-reviewer",
+      "sha256": "ae84488d471966b1225d461e4d3732e184a2a8c5cb60ea77cd2b80814df09e56"
+    },
+    {
+      "path": "roles/ir-triage-analyst.md",
+      "role": "ir-triage-analyst",
+      "sha256": "51fc73aa6217f630585689dda093102b51adc7853abdacc8e0fcedd1e304c53c"
+    }
+  ],
+  "schema": "contractplane-domain-native-lock-v1"
+}

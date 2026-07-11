@@ -1,0 +1,46 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+metadata: {name: ir-invalid-agent-without-role, version: 0.1.0, description: Agent triage stage missing its required role.}
+defaultPolicy: evidence-gated
+capabilities:
+  - id: triage-incident
+    kind: agent
+    description: Score severity and enumerate affected systems.
+    sideEffects: none
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [telemetry.read]
+    binding: {adapter: ir-agent, target: ir-triage-analyst}
+roles:
+  - id: ir-triage-analyst
+    description: Analyst who scopes severity.
+    capabilities: [triage-incident]
+    instructions: Load the triage role contract.
+evidence:
+  - id: triage-brief
+    kind: semantic-review
+    description: Structured triage brief.
+policies:
+  - id: evidence-gated
+    description: Require evidence, no human approval.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 3
+flows:
+  - id: respond
+    description: Invalid because the agent stage omits its role.
+    inputSchema: {type: object}
+    stages:
+      - id: triage
+        description: Agent stage with no role declared.
+        capability: triage-incident
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [triage-brief]
+        produces: [affected-systems]
+entrypoints:
+  - id: respond
+    description: Routes to the invalid flow.
+    flow: respond
+    keywords: [triage]
+    examples: [Triage the incident.]

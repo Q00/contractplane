@@ -1,0 +1,48 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+metadata: {name: ir-invalid-ungated-external, version: 0.1.0, description: External containment action with no evidence gate under an evidence-required policy.}
+defaultPolicy: evidence-gated
+capabilities:
+  - id: isolate-system
+    kind: integration
+    description: Quarantine a compromised system through the external EDR API.
+    sideEffects: external
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [network.edr, secrets.edr]
+    binding: {adapter: ir-integration, target: edr-quarantine}
+roles: []
+evidence:
+  - id: approval-receipt
+    kind: external-receipt
+    description: The incident commander authorized the action.
+policies:
+  - id: command-authorized
+    description: Require evidence and commander approval before an external side effect.
+    evidenceRequired: true
+    humanApproval: always
+    maxAttempts: 2
+  - id: evidence-gated
+    description: Require evidence, no human approval.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 3
+flows:
+  - id: contain
+    description: Invalid because the external side-effect stage carries no evidence gate.
+    inputSchema: {type: object}
+    stages:
+      - id: isolate
+        description: External containment with an empty requiresEvidence under an evidence-required policy.
+        capability: isolate-system
+        needs: []
+        fanout: {mode: each, over: affected-systems}
+        requiresEvidence: []
+        policy: command-authorized
+        produces: [contained-systems]
+entrypoints:
+  - id: contain
+    description: Routes to the invalid flow.
+    flow: contain
+    keywords: [contain]
+    examples: [Contain the intrusion.]

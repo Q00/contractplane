@@ -1,0 +1,329 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+
+metadata:
+  name: incident-response
+  version: 0.1.0
+  description: >-
+    Security incident response operations as a portable, evidence-gated
+    ContractPlane domain pack. Detection correlates alerts, triage scopes the
+    blast radius, investigation fans out across affected systems, and every
+    external-side-effect containment action is blocked behind an explicit
+    incident-commander approval plus a third-party system receipt before the
+    postmortem is authored and independently reviewed.
+
+defaultPolicy: evidence-gated
+
+capabilities:
+  - id: detect-signal
+    kind: deterministic
+    description: Correlate raw alerts into one deduplicated incident signal without touching production.
+    sideEffects: none
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [telemetry.read]
+    binding: {adapter: ir-cli, target: detect}
+  - id: triage-incident
+    kind: agent
+    description: Score severity and enumerate the affected systems that define the blast radius.
+    sideEffects: none
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [telemetry.read, cmdb.read]
+    binding: {adapter: ir-agent, target: ir-triage-analyst}
+  - id: investigate-system
+    kind: agent
+    description: Collect forensic evidence for one affected system into the local evidence store.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [telemetry.read, host.read, filesystem.write]
+    binding: {adapter: ir-agent, target: ir-forensic-investigator}
+  - id: correlate-findings
+    kind: deterministic
+    description: Merge per-system findings into one supported root-cause hypothesis.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write]
+    binding: {adapter: ir-cli, target: correlate}
+  - id: propose-mitigation
+    kind: agent
+    description: Draft a bounded containment and remediation plan for commander review.
+    sideEffects: none
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [cmdb.read]
+    binding: {adapter: ir-agent, target: ir-mitigation-planner}
+  - id: isolate-system
+    kind: integration
+    description: Quarantine one compromised system through the external EDR orchestration API.
+    sideEffects: external
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [network.edr, secrets.edr, spend.edr]
+    binding:
+      adapter: ir-integration
+      target: edr-quarantine
+      config: {system: crowdstrike-falcon, action: network-contain}
+  - id: notify-stakeholders
+    kind: integration
+    description: Broadcast the approved incident status through the external paging and comms platform.
+    sideEffects: external
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [network.pagerduty, secrets.pagerduty]
+    binding:
+      adapter: ir-integration
+      target: comms-broadcast
+      config: {system: pagerduty, channel: status-page}
+  - id: author-postmortem
+    kind: agent
+    description: Write a blameless, evidence-linked postmortem from the recorded incident timeline.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write]
+    binding: {adapter: ir-agent, target: ir-postmortem-author}
+  - id: verify-postmortem
+    kind: agent
+    description: Independently confirm the postmortem is evidence-backed, blameless, and gap-free.
+    sideEffects: none
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read]
+    binding: {adapter: ir-agent, target: ir-postmortem-reviewer}
+
+roles:
+  - id: ir-triage-analyst
+    description: Analyst who scopes severity and the affected-system blast radius.
+    capabilities: [triage-incident]
+    instructions: Load roles/ir-triage-analyst.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: ir-forensic-investigator
+    description: Investigator who collects forensic evidence for one affected system.
+    capabilities: [investigate-system]
+    instructions: Load roles/ir-forensic-investigator.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: ir-mitigation-planner
+    description: Planner who drafts a bounded containment plan for commander approval.
+    capabilities: [propose-mitigation]
+    instructions: Load roles/ir-mitigation-planner.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: ir-postmortem-author
+    description: Author who writes the blameless, evidence-linked postmortem.
+    capabilities: [author-postmortem]
+    instructions: Load roles/ir-postmortem-author.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: ir-postmortem-reviewer
+    description: Independent reviewer who never trusts an unbacked postmortem claim.
+    capabilities: [verify-postmortem]
+    instructions: Load roles/ir-postmortem-reviewer.md relative to this Domain Pack; it is the complete portable role contract and never accepts an evidence-free narrative.
+
+evidence:
+  - id: alert-correlation
+    kind: json-schema
+    description: Every raw alert is accounted for and correlated into one signal with no orphans.
+    schema:
+      type: object
+      required: [correlated]
+      properties:
+        correlated: {const: true}
+        orphan_alerts: {type: array, maxItems: 0}
+        orphanAlerts: {type: array, maxItems: 0}
+      anyOf:
+        - required: [orphan_alerts]
+        - required: [orphanAlerts]
+  - id: triage-brief
+    kind: semantic-review
+    description: A structured triage brief states severity, affected systems, and rationale.
+  - id: forensic-artifact
+    kind: artifact
+    description: The per-system forensic bundle exists, is non-trivial, and has stable provenance.
+  - id: root-cause-hypothesis
+    kind: semantic-review
+    description: A root-cause hypothesis is supported by the correlated per-system findings.
+  - id: mitigation-proposal
+    kind: semantic-review
+    description: A bounded mitigation plan enumerates each action and its expected blast radius.
+  - id: approval-receipt
+    kind: external-receipt
+    description: The incident commander explicitly authorized the external-side-effect action.
+    schema:
+      type: object
+      required: [decision]
+      properties:
+        decision: {const: approved}
+  - id: containment-receipt
+    kind: external-receipt
+    description: The external system confirmed the side-effecting action actually took hold.
+    schema:
+      type: object
+      required: [status]
+      properties:
+        status: {const: contained}
+  - id: postmortem-complete
+    kind: json-schema
+    description: The postmortem links every timeline claim to evidence and leaves no action item unowned.
+    schema:
+      type: object
+      required: [evidenceLinked]
+      properties:
+        evidenceLinked: {const: true}
+        unowned_action_items: {type: array, maxItems: 0}
+        unownedActionItems: {type: array, maxItems: 0}
+      anyOf:
+        - required: [unowned_action_items]
+        - required: [unownedActionItems]
+  - id: postmortem-review
+    kind: semantic-review
+    description: An independent reviewer confirmed the postmortem is blameless and fully evidence-backed.
+    schema:
+      type: object
+      required: [verdict]
+      properties:
+        verdict: {const: confirmed}
+
+policies:
+  - id: evidence-gated
+    description: Require observable evidence before advancing; no routine human approval.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 3
+  - id: command-authorized
+    description: Require evidence and an explicit incident-commander decision before any external side effect.
+    evidenceRequired: true
+    humanApproval: always
+    maxAttempts: 2
+
+flows:
+  - id: respond
+    description: Run the full incident lifecycle from detection through an independently reviewed postmortem.
+    inputSchema:
+      type: object
+      required: [alerts]
+      properties:
+        alerts: {type: array, minItems: 1, items: {type: string}}
+        mode: {type: string, enum: [investigate, contain, full], default: full}
+    stages:
+      - id: detect
+        description: Correlate the incoming alerts into one deduplicated incident signal.
+        capability: detect-signal
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [alert-correlation]
+        produces: [incident-signal]
+      - id: triage
+        description: Score severity and enumerate the affected systems.
+        capability: triage-incident
+        role: ir-triage-analyst
+        needs: [detect]
+        fanout: {mode: singleton}
+        requiresEvidence: [triage-brief]
+        produces: [affected-systems, severity]
+      - id: investigate
+        description: Collect forensic evidence independently for each affected system.
+        capability: investigate-system
+        role: ir-forensic-investigator
+        needs: [triage]
+        fanout: {mode: each, over: affected-systems}
+        requiresEvidence: [forensic-artifact]
+        produces: [system-findings]
+      - id: correlate
+        description: Merge the per-system findings into one supported root-cause hypothesis.
+        capability: correlate-findings
+        needs: [investigate]
+        fanout: {mode: singleton}
+        requiresEvidence: [root-cause-hypothesis]
+        produces: [root-cause]
+      - id: plan-mitigation
+        description: Draft a bounded containment plan from the root cause for commander review.
+        capability: propose-mitigation
+        role: ir-mitigation-planner
+        needs: [correlate]
+        fanout: {mode: singleton}
+        requiresEvidence: [mitigation-proposal]
+        produces: [mitigation-plan]
+      - id: contain
+        description: Quarantine each compromised system only after commander approval and a confirmed receipt.
+        capability: isolate-system
+        needs: [plan-mitigation]
+        fanout: {mode: each, over: root-cause.compromised-systems}
+        requiresEvidence: [approval-receipt, containment-receipt]
+        policy: command-authorized
+        produces: [contained-systems]
+        when: input.mode is contain or full and the plan requires active containment
+      - id: notify
+        description: Broadcast the approved incident status once containment is confirmed.
+        capability: notify-stakeholders
+        needs: [contain]
+        fanout: {mode: singleton}
+        requiresEvidence: [approval-receipt, containment-receipt]
+        policy: command-authorized
+        produces: [stakeholders-notified]
+      - id: postmortem
+        description: Author a blameless, evidence-linked postmortem from the recorded timeline.
+        capability: author-postmortem
+        role: ir-postmortem-author
+        needs: [correlate, contain, notify]
+        fanout: {mode: singleton}
+        requiresEvidence: [postmortem-complete]
+        produces: [draft-postmortem]
+      - id: review-postmortem
+        description: Independently verify the postmortem is blameless and fully evidence-backed.
+        capability: verify-postmortem
+        role: ir-postmortem-reviewer
+        needs: [postmortem]
+        fanout: {mode: singleton}
+        requiresEvidence: [postmortem-review]
+        produces: [published-postmortem]
+
+  - id: contain
+    description: Emergency fast-path that scopes and quarantines an active intrusion before full investigation.
+    inputSchema:
+      type: object
+      required: [alerts]
+      properties:
+        alerts: {type: array, minItems: 1, items: {type: string}}
+    stages:
+      - id: detect
+        description: Correlate the incoming alerts into one deduplicated incident signal.
+        capability: detect-signal
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [alert-correlation]
+        produces: [incident-signal]
+      - id: triage
+        description: Score severity and enumerate the affected systems to contain.
+        capability: triage-incident
+        role: ir-triage-analyst
+        needs: [detect]
+        fanout: {mode: singleton}
+        requiresEvidence: [triage-brief]
+        produces: [affected-systems]
+      - id: isolate
+        description: Quarantine each affected system after commander approval and a confirmed receipt.
+        capability: isolate-system
+        needs: [triage]
+        fanout: {mode: each, over: affected-systems}
+        requiresEvidence: [approval-receipt, containment-receipt]
+        policy: command-authorized
+        produces: [contained-systems]
+      - id: broadcast
+        description: Broadcast the approved containment status to stakeholders.
+        capability: notify-stakeholders
+        needs: [isolate]
+        fanout: {mode: singleton}
+        requiresEvidence: [approval-receipt, containment-receipt]
+        policy: command-authorized
+        produces: [stakeholders-notified]
+
+entrypoints:
+  - id: respond
+    description: Run the full incident lifecycle from detection to reviewed postmortem.
+    flow: respond
+    keywords: [incident response, respond, investigate incident, 인시던트 대응, 障害対応, 事件响应, respuesta a incidentes]
+    examples:
+      - $ir respond to the pager alerts on the checkout service
+  - id: contain
+    description: Emergency-contain an active intrusion before full investigation.
+    flow: contain
+    keywords: [contain, quarantine, isolate host, 격리, 隔離, 遏制, contener]
+    examples:
+      - $ir contain the compromised hosts from these alerts now

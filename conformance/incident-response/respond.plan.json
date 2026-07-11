@@ -1,0 +1,710 @@
+{
+  "apiVersion": "contractplane.dev/plan/v1alpha1",
+  "domain": {
+    "name": "incident-response",
+    "version": "0.1.0"
+  },
+  "entrypoint": "respond",
+  "flow": "respond",
+  "inputSchema": {
+    "properties": {
+      "alerts": {
+        "items": {
+          "type": "string"
+        },
+        "minItems": 1,
+        "type": "array"
+      },
+      "mode": {
+        "default": "full",
+        "enum": [
+          "investigate",
+          "contain",
+          "full"
+        ],
+        "type": "string"
+      }
+    },
+    "required": [
+      "alerts"
+    ],
+    "type": "object"
+  },
+  "kind": "ExecutionPlan",
+  "planDigest": "187a6a1e20a3fd4078490a2a15849cbdc06c55e8d684cec89126cf1258324ed8",
+  "stageOrder": [
+    "detect",
+    "triage",
+    "investigate",
+    "correlate",
+    "plan-mitigation",
+    "contain",
+    "notify",
+    "postmortem",
+    "review-postmortem"
+  ],
+  "waves": [
+    {
+      "index": 0,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-cli",
+            "target": "detect"
+          },
+          "capability": "detect-signal",
+          "capabilityDescription": "Correlate raw alerts into one deduplicated incident signal without touching production.",
+          "capabilityKind": "deterministic",
+          "description": "Correlate the incoming alerts into one deduplicated incident signal.",
+          "evidenceContracts": [
+            {
+              "description": "Every raw alert is accounted for and correlated into one signal with no orphans.",
+              "id": "alert-correlation",
+              "kind": "json-schema",
+              "schema": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "orphan_alerts"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "orphanAlerts"
+                    ]
+                  }
+                ],
+                "properties": {
+                  "correlated": {
+                    "const": true
+                  },
+                  "orphanAlerts": {
+                    "maxItems": 0,
+                    "type": "array"
+                  },
+                  "orphan_alerts": {
+                    "maxItems": 0,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "correlated"
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "detect",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "telemetry.read"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "evidence-gated",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "incident-signal"
+          ],
+          "requiresEvidence": [
+            "alert-correlation"
+          ],
+          "sideEffects": "none"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-agent",
+            "target": "ir-triage-analyst"
+          },
+          "capability": "triage-incident",
+          "capabilityDescription": "Score severity and enumerate the affected systems that define the blast radius.",
+          "capabilityKind": "agent",
+          "description": "Score severity and enumerate the affected systems.",
+          "evidenceContracts": [
+            {
+              "description": "A structured triage brief states severity, affected systems, and rationale.",
+              "id": "triage-brief",
+              "kind": "semantic-review"
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "triage",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "detect"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "telemetry.read",
+            "cmdb.read"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "evidence-gated",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "affected-systems",
+            "severity"
+          ],
+          "requiresEvidence": [
+            "triage-brief"
+          ],
+          "role": "ir-triage-analyst",
+          "roleContract": {
+            "capabilities": [
+              "triage-incident"
+            ],
+            "description": "Analyst who scopes severity and the affected-system blast radius.",
+            "id": "ir-triage-analyst",
+            "instructions": "Load roles/ir-triage-analyst.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "none"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-agent",
+            "target": "ir-forensic-investigator"
+          },
+          "capability": "investigate-system",
+          "capabilityDescription": "Collect forensic evidence for one affected system into the local evidence store.",
+          "capabilityKind": "agent",
+          "description": "Collect forensic evidence independently for each affected system.",
+          "evidenceContracts": [
+            {
+              "description": "The per-system forensic bundle exists, is non-trivial, and has stable provenance.",
+              "id": "forensic-artifact",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "affected-systems"
+          },
+          "id": "investigate",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "triage"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "telemetry.read",
+            "host.read",
+            "filesystem.write"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "evidence-gated",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "system-findings"
+          ],
+          "requiresEvidence": [
+            "forensic-artifact"
+          ],
+          "role": "ir-forensic-investigator",
+          "roleContract": {
+            "capabilities": [
+              "investigate-system"
+            ],
+            "description": "Investigator who collects forensic evidence for one affected system.",
+            "id": "ir-forensic-investigator",
+            "instructions": "Load roles/ir-forensic-investigator.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-cli",
+            "target": "correlate"
+          },
+          "capability": "correlate-findings",
+          "capabilityDescription": "Merge per-system findings into one supported root-cause hypothesis.",
+          "capabilityKind": "deterministic",
+          "description": "Merge the per-system findings into one supported root-cause hypothesis.",
+          "evidenceContracts": [
+            {
+              "description": "A root-cause hypothesis is supported by the correlated per-system findings.",
+              "id": "root-cause-hypothesis",
+              "kind": "semantic-review"
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "correlate",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "investigate"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "evidence-gated",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "root-cause"
+          ],
+          "requiresEvidence": [
+            "root-cause-hypothesis"
+          ],
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-agent",
+            "target": "ir-mitigation-planner"
+          },
+          "capability": "propose-mitigation",
+          "capabilityDescription": "Draft a bounded containment and remediation plan for commander review.",
+          "capabilityKind": "agent",
+          "description": "Draft a bounded containment plan from the root cause for commander review.",
+          "evidenceContracts": [
+            {
+              "description": "A bounded mitigation plan enumerates each action and its expected blast radius.",
+              "id": "mitigation-proposal",
+              "kind": "semantic-review"
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "plan-mitigation",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "correlate"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "cmdb.read"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "evidence-gated",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "mitigation-plan"
+          ],
+          "requiresEvidence": [
+            "mitigation-proposal"
+          ],
+          "role": "ir-mitigation-planner",
+          "roleContract": {
+            "capabilities": [
+              "propose-mitigation"
+            ],
+            "description": "Planner who drafts a bounded containment plan for commander approval.",
+            "id": "ir-mitigation-planner",
+            "instructions": "Load roles/ir-mitigation-planner.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "none"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-integration",
+            "config": {
+              "action": "network-contain",
+              "system": "crowdstrike-falcon"
+            },
+            "target": "edr-quarantine"
+          },
+          "capability": "isolate-system",
+          "capabilityDescription": "Quarantine one compromised system through the external EDR orchestration API.",
+          "capabilityKind": "integration",
+          "description": "Quarantine each compromised system only after commander approval and a confirmed receipt.",
+          "evidenceContracts": [
+            {
+              "description": "The incident commander explicitly authorized the external-side-effect action.",
+              "id": "approval-receipt",
+              "kind": "external-receipt",
+              "schema": {
+                "properties": {
+                  "decision": {
+                    "const": "approved"
+                  }
+                },
+                "required": [
+                  "decision"
+                ],
+                "type": "object"
+              }
+            },
+            {
+              "description": "The external system confirmed the side-effecting action actually took hold.",
+              "id": "containment-receipt",
+              "kind": "external-receipt",
+              "schema": {
+                "properties": {
+                  "status": {
+                    "const": "contained"
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "root-cause.compromised-systems"
+          },
+          "id": "contain",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "plan-mitigation"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "network.edr",
+            "secrets.edr",
+            "spend.edr"
+          ],
+          "policy": {
+            "description": "Require evidence and an explicit incident-commander decision before any external side effect.",
+            "evidenceRequired": true,
+            "humanApproval": "always",
+            "id": "command-authorized",
+            "maxAttempts": 2
+          },
+          "produces": [
+            "contained-systems"
+          ],
+          "requiresEvidence": [
+            "approval-receipt",
+            "containment-receipt"
+          ],
+          "sideEffects": "external",
+          "when": "input.mode is contain or full and the plan requires active containment"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-integration",
+            "config": {
+              "channel": "status-page",
+              "system": "pagerduty"
+            },
+            "target": "comms-broadcast"
+          },
+          "capability": "notify-stakeholders",
+          "capabilityDescription": "Broadcast the approved incident status through the external paging and comms platform.",
+          "capabilityKind": "integration",
+          "description": "Broadcast the approved incident status once containment is confirmed.",
+          "evidenceContracts": [
+            {
+              "description": "The incident commander explicitly authorized the external-side-effect action.",
+              "id": "approval-receipt",
+              "kind": "external-receipt",
+              "schema": {
+                "properties": {
+                  "decision": {
+                    "const": "approved"
+                  }
+                },
+                "required": [
+                  "decision"
+                ],
+                "type": "object"
+              }
+            },
+            {
+              "description": "The external system confirmed the side-effecting action actually took hold.",
+              "id": "containment-receipt",
+              "kind": "external-receipt",
+              "schema": {
+                "properties": {
+                  "status": {
+                    "const": "contained"
+                  }
+                },
+                "required": [
+                  "status"
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "notify",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "contain"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "network.pagerduty",
+            "secrets.pagerduty"
+          ],
+          "policy": {
+            "description": "Require evidence and an explicit incident-commander decision before any external side effect.",
+            "evidenceRequired": true,
+            "humanApproval": "always",
+            "id": "command-authorized",
+            "maxAttempts": 2
+          },
+          "produces": [
+            "stakeholders-notified"
+          ],
+          "requiresEvidence": [
+            "approval-receipt",
+            "containment-receipt"
+          ],
+          "sideEffects": "external"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-agent",
+            "target": "ir-postmortem-author"
+          },
+          "capability": "author-postmortem",
+          "capabilityDescription": "Write a blameless, evidence-linked postmortem from the recorded incident timeline.",
+          "capabilityKind": "agent",
+          "description": "Author a blameless, evidence-linked postmortem from the recorded timeline.",
+          "evidenceContracts": [
+            {
+              "description": "The postmortem links every timeline claim to evidence and leaves no action item unowned.",
+              "id": "postmortem-complete",
+              "kind": "json-schema",
+              "schema": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "unowned_action_items"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "unownedActionItems"
+                    ]
+                  }
+                ],
+                "properties": {
+                  "evidenceLinked": {
+                    "const": true
+                  },
+                  "unownedActionItems": {
+                    "maxItems": 0,
+                    "type": "array"
+                  },
+                  "unowned_action_items": {
+                    "maxItems": 0,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "evidenceLinked"
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "postmortem",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "correlate",
+            "contain",
+            "notify"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "evidence-gated",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "draft-postmortem"
+          ],
+          "requiresEvidence": [
+            "postmortem-complete"
+          ],
+          "role": "ir-postmortem-author",
+          "roleContract": {
+            "capabilities": [
+              "author-postmortem"
+            ],
+            "description": "Author who writes the blameless, evidence-linked postmortem.",
+            "id": "ir-postmortem-author",
+            "instructions": "Load roles/ir-postmortem-author.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "ir-agent",
+            "target": "ir-postmortem-reviewer"
+          },
+          "capability": "verify-postmortem",
+          "capabilityDescription": "Independently confirm the postmortem is evidence-backed, blameless, and gap-free.",
+          "capabilityKind": "agent",
+          "description": "Independently verify the postmortem is blameless and fully evidence-backed.",
+          "evidenceContracts": [
+            {
+              "description": "An independent reviewer confirmed the postmortem is blameless and fully evidence-backed.",
+              "id": "postmortem-review",
+              "kind": "semantic-review",
+              "schema": {
+                "properties": {
+                  "verdict": {
+                    "const": "confirmed"
+                  }
+                },
+                "required": [
+                  "verdict"
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "review-postmortem",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "postmortem"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "evidence-gated",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "published-postmortem"
+          ],
+          "requiresEvidence": [
+            "postmortem-review"
+          ],
+          "role": "ir-postmortem-reviewer",
+          "roleContract": {
+            "capabilities": [
+              "verify-postmortem"
+            ],
+            "description": "Independent reviewer who never trusts an unbacked postmortem claim.",
+            "id": "ir-postmortem-reviewer",
+            "instructions": "Load roles/ir-postmortem-reviewer.md relative to this Domain Pack; it is the complete portable role contract and never accepts an evidence-free narrative."
+          },
+          "sideEffects": "none"
+        }
+      ]
+    }
+  ]
+}
