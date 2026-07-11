@@ -1,0 +1,5256 @@
+{
+  "dataset": "hard-count-g",
+  "structure": "nested-groups",
+  "recordDiscriminator": "item.kind == 'record'",
+  "sumField": "value",
+  "shortcutClosed": true,
+  "groups": [
+    {
+      "id": "msdw17",
+      "title": "segment 1",
+      "items": [
+        {
+          "id": "w5trev513",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "epg0uex16",
+          "kind": "record",
+          "label": "normalize",
+          "value": 72
+        },
+        {
+          "id": "tv1a3p1n6",
+          "kind": "record",
+          "label": "ingest",
+          "value": 8
+        },
+        {
+          "id": "bkpkbka65",
+          "kind": "record",
+          "label": "index",
+          "value": 29
+        },
+        {
+          "id": "nmfob211z",
+          "kind": "record",
+          "label": "normalize",
+          "value": 46
+        }
+      ]
+    },
+    {
+      "id": "m2f6rw",
+      "title": "segment 2",
+      "items": [
+        {
+          "id": "q57ypwzg3",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 94
+        },
+        {
+          "id": "zq3a13fe6",
+          "kind": "record",
+          "label": "normalize",
+          "value": 15
+        },
+        {
+          "id": "qgdjp4oye",
+          "kind": "record",
+          "label": "emit",
+          "value": 4
+        },
+        {
+          "id": "ha3yrd62a",
+          "kind": "record",
+          "label": "normalize",
+          "value": 20
+        },
+        {
+          "id": "b64qhkt7i",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "i1emb49ti",
+          "kind": "record",
+          "label": "rank",
+          "value": 56
+        },
+        {
+          "id": "w1rurvqq1",
+          "kind": "record",
+          "label": "compact",
+          "value": 16
+        },
+        {
+          "id": "xzffz0iin",
+          "kind": "record",
+          "label": "score",
+          "value": 25
+        },
+        {
+          "id": "s29c4azi7",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 8
+        },
+        {
+          "id": "wkb51k0k9",
+          "kind": "record",
+          "label": "flush",
+          "value": 9
+        },
+        {
+          "id": "kqlu5k6ae",
+          "kind": "record",
+          "label": "enrich",
+          "value": 44
+        },
+        {
+          "id": "wqfqoqkzc",
+          "kind": "record",
+          "label": "retry",
+          "value": 94
+        },
+        {
+          "id": "pi5xv63kg",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 19
+        },
+        {
+          "id": "tan9f73a8",
+          "kind": "record",
+          "label": "route",
+          "value": 26
+        },
+        {
+          "id": "wn5j7bho2",
+          "kind": "record",
+          "label": "rank",
+          "value": 56
+        },
+        {
+          "id": "yr3q8mopt",
+          "kind": "record",
+          "label": "audit",
+          "value": 70
+        },
+        {
+          "id": "p0lgvpl8l",
+          "kind": "record",
+          "label": "flush",
+          "value": 59
+        },
+        {
+          "id": "y1u4n3xaq",
+          "kind": "record",
+          "label": "route",
+          "value": 28
+        },
+        {
+          "id": "f7iakuxli",
+          "kind": "record",
+          "label": "index",
+          "value": 54
+        },
+        {
+          "id": "yualjk3tu",
+          "kind": "record",
+          "label": "compact",
+          "value": 60
+        },
+        {
+          "id": "yualjk3tu",
+          "kind": "record",
+          "label": "rank",
+          "value": 60
+        },
+        {
+          "id": "nqkw0q3tg",
+          "kind": "record",
+          "label": "score",
+          "value": 61
+        },
+        {
+          "id": "ffj38mdhp",
+          "kind": "record",
+          "label": "flush",
+          "value": 91
+        },
+        {
+          "id": "q9gokrncz",
+          "kind": "record",
+          "label": "ingest",
+          "value": 91
+        },
+        {
+          "id": "u0sbvzuvm",
+          "kind": "record",
+          "label": "compact",
+          "value": 25
+        }
+      ]
+    },
+    {
+      "id": "jg44o2",
+      "title": "segment 3",
+      "items": [
+        {
+          "id": "z4rmkgaxl",
+          "kind": "record",
+          "label": "ingest",
+          "value": 72
+        },
+        {
+          "id": "emq1g3bt3",
+          "kind": "record",
+          "label": "compact",
+          "value": 97
+        },
+        {
+          "id": "zs8hq6qu1",
+          "kind": "record",
+          "label": "audit",
+          "value": 93
+        },
+        {
+          "id": "yv2et9zrj",
+          "kind": "record",
+          "label": "emit",
+          "value": 63
+        },
+        {
+          "id": "s29c4azi7",
+          "kind": "record",
+          "label": "rank",
+          "value": 8
+        },
+        {
+          "id": "fd4oxqn7v",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 75
+        },
+        {
+          "id": "eg12kwbri",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "oq1vj93cr",
+          "kind": "record",
+          "label": "emit",
+          "value": 50
+        },
+        {
+          "id": "gtgauz5uo",
+          "kind": "record",
+          "label": "ingest",
+          "value": 96
+        },
+        {
+          "id": "lamde7p37",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "v61x5n",
+      "title": "segment 4",
+      "items": [
+        {
+          "id": "aeklfr2m9",
+          "kind": "record",
+          "label": "route",
+          "value": 79
+        },
+        {
+          "id": "v2wgj1bc1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "hfgyrpj8h",
+          "kind": "record",
+          "label": "compact",
+          "value": 75
+        },
+        {
+          "id": "rnkwb5p3r",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "q5b04v29j",
+          "kind": "record",
+          "label": "normalize",
+          "value": 48
+        },
+        {
+          "id": "aeklfr2m9",
+          "kind": "record",
+          "label": "score",
+          "value": 79
+        },
+        {
+          "id": "zo9e0fihb",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "x7mgh8xqs",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 34
+        }
+      ]
+    },
+    {
+      "id": "zy3qcx",
+      "title": "segment 5",
+      "items": [
+        {
+          "id": "q5elhwjjb",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 65
+        },
+        {
+          "id": "tfsaa0t3o",
+          "kind": "record",
+          "label": "flush",
+          "value": 89
+        },
+        {
+          "id": "o98n8163s",
+          "kind": "record",
+          "label": "flush",
+          "value": 20
+        },
+        {
+          "id": "frhjc4hhq",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 44
+        },
+        {
+          "id": "phjhbbc2k",
+          "kind": "record",
+          "label": "enrich",
+          "value": 57
+        },
+        {
+          "id": "aosm71o4h",
+          "kind": "record",
+          "label": "normalize",
+          "value": 34
+        },
+        {
+          "id": "lub6cmclx",
+          "kind": "record",
+          "label": "flush",
+          "value": 30
+        },
+        {
+          "id": "j5sl3rwo2",
+          "kind": "record",
+          "label": "index",
+          "value": 66
+        },
+        {
+          "id": "cp3qbu6dl",
+          "kind": "record",
+          "label": "rank",
+          "value": 16
+        },
+        {
+          "id": "c6eiqdbd2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "o1gh4h6o2",
+          "kind": "record",
+          "label": "compact",
+          "value": 18
+        },
+        {
+          "id": "teabcniiy",
+          "kind": "record",
+          "label": "flush",
+          "value": 77
+        },
+        {
+          "id": "zqn576ku8",
+          "kind": "record",
+          "label": "ingest",
+          "value": 73
+        },
+        {
+          "id": "eedeoqpro",
+          "kind": "record",
+          "label": "rank",
+          "value": 36
+        },
+        {
+          "id": "dye05odbz",
+          "kind": "record",
+          "label": "score",
+          "value": 40
+        },
+        {
+          "id": "s3affq501",
+          "kind": "record",
+          "label": "emit",
+          "value": 1
+        },
+        {
+          "id": "m0f5ouaoq",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 73
+        },
+        {
+          "id": "tfa7n4zxz",
+          "kind": "record",
+          "label": "normalize",
+          "value": 66
+        },
+        {
+          "id": "cdt61yhmr",
+          "kind": "record",
+          "label": "score",
+          "value": 67
+        },
+        {
+          "id": "a9ho2qsp6",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 80
+        },
+        {
+          "id": "hu48qz66p",
+          "kind": "record",
+          "label": "index",
+          "value": 53
+        },
+        {
+          "id": "rc8n2jyu5",
+          "kind": "record",
+          "label": "rank",
+          "value": 48
+        },
+        {
+          "id": "o98n8163s",
+          "kind": "record",
+          "label": "retry",
+          "value": 20
+        },
+        {
+          "id": "hbgxnov0g",
+          "kind": "record",
+          "label": "parse",
+          "value": 49
+        },
+        {
+          "id": "pbiq9vvnk",
+          "kind": "record",
+          "label": "flush",
+          "value": 1
+        },
+        {
+          "id": "pbiq9vvnk",
+          "kind": "record",
+          "label": "audit",
+          "value": 1
+        },
+        {
+          "id": "hjl3gy7dp",
+          "kind": "record",
+          "label": "emit",
+          "value": 76
+        },
+        {
+          "id": "uahlk169u",
+          "kind": "record",
+          "label": "compact",
+          "value": 6
+        },
+        {
+          "id": "cdt61yhmr",
+          "kind": "record",
+          "label": "audit",
+          "value": 67
+        }
+      ]
+    },
+    {
+      "id": "jjy7pt",
+      "title": "segment 6",
+      "items": [
+        {
+          "id": "nkr1kc5qu",
+          "kind": "record",
+          "label": "route",
+          "value": 49
+        },
+        {
+          "id": "eqn9hrcta",
+          "kind": "record",
+          "label": "emit",
+          "value": 56
+        },
+        {
+          "id": "n8ng9652o",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 51
+        },
+        {
+          "id": "st6pbh7k8",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 55
+        },
+        {
+          "id": "er8nrk3j5",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "it4vj2e45",
+          "kind": "record",
+          "label": "emit",
+          "value": 75
+        },
+        {
+          "id": "n14kl0lev",
+          "kind": "record",
+          "label": "flush",
+          "value": 11
+        },
+        {
+          "id": "l7rdyw5f6",
+          "kind": "record",
+          "label": "score",
+          "value": 54
+        },
+        {
+          "id": "rxd5okaa1",
+          "kind": "record",
+          "label": "score",
+          "value": 48
+        },
+        {
+          "id": "pt4wkav59",
+          "kind": "record",
+          "label": "parse",
+          "value": 55
+        },
+        {
+          "id": "h5jm6mg1m",
+          "kind": "record",
+          "label": "rank",
+          "value": 35
+        },
+        {
+          "id": "c31c8icau",
+          "kind": "record",
+          "label": "normalize",
+          "value": 18
+        },
+        {
+          "id": "y9vnx2ide",
+          "kind": "record",
+          "label": "compact",
+          "value": 19
+        },
+        {
+          "id": "rbcs0h0m4",
+          "kind": "record",
+          "label": "parse",
+          "value": 53
+        },
+        {
+          "id": "gr2jzbn2u",
+          "kind": "record",
+          "label": "score",
+          "value": 54
+        },
+        {
+          "id": "i8dug5f52",
+          "kind": "record",
+          "label": "compact",
+          "value": 51
+        },
+        {
+          "id": "i4woi5kqe",
+          "kind": "record",
+          "label": "emit",
+          "value": 35
+        },
+        {
+          "id": "ck3kpd6k2",
+          "kind": "record",
+          "label": "retry",
+          "value": 15
+        },
+        {
+          "id": "u6lcimii8",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "nfmhv5y7r",
+          "kind": "record",
+          "label": "rank",
+          "value": 84
+        },
+        {
+          "id": "oqhtke80e",
+          "kind": "record",
+          "label": "normalize",
+          "value": 60
+        },
+        {
+          "id": "awcpro6ie",
+          "kind": "record",
+          "label": "audit",
+          "value": 85
+        },
+        {
+          "id": "gf1alekun",
+          "kind": "record",
+          "label": "index",
+          "value": 98
+        },
+        {
+          "id": "j5iv9ri26",
+          "kind": "record",
+          "label": "compact",
+          "value": 9
+        },
+        {
+          "id": "rt31lsa7p",
+          "kind": "record",
+          "label": "enrich",
+          "value": 67
+        },
+        {
+          "id": "wvfrg1n8u",
+          "kind": "record",
+          "label": "compact",
+          "value": 12
+        },
+        {
+          "id": "pb6frkvp7",
+          "kind": "record",
+          "label": "parse",
+          "value": 88
+        },
+        {
+          "id": "a17e3lfcl",
+          "kind": "record",
+          "label": "retry",
+          "value": 89
+        },
+        {
+          "id": "xaz5zqc8d",
+          "kind": "record",
+          "label": "flush",
+          "value": 87
+        },
+        {
+          "id": "ehm0r3gj8",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 52
+        },
+        {
+          "id": "sf27x3k8e",
+          "kind": "record",
+          "label": "parse",
+          "value": 66
+        },
+        {
+          "id": "v3cut92pb",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ahqki0t7g",
+          "kind": "record",
+          "label": "score",
+          "value": 31
+        }
+      ]
+    },
+    {
+      "id": "rpzbn0",
+      "title": "segment 7",
+      "items": [
+        {
+          "id": "gupmfxd9x",
+          "kind": "record",
+          "label": "rank",
+          "value": 74
+        },
+        {
+          "id": "wl9h6787b",
+          "kind": "record",
+          "label": "compact",
+          "value": 78
+        },
+        {
+          "id": "gjo2klcg3",
+          "kind": "record",
+          "label": "enrich",
+          "value": 37
+        },
+        {
+          "id": "cttfsiymb",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "rkd4pojny",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 95
+        },
+        {
+          "id": "rb7me0xes",
+          "kind": "record",
+          "label": "parse",
+          "value": 32
+        },
+        {
+          "id": "pmzqjmre5",
+          "kind": "record",
+          "label": "score",
+          "value": 94
+        },
+        {
+          "id": "qyttkydsy",
+          "kind": "record",
+          "label": "audit",
+          "value": 18
+        },
+        {
+          "id": "bs1ysjsec",
+          "kind": "record",
+          "label": "enrich",
+          "value": 17
+        },
+        {
+          "id": "z2uv69cgl",
+          "kind": "record",
+          "label": "ingest",
+          "value": 34
+        },
+        {
+          "id": "jyru4lueg",
+          "kind": "record",
+          "label": "retry",
+          "value": 43
+        },
+        {
+          "id": "gpea0g0cd",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 88
+        },
+        {
+          "id": "xtzf6b48d",
+          "kind": "record",
+          "label": "audit",
+          "value": 15
+        },
+        {
+          "id": "bff1ia6tg",
+          "kind": "record",
+          "label": "index",
+          "value": 53
+        },
+        {
+          "id": "y4h4guwtj",
+          "kind": "record",
+          "label": "emit",
+          "value": 94
+        },
+        {
+          "id": "wddgy9sln",
+          "kind": "record",
+          "label": "enrich",
+          "value": 73
+        },
+        {
+          "id": "jazm4xie5",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "cld6xzc3e",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 5
+        },
+        {
+          "id": "krx3ovgz3",
+          "kind": "record",
+          "label": "index",
+          "value": 17
+        },
+        {
+          "id": "ar324e65b",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 95
+        }
+      ]
+    },
+    {
+      "id": "xtc2rx",
+      "title": "segment 8",
+      "items": [
+        {
+          "id": "x8xtyt8hq",
+          "kind": "record",
+          "label": "audit",
+          "value": 13
+        },
+        {
+          "id": "vmi8a7je3",
+          "kind": "record",
+          "label": "index",
+          "value": 50
+        },
+        {
+          "id": "xb8pqvf7i",
+          "kind": "record",
+          "label": "route",
+          "value": 43
+        },
+        {
+          "id": "d24nah28a",
+          "kind": "record",
+          "label": "index",
+          "value": 10
+        },
+        {
+          "id": "sd30daf97",
+          "kind": "record",
+          "label": "retry",
+          "value": 29
+        },
+        {
+          "id": "zghxhcc3t",
+          "kind": "record",
+          "label": "audit",
+          "value": 56
+        },
+        {
+          "id": "oavcwlv9z",
+          "kind": "record",
+          "label": "retry",
+          "value": 70
+        },
+        {
+          "id": "ue5ie8u86",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "f9xy3ito4",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "n6mbsumzl",
+          "kind": "record",
+          "label": "emit",
+          "value": 26
+        },
+        {
+          "id": "w6hkvammo",
+          "kind": "record",
+          "label": "audit",
+          "value": 80
+        },
+        {
+          "id": "nsivnl8u1",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 68
+        },
+        {
+          "id": "n41uyty1z",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 2
+        }
+      ]
+    },
+    {
+      "id": "chw948",
+      "title": "segment 9",
+      "items": [
+        {
+          "id": "xtjxi3ejy",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "adl9yppbq",
+          "kind": "record",
+          "label": "ingest",
+          "value": 91
+        },
+        {
+          "id": "jx3485cmh",
+          "kind": "record",
+          "label": "retry",
+          "value": 21
+        },
+        {
+          "id": "d763a9xf6",
+          "kind": "record",
+          "label": "audit",
+          "value": 80
+        },
+        {
+          "id": "r30krwmb5",
+          "kind": "record",
+          "label": "parse",
+          "value": 14
+        },
+        {
+          "id": "eeegkz5wr",
+          "kind": "record",
+          "label": "parse",
+          "value": 79
+        },
+        {
+          "id": "o7nojq76y",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "i1a0g2q1w",
+          "kind": "record",
+          "label": "emit",
+          "value": 98
+        },
+        {
+          "id": "vac8l9pdw",
+          "kind": "record",
+          "label": "retry",
+          "value": 28
+        },
+        {
+          "id": "lynfq7uu4",
+          "kind": "record",
+          "label": "route",
+          "value": 61
+        },
+        {
+          "id": "lbw2kbhtb",
+          "kind": "record",
+          "label": "ingest",
+          "value": 37
+        }
+      ]
+    },
+    {
+      "id": "w6p7cd",
+      "title": "segment 10",
+      "items": [
+        {
+          "id": "do8xv1gqb",
+          "kind": "record",
+          "label": "emit",
+          "value": 76
+        },
+        {
+          "id": "cjrg74kmi",
+          "kind": "record",
+          "label": "rank",
+          "value": 61
+        },
+        {
+          "id": "yhjqu551s",
+          "kind": "record",
+          "label": "index",
+          "value": 63
+        },
+        {
+          "id": "vk4qhwpwu",
+          "kind": "record",
+          "label": "audit",
+          "value": 74
+        },
+        {
+          "id": "gtwnslqh0",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 34
+        },
+        {
+          "id": "uocjgm7ep",
+          "kind": "record",
+          "label": "parse",
+          "value": 3
+        },
+        {
+          "id": "zth4px6rf",
+          "kind": "record",
+          "label": "enrich",
+          "value": 77
+        },
+        {
+          "id": "f0mycvalj",
+          "kind": "record",
+          "label": "compact",
+          "value": 66
+        },
+        {
+          "id": "jy55ea5v1",
+          "kind": "record",
+          "label": "audit",
+          "value": 15
+        },
+        {
+          "id": "vpqpt6ngy",
+          "kind": "record",
+          "label": "enrich",
+          "value": 18
+        },
+        {
+          "id": "rwe2b5nnj",
+          "kind": "record",
+          "label": "route",
+          "value": 79
+        },
+        {
+          "id": "tqide0d0r",
+          "kind": "record",
+          "label": "route",
+          "value": 10
+        },
+        {
+          "id": "l7yri475q",
+          "kind": "record",
+          "label": "retry",
+          "value": 66
+        },
+        {
+          "id": "okxqqgi97",
+          "kind": "record",
+          "label": "score",
+          "value": 23
+        },
+        {
+          "id": "vpqpt6ngy",
+          "kind": "record",
+          "label": "emit",
+          "value": 18
+        },
+        {
+          "id": "sn36a52id",
+          "kind": "record",
+          "label": "emit",
+          "value": 89
+        },
+        {
+          "id": "lz1pbenn5",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 87
+        },
+        {
+          "id": "zhreg15n4",
+          "kind": "record",
+          "label": "enrich",
+          "value": 27
+        },
+        {
+          "id": "geq9dw0dk",
+          "kind": "record",
+          "label": "audit",
+          "value": 2
+        },
+        {
+          "id": "petnhpj97",
+          "kind": "record",
+          "label": "enrich",
+          "value": 90
+        },
+        {
+          "id": "okxqqgi97",
+          "kind": "record",
+          "label": "ingest",
+          "value": 23
+        },
+        {
+          "id": "ihz8c722k",
+          "kind": "record",
+          "label": "score",
+          "value": 52
+        },
+        {
+          "id": "gs9os941k",
+          "kind": "record",
+          "label": "enrich",
+          "value": 52
+        },
+        {
+          "id": "qgm0or2oc",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "xgkd0ufjf",
+          "kind": "record",
+          "label": "emit",
+          "value": 3
+        },
+        {
+          "id": "ypk0zo7er",
+          "kind": "record",
+          "label": "rank",
+          "value": 2
+        },
+        {
+          "id": "tt9uj4b3b",
+          "kind": "record",
+          "label": "index",
+          "value": 67
+        },
+        {
+          "id": "p1vvsx7r4",
+          "kind": "record",
+          "label": "score",
+          "value": 32
+        },
+        {
+          "id": "jj7b8seya",
+          "kind": "record",
+          "label": "rank",
+          "value": 74
+        }
+      ]
+    },
+    {
+      "id": "oxmuxz",
+      "title": "segment 11",
+      "items": [
+        {
+          "id": "xzz74w742",
+          "kind": "record",
+          "label": "index",
+          "value": 10
+        },
+        {
+          "id": "y55h55tyj",
+          "kind": "record",
+          "label": "score",
+          "value": 25
+        },
+        {
+          "id": "j94claxno",
+          "kind": "record",
+          "label": "rank",
+          "value": 48
+        },
+        {
+          "id": "nd3vrou5a",
+          "kind": "record",
+          "label": "audit",
+          "value": 15
+        },
+        {
+          "id": "ltdnfj0gb",
+          "kind": "record",
+          "label": "audit",
+          "value": 46
+        },
+        {
+          "id": "yas1p5smx",
+          "kind": "record",
+          "label": "retry",
+          "value": 99
+        },
+        {
+          "id": "bgu1qub9j",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ltdnfj0gb",
+          "kind": "record",
+          "label": "parse",
+          "value": 46
+        },
+        {
+          "id": "kl4i0phfk",
+          "kind": "record",
+          "label": "score",
+          "value": 5
+        }
+      ]
+    },
+    {
+      "id": "qobl91",
+      "title": "segment 12",
+      "items": [
+        {
+          "id": "wpjchce0d",
+          "kind": "record",
+          "label": "enrich",
+          "value": 22
+        },
+        {
+          "id": "coxa95w04",
+          "kind": "record",
+          "label": "ingest",
+          "value": 31
+        },
+        {
+          "id": "zjc3flxt1",
+          "kind": "record",
+          "label": "emit",
+          "value": 53
+        },
+        {
+          "id": "cn53rbspf",
+          "kind": "record",
+          "label": "score",
+          "value": 34
+        },
+        {
+          "id": "boi3ae9xn",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "nhnpr5",
+      "title": "segment 13",
+      "items": [
+        {
+          "id": "icyvbe7gs",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "dnhgntn38",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 94
+        },
+        {
+          "id": "w2jh3p4n8",
+          "kind": "record",
+          "label": "index",
+          "value": 27
+        },
+        {
+          "id": "vx7h9g673",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "yz720gk7g",
+          "kind": "record",
+          "label": "normalize",
+          "value": 80
+        },
+        {
+          "id": "ivktgrub1",
+          "kind": "record",
+          "label": "retry",
+          "value": 68
+        },
+        {
+          "id": "fe3a7gah0",
+          "kind": "record",
+          "label": "ingest",
+          "value": 8
+        },
+        {
+          "id": "l08eyqs95",
+          "kind": "record",
+          "label": "ingest",
+          "value": 66
+        },
+        {
+          "id": "h97kuqs0a",
+          "kind": "record",
+          "label": "audit",
+          "value": 38
+        },
+        {
+          "id": "ecrtnzj4q",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 64
+        },
+        {
+          "id": "zzwpubt6w",
+          "kind": "record",
+          "label": "ingest",
+          "value": 56
+        },
+        {
+          "id": "ba4r1sswu",
+          "kind": "record",
+          "label": "rank",
+          "value": 64
+        },
+        {
+          "id": "quyhtsjdg",
+          "kind": "record",
+          "label": "enrich",
+          "value": 63
+        },
+        {
+          "id": "pfw9ipdi7",
+          "kind": "record",
+          "label": "enrich",
+          "value": 6
+        },
+        {
+          "id": "eox08czia",
+          "kind": "record",
+          "label": "normalize",
+          "value": 28
+        },
+        {
+          "id": "ptfbxqve2",
+          "kind": "record",
+          "label": "normalize",
+          "value": 83
+        },
+        {
+          "id": "ofmglha6u",
+          "kind": "record",
+          "label": "rank",
+          "value": 87
+        },
+        {
+          "id": "ju2to5d6y",
+          "kind": "record",
+          "label": "rank",
+          "value": 85
+        },
+        {
+          "id": "go0iyjx3z",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ideiwd83s",
+          "kind": "record",
+          "label": "ingest",
+          "value": 61
+        },
+        {
+          "id": "uq94gfczx",
+          "kind": "record",
+          "label": "parse",
+          "value": 36
+        },
+        {
+          "id": "wc18kg8j5",
+          "kind": "record",
+          "label": "normalize",
+          "value": 62
+        },
+        {
+          "id": "eox08czia",
+          "kind": "record",
+          "label": "score",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "id": "fkqg57",
+      "title": "segment 14",
+      "items": [
+        {
+          "id": "yy4qy18fj",
+          "kind": "record",
+          "label": "route",
+          "value": 45
+        },
+        {
+          "id": "jfbhpdn8d",
+          "kind": "record",
+          "label": "flush",
+          "value": 78
+        },
+        {
+          "id": "j2r7w7ukm",
+          "kind": "record",
+          "label": "ingest",
+          "value": 28
+        },
+        {
+          "id": "xy8oyiwx6",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "qxi35h0t1",
+          "kind": "record",
+          "label": "score",
+          "value": 43
+        },
+        {
+          "id": "hwua0cyem",
+          "kind": "record",
+          "label": "enrich",
+          "value": 90
+        },
+        {
+          "id": "j2r7w7ukm",
+          "kind": "record",
+          "label": "audit",
+          "value": 28
+        },
+        {
+          "id": "zkp7n1o2g",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "yyztqr9ce",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "jnv9t7",
+      "title": "segment 15",
+      "items": [
+        {
+          "id": "karc2may9",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "yb64fkqcz",
+          "kind": "record",
+          "label": "index",
+          "value": 37
+        },
+        {
+          "id": "vxqevl95e",
+          "kind": "record",
+          "label": "flush",
+          "value": 43
+        },
+        {
+          "id": "r12mbj09h",
+          "kind": "record",
+          "label": "normalize",
+          "value": 87
+        },
+        {
+          "id": "syrqd4wz0",
+          "kind": "record",
+          "label": "route",
+          "value": 67
+        },
+        {
+          "id": "okbm567qi",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "aq9emilwg",
+          "kind": "record",
+          "label": "route",
+          "value": 41
+        },
+        {
+          "id": "achct7wwc",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 84
+        },
+        {
+          "id": "uu29c5d4u",
+          "kind": "record",
+          "label": "emit",
+          "value": 13
+        },
+        {
+          "id": "mwfohecpl",
+          "kind": "record",
+          "label": "rank",
+          "value": 28
+        }
+      ]
+    },
+    {
+      "id": "t868u6",
+      "title": "segment 16",
+      "items": [
+        {
+          "id": "uom5iptqx",
+          "kind": "record",
+          "label": "rank",
+          "value": 43
+        },
+        {
+          "id": "drmi40vqw",
+          "kind": "record",
+          "label": "route",
+          "value": 79
+        },
+        {
+          "id": "fghusi51l",
+          "kind": "record",
+          "label": "parse",
+          "value": 10
+        },
+        {
+          "id": "ixtx9psyy",
+          "kind": "record",
+          "label": "parse",
+          "value": 52
+        },
+        {
+          "id": "kks0ahxss",
+          "kind": "record",
+          "label": "retry",
+          "value": 2
+        },
+        {
+          "id": "ctycepy2s",
+          "kind": "record",
+          "label": "audit",
+          "value": 21
+        },
+        {
+          "id": "nt6fskft8",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 20
+        },
+        {
+          "id": "x90pvmc5d",
+          "kind": "record",
+          "label": "ingest",
+          "value": 98
+        },
+        {
+          "id": "uuqe1sp6u",
+          "kind": "record",
+          "label": "compact",
+          "value": 27
+        },
+        {
+          "id": "smu8066q3",
+          "kind": "record",
+          "label": "score",
+          "value": 26
+        },
+        {
+          "id": "bfiyt3ebq",
+          "kind": "record",
+          "label": "compact",
+          "value": 19
+        },
+        {
+          "id": "i7xmjftbq",
+          "kind": "record",
+          "label": "route",
+          "value": 55
+        },
+        {
+          "id": "j5v7szp9s",
+          "kind": "record",
+          "label": "parse",
+          "value": 2
+        },
+        {
+          "id": "x90pvmc5d",
+          "kind": "record",
+          "label": "retry",
+          "value": 98
+        },
+        {
+          "id": "caay0vvin",
+          "kind": "record",
+          "label": "enrich",
+          "value": 45
+        },
+        {
+          "id": "x8mz033pg",
+          "kind": "record",
+          "label": "enrich",
+          "value": 89
+        },
+        {
+          "id": "s1ro8ghbi",
+          "kind": "record",
+          "label": "compact",
+          "value": 17
+        },
+        {
+          "id": "drmi40vqw",
+          "kind": "record",
+          "label": "ingest",
+          "value": 79
+        },
+        {
+          "id": "h24a5odzb",
+          "kind": "record",
+          "label": "parse",
+          "value": 67
+        },
+        {
+          "id": "eddrf9xnv",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "gbmg571vp",
+          "kind": "record",
+          "label": "index",
+          "value": 29
+        },
+        {
+          "id": "uuqe1sp6u",
+          "kind": "record",
+          "label": "normalize",
+          "value": 27
+        },
+        {
+          "id": "u6zbpdmox",
+          "kind": "record",
+          "label": "retry",
+          "value": 39
+        },
+        {
+          "id": "daw5ga5j7",
+          "kind": "record",
+          "label": "rank",
+          "value": 35
+        },
+        {
+          "id": "tovynwvrl",
+          "kind": "record",
+          "label": "enrich",
+          "value": 63
+        },
+        {
+          "id": "boqtd4j11",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ems0257tn",
+          "kind": "record",
+          "label": "route",
+          "value": 39
+        },
+        {
+          "id": "lyo9wdbxq",
+          "kind": "record",
+          "label": "score",
+          "value": 85
+        },
+        {
+          "id": "kizyz4zmh",
+          "kind": "record",
+          "label": "flush",
+          "value": 77
+        },
+        {
+          "id": "ixtx9psyy",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 52
+        }
+      ]
+    },
+    {
+      "id": "fm78j3",
+      "title": "segment 17",
+      "items": [
+        {
+          "id": "i4zubwmz1",
+          "kind": "record",
+          "label": "enrich",
+          "value": 44
+        },
+        {
+          "id": "d91mfgq14",
+          "kind": "record",
+          "label": "ingest",
+          "value": 53
+        },
+        {
+          "id": "k49syw147",
+          "kind": "record",
+          "label": "ingest",
+          "value": 18
+        },
+        {
+          "id": "z1d5y5zsd",
+          "kind": "record",
+          "label": "retry",
+          "value": 68
+        },
+        {
+          "id": "xaf0t9diu",
+          "kind": "record",
+          "label": "route",
+          "value": 84
+        },
+        {
+          "id": "tn6uylwo6",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "o74f0i",
+      "title": "segment 18",
+      "items": [
+        {
+          "id": "u6844a6zt",
+          "kind": "record",
+          "label": "retry",
+          "value": 18
+        },
+        {
+          "id": "z5m0mtei0",
+          "kind": "record",
+          "label": "index",
+          "value": 42
+        },
+        {
+          "id": "pzu2mwqez",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 58
+        },
+        {
+          "id": "byyah2zud",
+          "kind": "record",
+          "label": "normalize",
+          "value": 98
+        },
+        {
+          "id": "xhq8og4yu",
+          "kind": "record",
+          "label": "flush",
+          "value": 69
+        },
+        {
+          "id": "jb03hzqh4",
+          "kind": "record",
+          "label": "normalize",
+          "value": 5
+        },
+        {
+          "id": "ouex4l3gt",
+          "kind": "record",
+          "label": "enrich",
+          "value": 71
+        },
+        {
+          "id": "av6baxyda",
+          "kind": "record",
+          "label": "enrich",
+          "value": 89
+        },
+        {
+          "id": "sqlmr1klz",
+          "kind": "record",
+          "label": "score",
+          "value": 53
+        },
+        {
+          "id": "sd1srqb1v",
+          "kind": "record",
+          "label": "score",
+          "value": 10
+        },
+        {
+          "id": "paqok6hie",
+          "kind": "record",
+          "label": "audit",
+          "value": 25
+        },
+        {
+          "id": "ks3ngznyx",
+          "kind": "record",
+          "label": "rank",
+          "value": 26
+        },
+        {
+          "id": "vw6w3i6va",
+          "kind": "record",
+          "label": "flush",
+          "value": 21
+        },
+        {
+          "id": "w62s6nmis",
+          "kind": "record",
+          "label": "rank",
+          "value": 20
+        },
+        {
+          "id": "qcprpi4yv",
+          "kind": "record",
+          "label": "score",
+          "value": 55
+        },
+        {
+          "id": "dcluk5a2e",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "qgxz4x",
+      "title": "segment 19",
+      "items": [
+        {
+          "id": "eem64y4nt",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 84
+        },
+        {
+          "id": "xbv7nfgni",
+          "kind": "record",
+          "label": "emit",
+          "value": 78
+        },
+        {
+          "id": "dk0hgt5l0",
+          "kind": "record",
+          "label": "route",
+          "value": 60
+        },
+        {
+          "id": "o772v9pf5",
+          "kind": "record",
+          "label": "flush",
+          "value": 37
+        },
+        {
+          "id": "m4n7ms2xg",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "p2xyvxdpo",
+          "kind": "record",
+          "label": "parse",
+          "value": 7
+        },
+        {
+          "id": "phwf2x8we",
+          "kind": "record",
+          "label": "retry",
+          "value": 77
+        },
+        {
+          "id": "g9wnbtznz",
+          "kind": "record",
+          "label": "score",
+          "value": 94
+        },
+        {
+          "id": "utplzjt2f",
+          "kind": "record",
+          "label": "flush",
+          "value": 18
+        },
+        {
+          "id": "sybno6yg3",
+          "kind": "record",
+          "label": "score",
+          "value": 68
+        },
+        {
+          "id": "c7sl9y1dt",
+          "kind": "record",
+          "label": "ingest",
+          "value": 23
+        },
+        {
+          "id": "uzlwamqee",
+          "kind": "record",
+          "label": "score",
+          "value": 60
+        },
+        {
+          "id": "t9giw360e",
+          "kind": "record",
+          "label": "index",
+          "value": 46
+        },
+        {
+          "id": "bqfd6cng7",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 58
+        },
+        {
+          "id": "mk6kagvo7",
+          "kind": "record",
+          "label": "flush",
+          "value": 22
+        },
+        {
+          "id": "rs0rq7xus",
+          "kind": "record",
+          "label": "enrich",
+          "value": 20
+        },
+        {
+          "id": "d3l49gt6u",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 50
+        },
+        {
+          "id": "gilrxc9jx",
+          "kind": "record",
+          "label": "retry",
+          "value": 50
+        },
+        {
+          "id": "okgtx0i3j",
+          "kind": "record",
+          "label": "ingest",
+          "value": 45
+        },
+        {
+          "id": "jp1td1yme",
+          "kind": "record",
+          "label": "emit",
+          "value": 27
+        },
+        {
+          "id": "uzlwamqee",
+          "kind": "record",
+          "label": "retry",
+          "value": 60
+        },
+        {
+          "id": "sd5kafz4l",
+          "kind": "record",
+          "label": "enrich",
+          "value": 18
+        },
+        {
+          "id": "k3xlq6n5q",
+          "kind": "record",
+          "label": "enrich",
+          "value": 28
+        },
+        {
+          "id": "t9giw360e",
+          "kind": "record",
+          "label": "audit",
+          "value": 46
+        },
+        {
+          "id": "k3xlq6n5q",
+          "kind": "record",
+          "label": "parse",
+          "value": 28
+        },
+        {
+          "id": "z14qxxuuo",
+          "kind": "record",
+          "label": "ingest",
+          "value": 49
+        },
+        {
+          "id": "oms23t8vr",
+          "kind": "record",
+          "label": "audit",
+          "value": 95
+        },
+        {
+          "id": "mfxg8g258",
+          "kind": "record",
+          "label": "rank",
+          "value": 11
+        },
+        {
+          "id": "ow4eqrmvy",
+          "kind": "record",
+          "label": "parse",
+          "value": 38
+        },
+        {
+          "id": "xppw89e4y",
+          "kind": "record",
+          "label": "rank",
+          "value": 64
+        },
+        {
+          "id": "vs4tp6dt8",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "be7kti",
+      "title": "segment 20",
+      "items": [
+        {
+          "id": "hd26cf6hj",
+          "kind": "record",
+          "label": "parse",
+          "value": 72
+        },
+        {
+          "id": "isylba2av",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "jwnymcx90",
+          "kind": "record",
+          "label": "parse",
+          "value": 76
+        },
+        {
+          "id": "zzw55d1t0",
+          "kind": "record",
+          "label": "normalize",
+          "value": 62
+        },
+        {
+          "id": "je8jljjjw",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "lok8rg9dn",
+          "kind": "record",
+          "label": "flush",
+          "value": 64
+        },
+        {
+          "id": "dck9mstuo",
+          "kind": "record",
+          "label": "normalize",
+          "value": 13
+        }
+      ]
+    },
+    {
+      "id": "jj618t",
+      "title": "segment 21",
+      "items": [
+        {
+          "id": "ipoe3r52r",
+          "kind": "record",
+          "label": "enrich",
+          "value": 42
+        },
+        {
+          "id": "y7po8zuc0",
+          "kind": "record",
+          "label": "route",
+          "value": 70
+        },
+        {
+          "id": "g9h18n74j",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 12
+        },
+        {
+          "id": "jcrzjorab",
+          "kind": "record",
+          "label": "audit",
+          "value": 81
+        },
+        {
+          "id": "j7p9dhc7i",
+          "kind": "record",
+          "label": "enrich",
+          "value": 50
+        },
+        {
+          "id": "oaiv1fzkz",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "g9h18n74j",
+          "kind": "record",
+          "label": "enrich",
+          "value": 12
+        },
+        {
+          "id": "k8i4hqxea",
+          "kind": "record",
+          "label": "audit",
+          "value": 6
+        },
+        {
+          "id": "tf1jriffn",
+          "kind": "record",
+          "label": "flush",
+          "value": 59
+        },
+        {
+          "id": "myrd9tlo6",
+          "kind": "record",
+          "label": "parse",
+          "value": 97
+        },
+        {
+          "id": "v36ylu7zz",
+          "kind": "record",
+          "label": "index",
+          "value": 32
+        },
+        {
+          "id": "vuhzspnru",
+          "kind": "record",
+          "label": "ingest",
+          "value": 21
+        },
+        {
+          "id": "i1gltgor3",
+          "kind": "record",
+          "label": "ingest",
+          "value": 15
+        },
+        {
+          "id": "znakikb72",
+          "kind": "record",
+          "label": "flush",
+          "value": 67
+        },
+        {
+          "id": "otcjmzxsk",
+          "kind": "record",
+          "label": "score",
+          "value": 3
+        },
+        {
+          "id": "bkx7lorvx",
+          "kind": "record",
+          "label": "enrich",
+          "value": 31
+        },
+        {
+          "id": "qhl3z576d",
+          "kind": "record",
+          "label": "rank",
+          "value": 58
+        },
+        {
+          "id": "voo30rix0",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "t4aqhptlx",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 40
+        },
+        {
+          "id": "zamabfxhz",
+          "kind": "record",
+          "label": "score",
+          "value": 92
+        },
+        {
+          "id": "xjv152pe1",
+          "kind": "record",
+          "label": "index",
+          "value": 38
+        },
+        {
+          "id": "u9o60kju3",
+          "kind": "record",
+          "label": "emit",
+          "value": 19
+        },
+        {
+          "id": "loecxu8u6",
+          "kind": "record",
+          "label": "compact",
+          "value": 49
+        },
+        {
+          "id": "kw98lukfk",
+          "kind": "record",
+          "label": "enrich",
+          "value": 29
+        }
+      ]
+    },
+    {
+      "id": "pqpe9p",
+      "title": "segment 22",
+      "items": [
+        {
+          "id": "hx9fuq6p6",
+          "kind": "record",
+          "label": "enrich",
+          "value": 82
+        },
+        {
+          "id": "rgjmyndkt",
+          "kind": "record",
+          "label": "emit",
+          "value": 49
+        },
+        {
+          "id": "kb6ifms29",
+          "kind": "record",
+          "label": "ingest",
+          "value": 50
+        },
+        {
+          "id": "y2yj1kcsp",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "unnjbvxpo",
+          "kind": "record",
+          "label": "compact",
+          "value": 39
+        },
+        {
+          "id": "prjcagfad",
+          "kind": "record",
+          "label": "retry",
+          "value": 82
+        },
+        {
+          "id": "y4rsvpz0x",
+          "kind": "record",
+          "label": "index",
+          "value": 85
+        },
+        {
+          "id": "k4go9sc9r",
+          "kind": "record",
+          "label": "normalize",
+          "value": 19
+        },
+        {
+          "id": "we20j72bp",
+          "kind": "record",
+          "label": "ingest",
+          "value": 93
+        },
+        {
+          "id": "xbgnj164v",
+          "kind": "record",
+          "label": "index",
+          "value": 80
+        },
+        {
+          "id": "ru37ciz3i",
+          "kind": "record",
+          "label": "compact",
+          "value": 92
+        },
+        {
+          "id": "ydg9awro5",
+          "kind": "record",
+          "label": "compact",
+          "value": 56
+        },
+        {
+          "id": "f86gyurdd",
+          "kind": "record",
+          "label": "emit",
+          "value": 89
+        },
+        {
+          "id": "mps3cdena",
+          "kind": "record",
+          "label": "parse",
+          "value": 12
+        },
+        {
+          "id": "z5r0o7k6x",
+          "kind": "record",
+          "label": "parse",
+          "value": 47
+        },
+        {
+          "id": "ibkyc5vd7",
+          "kind": "record",
+          "label": "ingest",
+          "value": 23
+        },
+        {
+          "id": "cp2c4n007",
+          "kind": "record",
+          "label": "route",
+          "value": 66
+        },
+        {
+          "id": "mz9x06tw0",
+          "kind": "record",
+          "label": "retry",
+          "value": 46
+        },
+        {
+          "id": "ti4eit7zn",
+          "kind": "record",
+          "label": "rank",
+          "value": 22
+        },
+        {
+          "id": "zcwtwu8z7",
+          "kind": "record",
+          "label": "enrich",
+          "value": 23
+        },
+        {
+          "id": "d5vzws601",
+          "kind": "record",
+          "label": "emit",
+          "value": 18
+        },
+        {
+          "id": "gh36yrjbp",
+          "kind": "record",
+          "label": "enrich",
+          "value": 29
+        },
+        {
+          "id": "oqohxjx8r",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 80
+        },
+        {
+          "id": "mz9x06tw0",
+          "kind": "record",
+          "label": "normalize",
+          "value": 46
+        },
+        {
+          "id": "xkdv4yhmt",
+          "kind": "record",
+          "label": "normalize",
+          "value": 7
+        },
+        {
+          "id": "wipl3vn6z",
+          "kind": "record",
+          "label": "retry",
+          "value": 17
+        },
+        {
+          "id": "tfkdx1850",
+          "kind": "record",
+          "label": "index",
+          "value": 9
+        },
+        {
+          "id": "m5ukxnxdk",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 67
+        },
+        {
+          "id": "bmk6rqq0g",
+          "kind": "record",
+          "label": "rank",
+          "value": 44
+        }
+      ]
+    },
+    {
+      "id": "y45xs0",
+      "title": "segment 23",
+      "items": [
+        {
+          "id": "pmbc9fzi8",
+          "kind": "record",
+          "label": "emit",
+          "value": 91
+        },
+        {
+          "id": "y61tofc0u",
+          "kind": "record",
+          "label": "retry",
+          "value": 54
+        },
+        {
+          "id": "wp88fdbub",
+          "kind": "record",
+          "label": "enrich",
+          "value": 41
+        },
+        {
+          "id": "vrl7hqf3u",
+          "kind": "record",
+          "label": "normalize",
+          "value": 14
+        },
+        {
+          "id": "dmbjpn5yt",
+          "kind": "record",
+          "label": "route",
+          "value": 37
+        },
+        {
+          "id": "zt1i26jr9",
+          "kind": "record",
+          "label": "ingest",
+          "value": 64
+        },
+        {
+          "id": "j8bg3ikvj",
+          "kind": "record",
+          "label": "compact",
+          "value": 62
+        },
+        {
+          "id": "btd12c4fd",
+          "kind": "record",
+          "label": "rank",
+          "value": 72
+        },
+        {
+          "id": "wnvk882rv",
+          "kind": "record",
+          "label": "emit",
+          "value": 31
+        },
+        {
+          "id": "c5z5whvah",
+          "kind": "record",
+          "label": "ingest",
+          "value": 82
+        },
+        {
+          "id": "ufgyhesw5",
+          "kind": "record",
+          "label": "audit",
+          "value": 18
+        },
+        {
+          "id": "teebfy2yt",
+          "kind": "record",
+          "label": "route",
+          "value": 78
+        },
+        {
+          "id": "d0ddjvapj",
+          "kind": "record",
+          "label": "score",
+          "value": 36
+        },
+        {
+          "id": "gu6c16482",
+          "kind": "record",
+          "label": "score",
+          "value": 13
+        },
+        {
+          "id": "igean6ab3",
+          "kind": "record",
+          "label": "index",
+          "value": 64
+        },
+        {
+          "id": "p7v9fwrtc",
+          "kind": "record",
+          "label": "index",
+          "value": 41
+        },
+        {
+          "id": "mcis453fy",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "qqb9wrazt",
+          "kind": "record",
+          "label": "normalize",
+          "value": 38
+        },
+        {
+          "id": "hepig9vtm",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "sfmq4f",
+      "title": "segment 24",
+      "items": [
+        {
+          "id": "a4tm30lpz",
+          "kind": "record",
+          "label": "enrich",
+          "value": 39
+        },
+        {
+          "id": "i3zarezt6",
+          "kind": "record",
+          "label": "score",
+          "value": 90
+        },
+        {
+          "id": "ov45yee18",
+          "kind": "record",
+          "label": "retry",
+          "value": 56
+        },
+        {
+          "id": "z1otjuwuw",
+          "kind": "record",
+          "label": "parse",
+          "value": 28
+        },
+        {
+          "id": "psj2s9lx6",
+          "kind": "record",
+          "label": "emit",
+          "value": 74
+        },
+        {
+          "id": "lzre72i3o",
+          "kind": "record",
+          "label": "flush",
+          "value": 45
+        },
+        {
+          "id": "ynpigx1d8",
+          "kind": "record",
+          "label": "route",
+          "value": 78
+        },
+        {
+          "id": "nvc7jgord",
+          "kind": "record",
+          "label": "score",
+          "value": 38
+        },
+        {
+          "id": "ibrmr892y",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "mwou1rx5j",
+          "kind": "record",
+          "label": "index",
+          "value": 18
+        },
+        {
+          "id": "if8w8a7u0",
+          "kind": "record",
+          "label": "parse",
+          "value": 45
+        },
+        {
+          "id": "u72yvcj8h",
+          "kind": "record",
+          "label": "index",
+          "value": 17
+        },
+        {
+          "id": "xi3h3r99u",
+          "kind": "record",
+          "label": "emit",
+          "value": 68
+        },
+        {
+          "id": "qt0rizwm0",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "b1hp66kw8",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 31
+        },
+        {
+          "id": "sekzmo0o9",
+          "kind": "record",
+          "label": "route",
+          "value": 85
+        },
+        {
+          "id": "b39fkbiir",
+          "kind": "record",
+          "label": "enrich",
+          "value": 15
+        },
+        {
+          "id": "ulrlk1elh",
+          "kind": "record",
+          "label": "flush",
+          "value": 59
+        },
+        {
+          "id": "aewyyslip",
+          "kind": "record",
+          "label": "enrich",
+          "value": 40
+        },
+        {
+          "id": "ofwk1fl56",
+          "kind": "record",
+          "label": "parse",
+          "value": 41
+        },
+        {
+          "id": "xhbtgszto",
+          "kind": "record",
+          "label": "route",
+          "value": 32
+        },
+        {
+          "id": "jc7x221gr",
+          "kind": "record",
+          "label": "retry",
+          "value": 23
+        },
+        {
+          "id": "s108rmeos",
+          "kind": "record",
+          "label": "score",
+          "value": 22
+        },
+        {
+          "id": "xjwouqwku",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "aewyyslip",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 40
+        },
+        {
+          "id": "tmn00vvtm",
+          "kind": "record",
+          "label": "enrich",
+          "value": 51
+        },
+        {
+          "id": "f7x1ksrrn",
+          "kind": "record",
+          "label": "flush",
+          "value": 36
+        },
+        {
+          "id": "v7zquc5r2",
+          "kind": "record",
+          "label": "compact",
+          "value": 66
+        },
+        {
+          "id": "f7x1ksrrn",
+          "kind": "record",
+          "label": "emit",
+          "value": 36
+        }
+      ]
+    },
+    {
+      "id": "pz4fjf",
+      "title": "segment 25",
+      "items": [
+        {
+          "id": "o62jv17dj",
+          "kind": "record",
+          "label": "parse",
+          "value": 65
+        },
+        {
+          "id": "d8w4wdtd2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "igik522o5",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 35
+        },
+        {
+          "id": "nj9v5eq3z",
+          "kind": "record",
+          "label": "retry",
+          "value": 8
+        },
+        {
+          "id": "h59p4rkp4",
+          "kind": "record",
+          "label": "index",
+          "value": 17
+        },
+        {
+          "id": "pa0mwctmg",
+          "kind": "record",
+          "label": "index",
+          "value": 7
+        },
+        {
+          "id": "afbu9hqe2",
+          "kind": "record",
+          "label": "parse",
+          "value": 54
+        },
+        {
+          "id": "vd32jna9z",
+          "kind": "record",
+          "label": "emit",
+          "value": 26
+        },
+        {
+          "id": "hilemtb4m",
+          "kind": "record",
+          "label": "enrich",
+          "value": 92
+        },
+        {
+          "id": "a4znx9xvb",
+          "kind": "record",
+          "label": "compact",
+          "value": 54
+        },
+        {
+          "id": "igik522o5",
+          "kind": "record",
+          "label": "route",
+          "value": 35
+        },
+        {
+          "id": "jqqjzvmcg",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "tcq04j7tn",
+          "kind": "record",
+          "label": "emit",
+          "value": 90
+        },
+        {
+          "id": "vhe3q934q",
+          "kind": "record",
+          "label": "flush",
+          "value": 21
+        },
+        {
+          "id": "gxl7x2v6u",
+          "kind": "record",
+          "label": "rank",
+          "value": 85
+        },
+        {
+          "id": "w0913p4v6",
+          "kind": "record",
+          "label": "route",
+          "value": 54
+        }
+      ]
+    },
+    {
+      "id": "o77qvh",
+      "title": "segment 26",
+      "items": [
+        {
+          "id": "r4w5wdmku",
+          "kind": "record",
+          "label": "flush",
+          "value": 53
+        },
+        {
+          "id": "pa0mwctmg",
+          "kind": "record",
+          "label": "retry",
+          "value": 7
+        },
+        {
+          "id": "yttrifetl",
+          "kind": "record",
+          "label": "emit",
+          "value": 8
+        },
+        {
+          "id": "k0i68k8kr",
+          "kind": "record",
+          "label": "enrich",
+          "value": 42
+        },
+        {
+          "id": "andyk3fav",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 99
+        },
+        {
+          "id": "q5fwfcrbd",
+          "kind": "record",
+          "label": "route",
+          "value": 5
+        },
+        {
+          "id": "iy03eung3",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "nragypqtj",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "l45073",
+      "title": "segment 27",
+      "items": [
+        {
+          "id": "f7tljw4zy",
+          "kind": "record",
+          "label": "flush",
+          "value": 85
+        },
+        {
+          "id": "es4dijmxx",
+          "kind": "record",
+          "label": "parse",
+          "value": 84
+        },
+        {
+          "id": "z7ujyl5ho",
+          "kind": "record",
+          "label": "index",
+          "value": 76
+        },
+        {
+          "id": "r99d8foby",
+          "kind": "record",
+          "label": "enrich",
+          "value": 46
+        },
+        {
+          "id": "bl2fxohl4",
+          "kind": "record",
+          "label": "enrich",
+          "value": 71
+        },
+        {
+          "id": "f7tljw4zy",
+          "kind": "record",
+          "label": "compact",
+          "value": 85
+        },
+        {
+          "id": "prkckqdzb",
+          "kind": "record",
+          "label": "rank",
+          "value": 7
+        },
+        {
+          "id": "ux5ww7ueh",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "nyxc3fyhd",
+          "kind": "record",
+          "label": "audit",
+          "value": 13
+        },
+        {
+          "id": "mei2bw9re",
+          "kind": "record",
+          "label": "emit",
+          "value": 60
+        },
+        {
+          "id": "px78ig3lx",
+          "kind": "record",
+          "label": "index",
+          "value": 78
+        },
+        {
+          "id": "bdjzcqrra",
+          "kind": "record",
+          "label": "retry",
+          "value": 74
+        },
+        {
+          "id": "jtgkflm5s",
+          "kind": "record",
+          "label": "ingest",
+          "value": 52
+        },
+        {
+          "id": "jjw1o36l6",
+          "kind": "record",
+          "label": "score",
+          "value": 26
+        },
+        {
+          "id": "eodifvo9m",
+          "kind": "record",
+          "label": "compact",
+          "value": 78
+        },
+        {
+          "id": "spaphysdg",
+          "kind": "record",
+          "label": "parse",
+          "value": 69
+        },
+        {
+          "id": "w80anzcbe",
+          "kind": "record",
+          "label": "retry",
+          "value": 93
+        },
+        {
+          "id": "lo85291bg",
+          "kind": "record",
+          "label": "retry",
+          "value": 87
+        },
+        {
+          "id": "pslwp9kmg",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ot0a4pwqp",
+          "kind": "record",
+          "label": "compact",
+          "value": 32
+        },
+        {
+          "id": "qptxofcd6",
+          "kind": "record",
+          "label": "audit",
+          "value": 32
+        }
+      ]
+    },
+    {
+      "id": "w5qf5o",
+      "title": "segment 28",
+      "items": [
+        {
+          "id": "d6t18b6n4",
+          "kind": "record",
+          "label": "compact",
+          "value": 21
+        },
+        {
+          "id": "uljvh7mp4",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "r8b7e4rly",
+          "kind": "record",
+          "label": "emit",
+          "value": 60
+        },
+        {
+          "id": "onhoo2qy7",
+          "kind": "record",
+          "label": "flush",
+          "value": 10
+        },
+        {
+          "id": "jvqi6x4g7",
+          "kind": "record",
+          "label": "score",
+          "value": 75
+        },
+        {
+          "id": "lheb1txww",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "mf5it0v3x",
+          "kind": "record",
+          "label": "route",
+          "value": 58
+        },
+        {
+          "id": "tyurghmsn",
+          "kind": "record",
+          "label": "audit",
+          "value": 46
+        },
+        {
+          "id": "uywce5aaq",
+          "kind": "record",
+          "label": "index",
+          "value": 42
+        },
+        {
+          "id": "dsucoqwt5",
+          "kind": "record",
+          "label": "ingest",
+          "value": 61
+        },
+        {
+          "id": "hx15pucrv",
+          "kind": "record",
+          "label": "normalize",
+          "value": 50
+        },
+        {
+          "id": "e41w2wh72",
+          "kind": "record",
+          "label": "flush",
+          "value": 79
+        },
+        {
+          "id": "oslh1hufi",
+          "kind": "record",
+          "label": "index",
+          "value": 80
+        },
+        {
+          "id": "wkp7osm9f",
+          "kind": "record",
+          "label": "route",
+          "value": 51
+        },
+        {
+          "id": "pn6r4x9it",
+          "kind": "record",
+          "label": "retry",
+          "value": 72
+        },
+        {
+          "id": "yreid4kec",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "t673zc3sf",
+          "kind": "record",
+          "label": "route",
+          "value": 70
+        },
+        {
+          "id": "p425nge1t",
+          "kind": "record",
+          "label": "parse",
+          "value": 98
+        }
+      ]
+    },
+    {
+      "id": "el7xs5",
+      "title": "segment 29",
+      "items": [
+        {
+          "id": "jvqi6x4g7",
+          "kind": "record",
+          "label": "compact",
+          "value": 75
+        },
+        {
+          "id": "jn5u10ez1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "y7q57rhe4",
+          "kind": "record",
+          "label": "index",
+          "value": 89
+        },
+        {
+          "id": "aqejoqgxx",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 53
+        },
+        {
+          "id": "asejr52qr",
+          "kind": "record",
+          "label": "enrich",
+          "value": 16
+        },
+        {
+          "id": "nldldnx4i",
+          "kind": "record",
+          "label": "compact",
+          "value": 9
+        },
+        {
+          "id": "ztmllrhqm",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ot9shnj94",
+          "kind": "record",
+          "label": "retry",
+          "value": 76
+        },
+        {
+          "id": "g31v3lxp4",
+          "kind": "record",
+          "label": "audit",
+          "value": 64
+        },
+        {
+          "id": "uwtezr1wo",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "sxv31oa8f",
+          "kind": "record",
+          "label": "retry",
+          "value": 37
+        },
+        {
+          "id": "mis34zhwi",
+          "kind": "record",
+          "label": "emit",
+          "value": 96
+        }
+      ]
+    },
+    {
+      "id": "h0zzsz",
+      "title": "segment 30",
+      "items": [
+        {
+          "id": "m4dtqflb7",
+          "kind": "record",
+          "label": "retry",
+          "value": 92
+        },
+        {
+          "id": "l0eyabgi4",
+          "kind": "record",
+          "label": "emit",
+          "value": 76
+        },
+        {
+          "id": "yg2q9ootx",
+          "kind": "record",
+          "label": "ingest",
+          "value": 36
+        },
+        {
+          "id": "emvmzhxzd",
+          "kind": "record",
+          "label": "index",
+          "value": 98
+        },
+        {
+          "id": "j23esamod",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 45
+        },
+        {
+          "id": "fdl3o7g28",
+          "kind": "record",
+          "label": "compact",
+          "value": 3
+        },
+        {
+          "id": "t108ykvm4",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "rul16ycbh",
+          "kind": "record",
+          "label": "normalize",
+          "value": 7
+        },
+        {
+          "id": "r2o033bcf",
+          "kind": "record",
+          "label": "index",
+          "value": 76
+        },
+        {
+          "id": "vhrryxfgf",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 24
+        },
+        {
+          "id": "qw7hoz2w6",
+          "kind": "record",
+          "label": "emit",
+          "value": 23
+        },
+        {
+          "id": "aiec7am7h",
+          "kind": "record",
+          "label": "ingest",
+          "value": 71
+        },
+        {
+          "id": "wqm88on0l",
+          "kind": "record",
+          "label": "parse",
+          "value": 41
+        },
+        {
+          "id": "qw7hoz2w6",
+          "kind": "record",
+          "label": "emit",
+          "value": 23
+        }
+      ]
+    },
+    {
+      "id": "es7cg8",
+      "title": "segment 31",
+      "items": [
+        {
+          "id": "dtq1vsuik",
+          "kind": "record",
+          "label": "score",
+          "value": 94
+        },
+        {
+          "id": "ho2zpkjf3",
+          "kind": "record",
+          "label": "score",
+          "value": 7
+        },
+        {
+          "id": "adwoz6t2v",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 96
+        },
+        {
+          "id": "xpn9su91w",
+          "kind": "record",
+          "label": "flush",
+          "value": 13
+        },
+        {
+          "id": "rzhkwlnj4",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 75
+        },
+        {
+          "id": "bxwz3994k",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 80
+        },
+        {
+          "id": "o77amqt1h",
+          "kind": "record",
+          "label": "emit",
+          "value": 9
+        },
+        {
+          "id": "hzn1cii96",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "rekaw4niu",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 26
+        },
+        {
+          "id": "vav7svzf3",
+          "kind": "record",
+          "label": "flush",
+          "value": 91
+        },
+        {
+          "id": "tfxt5d7wn",
+          "kind": "record",
+          "label": "audit",
+          "value": 71
+        },
+        {
+          "id": "w2wri07jc",
+          "kind": "record",
+          "label": "parse",
+          "value": 13
+        },
+        {
+          "id": "r6lz1xhmf",
+          "kind": "record",
+          "label": "enrich",
+          "value": 23
+        },
+        {
+          "id": "mzkhg76ai",
+          "kind": "record",
+          "label": "enrich",
+          "value": 90
+        },
+        {
+          "id": "d16f72nhm",
+          "kind": "record",
+          "label": "retry",
+          "value": 21
+        },
+        {
+          "id": "botg40pcl",
+          "kind": "record",
+          "label": "score",
+          "value": 83
+        },
+        {
+          "id": "r1qea0osg",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "tvv3gbbdv",
+          "kind": "record",
+          "label": "normalize",
+          "value": 58
+        },
+        {
+          "id": "yvcttjhwp",
+          "kind": "record",
+          "label": "flush",
+          "value": 5
+        },
+        {
+          "id": "vzdvtmfcf",
+          "kind": "record",
+          "label": "emit",
+          "value": 61
+        },
+        {
+          "id": "jhdwxdn8b",
+          "kind": "record",
+          "label": "index",
+          "value": 21
+        }
+      ]
+    },
+    {
+      "id": "ytclpg",
+      "title": "segment 32",
+      "items": [
+        {
+          "id": "zb5s9g58h",
+          "kind": "record",
+          "label": "ingest",
+          "value": 61
+        },
+        {
+          "id": "s7zcftal1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "m1bdbjupy",
+          "kind": "record",
+          "label": "parse",
+          "value": 3
+        },
+        {
+          "id": "o9gof8t7y",
+          "kind": "record",
+          "label": "parse",
+          "value": 4
+        },
+        {
+          "id": "soqe2iezn",
+          "kind": "record",
+          "label": "emit",
+          "value": 75
+        },
+        {
+          "id": "ttlbmfalz",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "jofvibdsi",
+          "kind": "record",
+          "label": "index",
+          "value": 93
+        },
+        {
+          "id": "algwf65xg",
+          "kind": "record",
+          "label": "enrich",
+          "value": 65
+        },
+        {
+          "id": "wyifwmgo6",
+          "kind": "record",
+          "label": "retry",
+          "value": 98
+        },
+        {
+          "id": "ka3za0ti2",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 98
+        },
+        {
+          "id": "b4usq1x5g",
+          "kind": "record",
+          "label": "score",
+          "value": 75
+        },
+        {
+          "id": "rfv06dy9s",
+          "kind": "record",
+          "label": "route",
+          "value": 28
+        },
+        {
+          "id": "lqg7uroh8",
+          "kind": "record",
+          "label": "audit",
+          "value": 67
+        },
+        {
+          "id": "ikyj71fq9",
+          "kind": "record",
+          "label": "audit",
+          "value": 41
+        },
+        {
+          "id": "l7bsh174i",
+          "kind": "record",
+          "label": "score",
+          "value": 15
+        },
+        {
+          "id": "lqg7uroh8",
+          "kind": "record",
+          "label": "enrich",
+          "value": 67
+        },
+        {
+          "id": "jjeqsyfyz",
+          "kind": "record",
+          "label": "parse",
+          "value": 52
+        },
+        {
+          "id": "g4mfg2avh",
+          "kind": "record",
+          "label": "rank",
+          "value": 72
+        },
+        {
+          "id": "rxel6w04l",
+          "kind": "record",
+          "label": "index",
+          "value": 26
+        },
+        {
+          "id": "bbfbiiqxp",
+          "kind": "record",
+          "label": "route",
+          "value": 56
+        },
+        {
+          "id": "cs2ll146r",
+          "kind": "record",
+          "label": "flush",
+          "value": 93
+        },
+        {
+          "id": "af97y80kb",
+          "kind": "record",
+          "label": "ingest",
+          "value": 88
+        },
+        {
+          "id": "g7utvqigs",
+          "kind": "record",
+          "label": "retry",
+          "value": 71
+        },
+        {
+          "id": "jjeqsyfyz",
+          "kind": "record",
+          "label": "audit",
+          "value": 52
+        },
+        {
+          "id": "hiwagfmi1",
+          "kind": "record",
+          "label": "flush",
+          "value": 96
+        },
+        {
+          "id": "lggx0syp7",
+          "kind": "record",
+          "label": "retry",
+          "value": 35
+        },
+        {
+          "id": "otzbrch6w",
+          "kind": "record",
+          "label": "emit",
+          "value": 58
+        },
+        {
+          "id": "iwti1abhr",
+          "kind": "record",
+          "label": "retry",
+          "value": 62
+        }
+      ]
+    },
+    {
+      "id": "u4amym",
+      "title": "segment 33",
+      "items": [
+        {
+          "id": "h90ge92jw",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "htbwim4zl",
+          "kind": "record",
+          "label": "audit",
+          "value": 82
+        },
+        {
+          "id": "bhfe17rmz",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "e60pfhtk6",
+          "kind": "record",
+          "label": "compact",
+          "value": 33
+        },
+        {
+          "id": "c7dt9zvoe",
+          "kind": "record",
+          "label": "enrich",
+          "value": 7
+        },
+        {
+          "id": "fmytgcrxb",
+          "kind": "record",
+          "label": "route",
+          "value": 16
+        }
+      ]
+    },
+    {
+      "id": "pas5ab",
+      "title": "segment 34",
+      "items": [
+        {
+          "id": "a4pdz15hr",
+          "kind": "record",
+          "label": "score",
+          "value": 82
+        },
+        {
+          "id": "inelr04oy",
+          "kind": "record",
+          "label": "retry",
+          "value": 93
+        },
+        {
+          "id": "kg7xaph7g",
+          "kind": "record",
+          "label": "compact",
+          "value": 33
+        },
+        {
+          "id": "yp0cd0zgk",
+          "kind": "record",
+          "label": "ingest",
+          "value": 88
+        },
+        {
+          "id": "se88vtkrs",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 62
+        },
+        {
+          "id": "xck60txzv",
+          "kind": "record",
+          "label": "score",
+          "value": 42
+        },
+        {
+          "id": "ziygk4ct1",
+          "kind": "record",
+          "label": "flush",
+          "value": 73
+        },
+        {
+          "id": "kdamd07vh",
+          "kind": "record",
+          "label": "parse",
+          "value": 80
+        },
+        {
+          "id": "wo0rudf0r",
+          "kind": "record",
+          "label": "enrich",
+          "value": 51
+        },
+        {
+          "id": "n2o8e7w1i",
+          "kind": "record",
+          "label": "normalize",
+          "value": 99
+        },
+        {
+          "id": "dz3rfx50j",
+          "kind": "record",
+          "label": "ingest",
+          "value": 51
+        },
+        {
+          "id": "shbrfshqa",
+          "kind": "record",
+          "label": "flush",
+          "value": 88
+        },
+        {
+          "id": "wkdf6gsgi",
+          "kind": "record",
+          "label": "parse",
+          "value": 65
+        },
+        {
+          "id": "fq6q7cc4u",
+          "kind": "record",
+          "label": "audit",
+          "value": 76
+        },
+        {
+          "id": "n7phey1bz",
+          "kind": "record",
+          "label": "audit",
+          "value": 88
+        },
+        {
+          "id": "fohlp0ojq",
+          "kind": "record",
+          "label": "parse",
+          "value": 76
+        },
+        {
+          "id": "cz3lry4u5",
+          "kind": "record",
+          "label": "emit",
+          "value": 80
+        },
+        {
+          "id": "ugsbvw7ey",
+          "kind": "record",
+          "label": "normalize",
+          "value": 24
+        },
+        {
+          "id": "o4ye7edh8",
+          "kind": "record",
+          "label": "parse",
+          "value": 94
+        },
+        {
+          "id": "lkc8pc6zp",
+          "kind": "record",
+          "label": "retry",
+          "value": 26
+        },
+        {
+          "id": "nhov4zkeb",
+          "kind": "record",
+          "label": "rank",
+          "value": 51
+        },
+        {
+          "id": "zoxw1dtvn",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "zktau5ge7",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ar2wccenx",
+          "kind": "record",
+          "label": "rank",
+          "value": 17
+        },
+        {
+          "id": "ptfemhmon",
+          "kind": "record",
+          "label": "index",
+          "value": 6
+        },
+        {
+          "id": "jk99b6wg2",
+          "kind": "record",
+          "label": "enrich",
+          "value": 17
+        },
+        {
+          "id": "psagdzhbi",
+          "kind": "record",
+          "label": "emit",
+          "value": 59
+        },
+        {
+          "id": "k641tb916",
+          "kind": "record",
+          "label": "flush",
+          "value": 48
+        }
+      ]
+    },
+    {
+      "id": "jdog26",
+      "title": "segment 35",
+      "items": [
+        {
+          "id": "e90domzgf",
+          "kind": "record",
+          "label": "route",
+          "value": 17
+        },
+        {
+          "id": "kzbbys936",
+          "kind": "record",
+          "label": "ingest",
+          "value": 91
+        },
+        {
+          "id": "zy57f5jxy",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 25
+        },
+        {
+          "id": "zfvyosnoi",
+          "kind": "record",
+          "label": "index",
+          "value": 89
+        },
+        {
+          "id": "lmnmyab6g",
+          "kind": "record",
+          "label": "score",
+          "value": 50
+        },
+        {
+          "id": "vpsxp8y5u",
+          "kind": "record",
+          "label": "parse",
+          "value": 20
+        },
+        {
+          "id": "yqyksp9cq",
+          "kind": "record",
+          "label": "retry",
+          "value": 77
+        },
+        {
+          "id": "ik4si8obg",
+          "kind": "record",
+          "label": "emit",
+          "value": 82
+        },
+        {
+          "id": "iyrk03v0n",
+          "kind": "record",
+          "label": "audit",
+          "value": 9
+        },
+        {
+          "id": "g6ugjr9i2",
+          "kind": "record",
+          "label": "flush",
+          "value": 39
+        },
+        {
+          "id": "f4qofixp0",
+          "kind": "record",
+          "label": "compact",
+          "value": 76
+        },
+        {
+          "id": "m3yvwu72s",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 63
+        },
+        {
+          "id": "f5qjl1w68",
+          "kind": "record",
+          "label": "compact",
+          "value": 23
+        },
+        {
+          "id": "fremwry0s",
+          "kind": "record",
+          "label": "score",
+          "value": 64
+        },
+        {
+          "id": "ca57xxg3i",
+          "kind": "record",
+          "label": "audit",
+          "value": 21
+        },
+        {
+          "id": "d2y4ju2dj",
+          "kind": "record",
+          "label": "rank",
+          "value": 44
+        },
+        {
+          "id": "nltl47u4v",
+          "kind": "record",
+          "label": "enrich",
+          "value": 25
+        },
+        {
+          "id": "ilezt10ee",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "r4n321759",
+          "kind": "record",
+          "label": "audit",
+          "value": 64
+        }
+      ]
+    },
+    {
+      "id": "xyvt80",
+      "title": "segment 36",
+      "items": [
+        {
+          "id": "ewc8c4sgg",
+          "kind": "record",
+          "label": "normalize",
+          "value": 42
+        },
+        {
+          "id": "ojtwc8hr1",
+          "kind": "record",
+          "label": "retry",
+          "value": 57
+        },
+        {
+          "id": "wa9aq2ghy",
+          "kind": "record",
+          "label": "parse",
+          "value": 8
+        },
+        {
+          "id": "qj2916tjy",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 11
+        },
+        {
+          "id": "ne9ebw3w7",
+          "kind": "record",
+          "label": "retry",
+          "value": 76
+        },
+        {
+          "id": "ub19sn8s1",
+          "kind": "record",
+          "label": "emit",
+          "value": 61
+        },
+        {
+          "id": "naqw8cbw5",
+          "kind": "record",
+          "label": "compact",
+          "value": 17
+        },
+        {
+          "id": "ne9ebw3w7",
+          "kind": "record",
+          "label": "score",
+          "value": 76
+        },
+        {
+          "id": "obstt4i3a",
+          "kind": "record",
+          "label": "enrich",
+          "value": 80
+        },
+        {
+          "id": "jv46q059m",
+          "kind": "record",
+          "label": "rank",
+          "value": 74
+        },
+        {
+          "id": "ifiyrfeqa",
+          "kind": "record",
+          "label": "index",
+          "value": 52
+        },
+        {
+          "id": "rx6qku916",
+          "kind": "record",
+          "label": "score",
+          "value": 3
+        },
+        {
+          "id": "vizcc6tzl",
+          "kind": "record",
+          "label": "route",
+          "value": 46
+        },
+        {
+          "id": "if31qmodw",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 95
+        },
+        {
+          "id": "x69atd8jj",
+          "kind": "record",
+          "label": "normalize",
+          "value": 71
+        },
+        {
+          "id": "mns0i2pua",
+          "kind": "record",
+          "label": "compact",
+          "value": 16
+        },
+        {
+          "id": "l50cfrsx8",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 27
+        },
+        {
+          "id": "ur4p64ecw",
+          "kind": "record",
+          "label": "normalize",
+          "value": 26
+        },
+        {
+          "id": "tow4yvoef",
+          "kind": "record",
+          "label": "score",
+          "value": 58
+        },
+        {
+          "id": "a8vlb236m",
+          "kind": "record",
+          "label": "normalize",
+          "value": 25
+        },
+        {
+          "id": "g9aelk4ju",
+          "kind": "record",
+          "label": "retry",
+          "value": 14
+        },
+        {
+          "id": "aa4htkp6m",
+          "kind": "record",
+          "label": "score",
+          "value": 99
+        },
+        {
+          "id": "gie4gkmdh",
+          "kind": "record",
+          "label": "route",
+          "value": 16
+        },
+        {
+          "id": "s8lhch12z",
+          "kind": "record",
+          "label": "normalize",
+          "value": 2
+        },
+        {
+          "id": "cb3ex5plf",
+          "kind": "record",
+          "label": "parse",
+          "value": 93
+        },
+        {
+          "id": "dbt6uoj9j",
+          "kind": "record",
+          "label": "rank",
+          "value": 60
+        },
+        {
+          "id": "n0mv0bbr8",
+          "kind": "record",
+          "label": "retry",
+          "value": 79
+        },
+        {
+          "id": "bc8wnurot",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "ublcp7",
+      "title": "segment 37",
+      "items": [
+        {
+          "id": "luf1k0p95",
+          "kind": "record",
+          "label": "score",
+          "value": 22
+        },
+        {
+          "id": "extdhhycw",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "nclzxa766",
+          "kind": "record",
+          "label": "retry",
+          "value": 55
+        },
+        {
+          "id": "wfphe2x0j",
+          "kind": "record",
+          "label": "emit",
+          "value": 11
+        },
+        {
+          "id": "xopaqdngx",
+          "kind": "record",
+          "label": "index",
+          "value": 90
+        }
+      ]
+    },
+    {
+      "id": "k9kts9",
+      "title": "segment 38",
+      "items": [
+        {
+          "id": "rloqzc8sm",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ycl681zq4",
+          "kind": "record",
+          "label": "flush",
+          "value": 84
+        },
+        {
+          "id": "gn0aje7b6",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 50
+        },
+        {
+          "id": "qj4y5x3pn",
+          "kind": "record",
+          "label": "emit",
+          "value": 89
+        },
+        {
+          "id": "zlgdwal9m",
+          "kind": "record",
+          "label": "compact",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "id": "i3o27m",
+      "title": "segment 39",
+      "items": [
+        {
+          "id": "zpl4f45u1",
+          "kind": "record",
+          "label": "normalize",
+          "value": 25
+        },
+        {
+          "id": "pklg78pia",
+          "kind": "record",
+          "label": "retry",
+          "value": 85
+        },
+        {
+          "id": "tfhay9xin",
+          "kind": "record",
+          "label": "emit",
+          "value": 17
+        },
+        {
+          "id": "ytprxyl6d",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 66
+        },
+        {
+          "id": "c92abui6i",
+          "kind": "record",
+          "label": "flush",
+          "value": 92
+        },
+        {
+          "id": "hqucmgb21",
+          "kind": "record",
+          "label": "normalize",
+          "value": 82
+        },
+        {
+          "id": "xrkyi1fh5",
+          "kind": "record",
+          "label": "normalize",
+          "value": 51
+        },
+        {
+          "id": "cm79yga6c",
+          "kind": "record",
+          "label": "ingest",
+          "value": 88
+        },
+        {
+          "id": "ktdw6eael",
+          "kind": "record",
+          "label": "retry",
+          "value": 47
+        },
+        {
+          "id": "tk0lpysp1",
+          "kind": "record",
+          "label": "retry",
+          "value": 36
+        },
+        {
+          "id": "q71dlthpz",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ht4brl6gw",
+          "kind": "record",
+          "label": "score",
+          "value": 87
+        },
+        {
+          "id": "b9thpj9aw",
+          "kind": "record",
+          "label": "ingest",
+          "value": 11
+        },
+        {
+          "id": "ben78k59v",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "gubo4a4fc",
+          "kind": "record",
+          "label": "audit",
+          "value": 61
+        },
+        {
+          "id": "zpl4f45u1",
+          "kind": "record",
+          "label": "flush",
+          "value": 25
+        },
+        {
+          "id": "dnl2uu7nl",
+          "kind": "record",
+          "label": "score",
+          "value": 86
+        },
+        {
+          "id": "w5or5cqlv",
+          "kind": "record",
+          "label": "emit",
+          "value": 27
+        },
+        {
+          "id": "mtwk67qhx",
+          "kind": "record",
+          "label": "normalize",
+          "value": 1
+        },
+        {
+          "id": "ivf1dxqps",
+          "kind": "record",
+          "label": "compact",
+          "value": 45
+        },
+        {
+          "id": "frfbu4ymt",
+          "kind": "record",
+          "label": "audit",
+          "value": 87
+        },
+        {
+          "id": "ptpnrnjkb",
+          "kind": "record",
+          "label": "index",
+          "value": 5
+        },
+        {
+          "id": "j7pw2f7v1",
+          "kind": "record",
+          "label": "audit",
+          "value": 75
+        },
+        {
+          "id": "ow8bewr5x",
+          "kind": "record",
+          "label": "route",
+          "value": 39
+        },
+        {
+          "id": "tk0lpysp1",
+          "kind": "record",
+          "label": "emit",
+          "value": 36
+        },
+        {
+          "id": "b1xg9b7n8",
+          "kind": "record",
+          "label": "route",
+          "value": 22
+        },
+        {
+          "id": "w0sxe4232",
+          "kind": "record",
+          "label": "score",
+          "value": 32
+        }
+      ]
+    },
+    {
+      "id": "palxsl",
+      "title": "segment 40",
+      "items": [
+        {
+          "id": "ni7vu6dab",
+          "kind": "record",
+          "label": "retry",
+          "value": 93
+        },
+        {
+          "id": "cwcbb3z5u",
+          "kind": "record",
+          "label": "score",
+          "value": 72
+        },
+        {
+          "id": "ni7vu6dab",
+          "kind": "record",
+          "label": "emit",
+          "value": 93
+        },
+        {
+          "id": "cyzakam96",
+          "kind": "record",
+          "label": "route",
+          "value": 74
+        },
+        {
+          "id": "n3a27mbvi",
+          "kind": "record",
+          "label": "normalize",
+          "value": 99
+        },
+        {
+          "id": "x5irhbnxu",
+          "kind": "record",
+          "label": "normalize",
+          "value": 67
+        },
+        {
+          "id": "vhetwidwb",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 33
+        },
+        {
+          "id": "ivf1dxqps",
+          "kind": "record",
+          "label": "enrich",
+          "value": 45
+        },
+        {
+          "id": "fbzxea882",
+          "kind": "record",
+          "label": "route",
+          "value": 98
+        },
+        {
+          "id": "upg6yydqt",
+          "kind": "record",
+          "label": "ingest",
+          "value": 2
+        },
+        {
+          "id": "lvjej6rkm",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 23
+        },
+        {
+          "id": "xvbwm2c5v",
+          "kind": "record",
+          "label": "rank",
+          "value": 58
+        },
+        {
+          "id": "m88sh2hws",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "j9yd3wpb6",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "k9k588z9v",
+          "kind": "record",
+          "label": "rank",
+          "value": 3
+        },
+        {
+          "id": "aiw77m1y5",
+          "kind": "record",
+          "label": "enrich",
+          "value": 51
+        },
+        {
+          "id": "jfyc3q7vj",
+          "kind": "record",
+          "label": "score",
+          "value": 2
+        },
+        {
+          "id": "f9jf0vskt",
+          "kind": "record",
+          "label": "emit",
+          "value": 55
+        },
+        {
+          "id": "u2rk6gcer",
+          "kind": "record",
+          "label": "emit",
+          "value": 7
+        },
+        {
+          "id": "zzw9gcr29",
+          "kind": "record",
+          "label": "route",
+          "value": 26
+        },
+        {
+          "id": "ji5ulfhbq",
+          "kind": "record",
+          "label": "index",
+          "value": 81
+        },
+        {
+          "id": "dec7borli",
+          "kind": "record",
+          "label": "flush",
+          "value": 96
+        },
+        {
+          "id": "uyejlex7a",
+          "kind": "record",
+          "label": "index",
+          "value": 35
+        },
+        {
+          "id": "cgb2hl9vv",
+          "kind": "record",
+          "label": "index",
+          "value": 20
+        },
+        {
+          "id": "svsiyl8nv",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "yd7omhksg",
+          "kind": "record",
+          "label": "index",
+          "value": 86
+        },
+        {
+          "id": "dbd2snvoo",
+          "kind": "record",
+          "label": "route",
+          "value": 30
+        },
+        {
+          "id": "x5irhbnxu",
+          "kind": "record",
+          "label": "parse",
+          "value": 67
+        },
+        {
+          "id": "gslvosoef",
+          "kind": "record",
+          "label": "ingest",
+          "value": 93
+        },
+        {
+          "id": "pgwpufaef",
+          "kind": "record",
+          "label": "index",
+          "value": 11
+        },
+        {
+          "id": "olecd7fkh",
+          "kind": "record",
+          "label": "audit",
+          "value": 87
+        }
+      ]
+    },
+    {
+      "id": "sybfva",
+      "title": "segment 41",
+      "items": [
+        {
+          "id": "mlm5chrj0",
+          "kind": "record",
+          "label": "normalize",
+          "value": 13
+        },
+        {
+          "id": "g0598t1yy",
+          "kind": "record",
+          "label": "emit",
+          "value": 2
+        },
+        {
+          "id": "i5b2tzoxb",
+          "kind": "record",
+          "label": "score",
+          "value": 74
+        },
+        {
+          "id": "xgkr91xsq",
+          "kind": "record",
+          "label": "ingest",
+          "value": 33
+        },
+        {
+          "id": "f2ft44l63",
+          "kind": "record",
+          "label": "parse",
+          "value": 27
+        },
+        {
+          "id": "y4hmojeiv",
+          "kind": "record",
+          "label": "flush",
+          "value": 42
+        },
+        {
+          "id": "mmi33pmrt",
+          "kind": "record",
+          "label": "audit",
+          "value": 37
+        },
+        {
+          "id": "g0598t1yy",
+          "kind": "record",
+          "label": "enrich",
+          "value": 2
+        },
+        {
+          "id": "x2yg9gbin",
+          "kind": "record",
+          "label": "compact",
+          "value": 13
+        },
+        {
+          "id": "anwzgtfrm",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "wvyhm88x9",
+          "kind": "record",
+          "label": "index",
+          "value": 16
+        },
+        {
+          "id": "nb53fh0he",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 28
+        },
+        {
+          "id": "ft3u5s787",
+          "kind": "record",
+          "label": "audit",
+          "value": 14
+        },
+        {
+          "id": "mtjskphvx",
+          "kind": "record",
+          "label": "enrich",
+          "value": 59
+        },
+        {
+          "id": "jcb8jsow7",
+          "kind": "record",
+          "label": "ingest",
+          "value": 37
+        },
+        {
+          "id": "wxquqlzhn",
+          "kind": "record",
+          "label": "compact",
+          "value": 64
+        },
+        {
+          "id": "xdweks0x5",
+          "kind": "record",
+          "label": "score",
+          "value": 7
+        },
+        {
+          "id": "t9rm6q1i9",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 1
+        },
+        {
+          "id": "cj4v1106z",
+          "kind": "record",
+          "label": "index",
+          "value": 62
+        },
+        {
+          "id": "gwfk0qkmp",
+          "kind": "record",
+          "label": "emit",
+          "value": 29
+        },
+        {
+          "id": "oi6ezxzmn",
+          "kind": "record",
+          "label": "audit",
+          "value": 30
+        },
+        {
+          "id": "ctob3k8n5",
+          "kind": "record",
+          "label": "emit",
+          "value": 63
+        },
+        {
+          "id": "komx2217r",
+          "kind": "record",
+          "label": "parse",
+          "value": 14
+        },
+        {
+          "id": "fzt1dz7n8",
+          "kind": "record",
+          "label": "enrich",
+          "value": 60
+        },
+        {
+          "id": "lx7sj4lt8",
+          "kind": "record",
+          "label": "retry",
+          "value": 94
+        },
+        {
+          "id": "shwwr9fhd",
+          "kind": "record",
+          "label": "ingest",
+          "value": 52
+        },
+        {
+          "id": "v4m22sn6k",
+          "kind": "record",
+          "label": "parse",
+          "value": 22
+        },
+        {
+          "id": "oj0xvcm7x",
+          "kind": "record",
+          "label": "compact",
+          "value": 60
+        },
+        {
+          "id": "w88q0jv4l",
+          "kind": "record",
+          "label": "normalize",
+          "value": 64
+        },
+        {
+          "id": "vsjewdh0p",
+          "kind": "record",
+          "label": "retry",
+          "value": 65
+        }
+      ]
+    },
+    {
+      "id": "dlwnb7",
+      "title": "segment 42",
+      "items": [
+        {
+          "id": "gdexfh8rk",
+          "kind": "record",
+          "label": "enrich",
+          "value": 53
+        },
+        {
+          "id": "n2bgdvbh2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "em61g51x3",
+          "kind": "record",
+          "label": "compact",
+          "value": 19
+        },
+        {
+          "id": "dq05rh686",
+          "kind": "record",
+          "label": "index",
+          "value": 72
+        },
+        {
+          "id": "o7ngzuj9m",
+          "kind": "record",
+          "label": "parse",
+          "value": 34
+        },
+        {
+          "id": "iq7bj559k",
+          "kind": "record",
+          "label": "normalize",
+          "value": 88
+        },
+        {
+          "id": "egdlxjwia",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "rntm9azsf",
+          "kind": "record",
+          "label": "normalize",
+          "value": 61
+        },
+        {
+          "id": "bvaalgh04",
+          "kind": "record",
+          "label": "route",
+          "value": 89
+        },
+        {
+          "id": "b8o98ev41",
+          "kind": "record",
+          "label": "rank",
+          "value": 70
+        },
+        {
+          "id": "fzihxdubq",
+          "kind": "record",
+          "label": "route",
+          "value": 92
+        },
+        {
+          "id": "pjzelfjqk",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 68
+        },
+        {
+          "id": "vrz5qtnsv",
+          "kind": "record",
+          "label": "normalize",
+          "value": 65
+        },
+        {
+          "id": "wqr3h2e35",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 95
+        },
+        {
+          "id": "c6gig8bzy",
+          "kind": "record",
+          "label": "rank",
+          "value": 50
+        },
+        {
+          "id": "azmulu8hc",
+          "kind": "record",
+          "label": "index",
+          "value": 30
+        },
+        {
+          "id": "q71b1s839",
+          "kind": "record",
+          "label": "score",
+          "value": 28
+        },
+        {
+          "id": "wzpt5texf",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 84
+        },
+        {
+          "id": "qfff80894",
+          "kind": "record",
+          "label": "emit",
+          "value": 14
+        },
+        {
+          "id": "qqs5pmcse",
+          "kind": "record",
+          "label": "flush",
+          "value": 80
+        },
+        {
+          "id": "hgnm5p23z",
+          "kind": "record",
+          "label": "score",
+          "value": 47
+        },
+        {
+          "id": "tz79ltana",
+          "kind": "record",
+          "label": "enrich",
+          "value": 55
+        }
+      ]
+    },
+    {
+      "id": "jz492d",
+      "title": "segment 43",
+      "items": [
+        {
+          "id": "hanuc5swb",
+          "kind": "record",
+          "label": "emit",
+          "value": 52
+        },
+        {
+          "id": "ggbeelcx0",
+          "kind": "record",
+          "label": "retry",
+          "value": 53
+        },
+        {
+          "id": "jo88itwab",
+          "kind": "record",
+          "label": "score",
+          "value": 32
+        },
+        {
+          "id": "zlh69k7qu",
+          "kind": "record",
+          "label": "rank",
+          "value": 86
+        },
+        {
+          "id": "iz9ypg5vd",
+          "kind": "record",
+          "label": "rank",
+          "value": 51
+        },
+        {
+          "id": "wic5x37am",
+          "kind": "record",
+          "label": "score",
+          "value": 13
+        },
+        {
+          "id": "wracz4dd0",
+          "kind": "record",
+          "label": "parse",
+          "value": 11
+        },
+        {
+          "id": "qe8p57wcz",
+          "kind": "record",
+          "label": "ingest",
+          "value": 33
+        },
+        {
+          "id": "sh3099ku8",
+          "kind": "record",
+          "label": "compact",
+          "value": 32
+        },
+        {
+          "id": "fdzebzke6",
+          "kind": "record",
+          "label": "score",
+          "value": 2
+        },
+        {
+          "id": "vrz5qtnsv",
+          "kind": "record",
+          "label": "audit",
+          "value": 65
+        },
+        {
+          "id": "zqase2w64",
+          "kind": "record",
+          "label": "audit",
+          "value": 43
+        },
+        {
+          "id": "cdgl2dkal",
+          "kind": "record",
+          "label": "emit",
+          "value": 90
+        },
+        {
+          "id": "bfwepf0e1",
+          "kind": "record",
+          "label": "enrich",
+          "value": 70
+        },
+        {
+          "id": "bilx6jzv6",
+          "kind": "record",
+          "label": "score",
+          "value": 23
+        },
+        {
+          "id": "pvaucb2zj",
+          "kind": "record",
+          "label": "compact",
+          "value": 42
+        },
+        {
+          "id": "fr0akdw1u",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "x1zo3l2eh",
+          "kind": "record",
+          "label": "retry",
+          "value": 65
+        },
+        {
+          "id": "izdbep4qp",
+          "kind": "record",
+          "label": "enrich",
+          "value": 9
+        },
+        {
+          "id": "ti46ktzoe",
+          "kind": "record",
+          "label": "compact",
+          "value": 28
+        },
+        {
+          "id": "m1w1hj7l7",
+          "kind": "record",
+          "label": "index",
+          "value": 73
+        },
+        {
+          "id": "qir7p9jbs",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 19
+        },
+        {
+          "id": "jhyo74k83",
+          "kind": "record",
+          "label": "index",
+          "value": 80
+        }
+      ]
+    },
+    {
+      "id": "y64whl",
+      "title": "segment 44",
+      "items": [
+        {
+          "id": "uqyrh9ft5",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "ijjob3dgm",
+          "kind": "record",
+          "label": "rank",
+          "value": 28
+        },
+        {
+          "id": "kb0525jhu",
+          "kind": "record",
+          "label": "route",
+          "value": 54
+        },
+        {
+          "id": "j3inmjwgi",
+          "kind": "record",
+          "label": "index",
+          "value": 65
+        }
+      ]
+    },
+    {
+      "id": "b9yo1s",
+      "title": "segment 45",
+      "items": [
+        {
+          "id": "q7drikhok",
+          "kind": "record",
+          "label": "index",
+          "value": 42
+        },
+        {
+          "id": "szeq499gv",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "jcoveod0p",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "nch7hkbaq",
+          "kind": "record",
+          "label": "ingest",
+          "value": 96
+        },
+        {
+          "id": "y99e4x0ms",
+          "kind": "record",
+          "label": "retry",
+          "value": 86
+        },
+        {
+          "id": "yiivderwb",
+          "kind": "record",
+          "label": "normalize",
+          "value": 13
+        },
+        {
+          "id": "ciq6wabeb",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "y069pay1v",
+          "kind": "record",
+          "label": "score",
+          "value": 43
+        },
+        {
+          "id": "ehfud42l9",
+          "kind": "record",
+          "label": "rank",
+          "value": 48
+        },
+        {
+          "id": "v5dw0v6ru",
+          "kind": "record",
+          "label": "normalize",
+          "value": 63
+        },
+        {
+          "id": "y71crj7jn",
+          "kind": "record",
+          "label": "score",
+          "value": 13
+        }
+      ]
+    },
+    {
+      "id": "bsyq87",
+      "title": "segment 46",
+      "items": [
+        {
+          "id": "xaxz3koi7",
+          "kind": "record",
+          "label": "flush",
+          "value": 75
+        },
+        {
+          "id": "rjxr7q4zi",
+          "kind": "record",
+          "label": "ingest",
+          "value": 79
+        },
+        {
+          "id": "z0iom89mt",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "emd3n33j2",
+          "kind": "record",
+          "label": "score",
+          "value": 25
+        },
+        {
+          "id": "wo3oy4jm6",
+          "kind": "record",
+          "label": "audit",
+          "value": 91
+        }
+      ]
+    },
+    {
+      "id": "gcj36k",
+      "title": "segment 47",
+      "items": [
+        {
+          "id": "q8yage1td",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "n47k3ea58",
+          "kind": "record",
+          "label": "ingest",
+          "value": 97
+        },
+        {
+          "id": "egbnahnou",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 50
+        },
+        {
+          "id": "mch2h9m44",
+          "kind": "record",
+          "label": "retry",
+          "value": 78
+        },
+        {
+          "id": "dzbgpip5w",
+          "kind": "record",
+          "label": "compact",
+          "value": 59
+        },
+        {
+          "id": "w2cq1thox",
+          "kind": "record",
+          "label": "index",
+          "value": 9
+        },
+        {
+          "id": "akn9gyk4r",
+          "kind": "record",
+          "label": "flush",
+          "value": 2
+        },
+        {
+          "id": "e2in5hj99",
+          "kind": "record",
+          "label": "enrich",
+          "value": 42
+        },
+        {
+          "id": "zmjutghyb",
+          "kind": "record",
+          "label": "normalize",
+          "value": 4
+        },
+        {
+          "id": "ug7f7fje0",
+          "kind": "record",
+          "label": "normalize",
+          "value": 72
+        },
+        {
+          "id": "uouk0vzpp",
+          "kind": "record",
+          "label": "retry",
+          "value": 59
+        },
+        {
+          "id": "z1piam5z4",
+          "kind": "record",
+          "label": "score",
+          "value": 55
+        }
+      ]
+    },
+    {
+      "id": "nnn2h3",
+      "title": "segment 48",
+      "items": [
+        {
+          "id": "wmqpxembg",
+          "kind": "record",
+          "label": "score",
+          "value": 90
+        },
+        {
+          "id": "nf4lw3k45",
+          "kind": "record",
+          "label": "rank",
+          "value": 64
+        },
+        {
+          "id": "uosm7rf41",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "p2ig93yje",
+          "kind": "record",
+          "label": "route",
+          "value": 59
+        },
+        {
+          "id": "q4m83xybg",
+          "kind": "record",
+          "label": "retry",
+          "value": 38
+        },
+        {
+          "id": "boya60bce",
+          "kind": "record",
+          "label": "dedupe",
+          "value": 52
+        },
+        {
+          "id": "davtbsxp9",
+          "kind": "record",
+          "label": "ingest",
+          "value": 72
+        },
+        {
+          "id": "vpsi3n1lv",
+          "kind": "record",
+          "label": "score",
+          "value": 18
+        },
+        {
+          "id": "zmg7ri3fl",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "v12m8f26w",
+          "kind": "record",
+          "label": "rank",
+          "value": 24
+        },
+        {
+          "id": "l1udprhqk",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "a3cub3b8w",
+          "kind": "record",
+          "label": "enrich",
+          "value": 73
+        },
+        {
+          "id": "h34j50uwc",
+          "kind": "record",
+          "label": "emit",
+          "value": 90
+        },
+        {
+          "id": "zr59dzp6f",
+          "kind": "record",
+          "label": "normalize",
+          "value": 41
+        },
+        {
+          "id": "qxoxjcsg0",
+          "kind": "record",
+          "label": "ingest",
+          "value": 39
+        },
+        {
+          "id": "daxba3nnc",
+          "kind": "record",
+          "label": "rank",
+          "value": 36
+        },
+        {
+          "id": "dm5x48gb3",
+          "kind": "record",
+          "label": "emit",
+          "value": 91
+        }
+      ]
+    }
+  ]
+}

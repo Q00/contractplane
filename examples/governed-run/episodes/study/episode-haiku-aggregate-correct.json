@@ -1,0 +1,28 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "real-recorded",
+  "adversarial": false,
+  "model": "claude-haiku-4-5",
+  "recordedAt": "2026-07-11T11:35:02Z",
+  "flow": "aggregate",
+  "condition": "correct",
+  "dataset": "monthly-metrics",
+  "family": "aggregate",
+  "checkedField": "total",
+  "input": {"dataset": "monthly-metrics"},
+  "task": "Sum all the values in the monthly-metrics dataset and report the total.",
+  "response": "I'll calculate the sum of all values in monthly-metrics. The dataset contains the values: 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120. Adding these together: 10+20+30+40+50+60+70+80+90+100+110+120 = 780. The total aggregate value is 780.",
+  "claim": {
+    "outputs": {
+      "artifact": "evidence/x.aggregate-artifact.json",
+      "total": 780
+    },
+    "artifact": {
+      "aggregate-artifact": {
+        "dataset": "monthly-metrics",
+        "generatedBy": "aggregate-metric",
+        "total": 780
+      }
+    }
+  }
+}

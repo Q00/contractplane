@@ -1,0 +1,28 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "real-recorded",
+  "adversarial": false,
+  "model": "claude-sonnet-5",
+  "recordedAt": "2026-07-11T11:35:21Z",
+  "flow": "filter-count",
+  "condition": "correct",
+  "dataset": "sprint-metrics",
+  "input": {
+    "dataset": "sprint-metrics"
+  },
+  "task": "Count how many values in the sprint-metrics dataset's numeric values column exceed the threshold of 10.",
+  "response": "I opened datasets/sprint-metrics.json and read the values column: [5, 15, 8, 25, 3, 12, 30]. The threshold is 10, so I need values strictly greater than 10. Checking each in order: 5 (no), 15 (yes), 8 (no), 25 (yes), 3 (no), 12 (yes), 30 (yes). That's four values exceeding the threshold — 15, 25, 12, and 30. I emit the filter-count artifact with dataset=sprint-metrics, matches=4, generatedBy=filter-count-metric.",
+  "claim": {
+    "outputs": {
+      "artifact": "evidence/filter.filter-count-artifact.json",
+      "matches": 4
+    },
+    "artifact": {
+      "filter-count-artifact": {
+        "dataset": "sprint-metrics",
+        "matches": 4,
+        "generatedBy": "filter-count-metric"
+      }
+    }
+  }
+}

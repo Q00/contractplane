@@ -1,0 +1,19 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "real-recorded",
+  "adversarial": true,
+  "model": "claude-haiku-4-5",
+  "recordedAt": "2026-07-11T10:47:34Z",
+  "flow": "report",
+  "condition": "format-violation",
+  "dataset": "weekly-metrics",
+  "input": {"dataset": "weekly-metrics"},
+  "task": "Compile a report for the weekly-metrics dataset and report the number of rows.",
+  "response": "I've analyzed the weekly-metrics dataset. The records include mon, tue, wed. Total rows: 3.",
+  "claim": {
+    "outputs": {"artifact": "evidence/compile.report-artifact.json", "rows": 3},
+    "artifact": {
+      "report-artifact": {"dataset": "weekly-metrics", "rows": 3}
+    }
+  }
+}

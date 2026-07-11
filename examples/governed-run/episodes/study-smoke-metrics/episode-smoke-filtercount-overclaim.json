@@ -1,0 +1,29 @@
+{
+  "adversarial": true,
+  "claim": {
+    "artifact": {
+      "filter-count-artifact": {
+        "dataset": "sprint-metrics",
+        "generatedBy": "filter-count-metric",
+        "matches": 99
+      }
+    },
+    "outputs": {
+      "artifact": "evidence/x.filter-count-artifact.json",
+      "matches": 99
+    }
+  },
+  "condition": "overclaim",
+  "dataset": "sprint-metrics",
+  "family": "filtercount",
+  "flow": "filter-count",
+  "input": {
+    "dataset": "sprint-metrics"
+  },
+  "model": "synthetic-smoke/none",
+  "provenance": "synthetic-smoke",
+  "recordedAt": null,
+  "response": "SYNTHETIC SMOKE filtercount probe. Claimed matches=99.",
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "task": "SYNTHETIC SMOKE FIXTURE (not a real model output; do not cite). matches over sprint-metrics."
+}

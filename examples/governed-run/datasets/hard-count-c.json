@@ -1,0 +1,1836 @@
+{
+  "dataset": "hard-count-c",
+  "structure": "nested-groups",
+  "recordDiscriminator": "item.kind == 'record'",
+  "groups": [
+    {
+      "id": "grp-0001",
+      "title": "segment 1",
+      "items": [
+        {
+          "id": "rec-000001",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000002",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000003",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000004",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000005",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000006",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000007",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000008",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000009",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000010",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000011",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000012",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000013",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "meta-0001-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0002",
+      "title": "segment 2",
+      "items": [
+        {
+          "id": "rec-000014",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000015",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000016",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000017",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000017",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000019",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000020",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000021",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000022",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000023",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000024",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000025",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000026",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "meta-0002-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0003",
+      "title": "segment 3",
+      "items": [
+        {
+          "id": "rec-000027",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000028",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000029",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000030",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000031",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000032",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000033",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000034",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000035",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000035",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000037",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000038",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000039",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "meta-0003-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0004",
+      "title": "segment 4",
+      "items": [
+        {
+          "id": "rec-000040",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000041",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000042",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000043",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000044",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000045",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000046",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000047",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000048",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000049",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000050",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000051",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000052",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "meta-0004-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "meta-0004-2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0005",
+      "title": "segment 5",
+      "items": [
+        {
+          "id": "rec-000053",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000053",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000055",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000056",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000057",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000058",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000059",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000060",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000061",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000062",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000063",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000064",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000065",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "meta-0005-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0006",
+      "title": "segment 6",
+      "items": [
+        {
+          "id": "rec-000066",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000067",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000068",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000069",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000070",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000071",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000071",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000073",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000074",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000075",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000076",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000077",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000078",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "meta-0006-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0007",
+      "title": "segment 7",
+      "items": [
+        {
+          "id": "rec-000079",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000080",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000081",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000082",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000083",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000084",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000085",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000086",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000087",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000088",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000089",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000089",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000091",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "meta-0007-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0008",
+      "title": "segment 8",
+      "items": [
+        {
+          "id": "rec-000092",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000093",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000094",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000095",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000096",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000097",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000098",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000099",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000100",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000101",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000102",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000103",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000104",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "meta-0008-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "meta-0008-2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0009",
+      "title": "segment 9",
+      "items": [
+        {
+          "id": "rec-000105",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000106",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000107",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000107",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000109",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000110",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000111",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000112",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000113",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000114",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000115",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000116",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000117",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "meta-0009-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0010",
+      "title": "segment 10",
+      "items": [
+        {
+          "id": "rec-000118",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000119",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000120",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000121",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000122",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000123",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000124",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000125",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000125",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000127",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000128",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000129",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000130",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "meta-0010-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0011",
+      "title": "segment 11",
+      "items": [
+        {
+          "id": "rec-000131",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000132",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000133",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000134",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000135",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000136",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000137",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000138",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000139",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000140",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000141",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000142",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000143",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "meta-0011-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0012",
+      "title": "segment 12",
+      "items": [
+        {
+          "id": "rec-000143",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000145",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000146",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000147",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000148",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000149",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000150",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000151",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000152",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000153",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000154",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000155",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000156",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "meta-0012-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "meta-0012-2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0013",
+      "title": "segment 13",
+      "items": [
+        {
+          "id": "rec-000157",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000158",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000159",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000160",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000161",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000161",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000163",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000164",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000165",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000166",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000167",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000168",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000169",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "meta-0013-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0014",
+      "title": "segment 14",
+      "items": [
+        {
+          "id": "rec-000170",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000171",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000172",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000173",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000174",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000175",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000176",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000177",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000178",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000179",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000179",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000181",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000182",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "meta-0014-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0015",
+      "title": "segment 15",
+      "items": [
+        {
+          "id": "rec-000183",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000184",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000185",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000186",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000187",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000188",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000189",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000190",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000191",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000192",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000193",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000194",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000195",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "meta-0015-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0016",
+      "title": "segment 16",
+      "items": [
+        {
+          "id": "rec-000196",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000197",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000197",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000199",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000200",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000201",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000202",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000203",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000204",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000205",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000206",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000207",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000208",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "meta-0016-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "meta-0016-2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0017",
+      "title": "segment 17",
+      "items": [
+        {
+          "id": "rec-000209",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000210",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000211",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000212",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000213",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000214",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000215",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000215",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000217",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000218",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000219",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000220",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000221",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "meta-0017-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0018",
+      "title": "segment 18",
+      "items": [
+        {
+          "id": "rec-000222",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000223",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000224",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000225",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000226",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000227",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000228",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000229",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000230",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000231",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000232",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000233",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000233",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "meta-0018-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0019",
+      "title": "segment 19",
+      "items": [
+        {
+          "id": "rec-000235",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000236",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000237",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000238",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000239",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000240",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000241",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000242",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000243",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000244",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000245",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000246",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000247",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "meta-0019-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0020",
+      "title": "segment 20",
+      "items": [
+        {
+          "id": "rec-000248",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000249",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000250",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000251",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000251",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000253",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000254",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000255",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000256",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000257",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000258",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000259",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000260",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "meta-0020-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "meta-0020-2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0021",
+      "title": "segment 21",
+      "items": [
+        {
+          "id": "rec-000261",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000262",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000263",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000264",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000265",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000266",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000267",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000268",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000269",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000269",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000271",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000272",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000273",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "meta-0021-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0022",
+      "title": "segment 22",
+      "items": [
+        {
+          "id": "rec-000274",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000275",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000276",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000277",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000278",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000279",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000280",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000281",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000282",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000283",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000284",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000285",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "rec-000286",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "meta-0022-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0023",
+      "title": "segment 23",
+      "items": [
+        {
+          "id": "rec-000287",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000287",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000289",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000290",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000291",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000292",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000293",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "rec-000294",
+          "kind": "record",
+          "label": "index"
+        },
+        {
+          "id": "rec-000295",
+          "kind": "record",
+          "label": "ingest"
+        },
+        {
+          "id": "rec-000296",
+          "kind": "record",
+          "label": "parse"
+        },
+        {
+          "id": "rec-000297",
+          "kind": "record",
+          "label": "normalize"
+        },
+        {
+          "id": "rec-000298",
+          "kind": "record",
+          "label": "dedupe"
+        },
+        {
+          "id": "rec-000299",
+          "kind": "record",
+          "label": "enrich"
+        },
+        {
+          "id": "meta-0023-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    },
+    {
+      "id": "grp-0024",
+      "title": "segment 24",
+      "items": [
+        {
+          "id": "rec-000300",
+          "kind": "record",
+          "label": "score"
+        },
+        {
+          "id": "rec-000301",
+          "kind": "record",
+          "label": "rank"
+        },
+        {
+          "id": "rec-000302",
+          "kind": "record",
+          "label": "route"
+        },
+        {
+          "id": "rec-000303",
+          "kind": "record",
+          "label": "emit"
+        },
+        {
+          "id": "rec-000304",
+          "kind": "record",
+          "label": "audit"
+        },
+        {
+          "id": "rec-000305",
+          "kind": "record",
+          "label": "retry"
+        },
+        {
+          "id": "rec-000305",
+          "kind": "record",
+          "label": "flush"
+        },
+        {
+          "id": "rec-000307",
+          "kind": "record",
+          "label": "compact"
+        },
+        {
+          "id": "meta-0024-1",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        },
+        {
+          "id": "meta-0024-2",
+          "kind": "metadata",
+          "label": "group-annotation (NOT a record)"
+        }
+      ]
+    }
+  ]
+}

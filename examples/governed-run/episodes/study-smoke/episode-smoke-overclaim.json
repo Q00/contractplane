@@ -1,0 +1,28 @@
+{
+  "adversarial": true,
+  "claim": {
+    "artifact": {
+      "report-artifact": {
+        "dataset": "monthly-metrics",
+        "generatedBy": "compile-report",
+        "rows": 999
+      }
+    },
+    "outputs": {
+      "artifact": "evidence/compile.report-artifact.json",
+      "rows": 999
+    }
+  },
+  "condition": "overclaim",
+  "dataset": "monthly-metrics",
+  "flow": "report",
+  "input": {
+    "dataset": "monthly-metrics"
+  },
+  "model": "synthetic-smoke/none",
+  "provenance": "synthetic-smoke",
+  "recordedAt": null,
+  "response": "SYNTHETIC SMOKE overclaim probe. Claimed rows=999.",
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "task": "SYNTHETIC SMOKE FIXTURE (not a real model output; do not cite). Compile a report for monthly-metrics."
+}

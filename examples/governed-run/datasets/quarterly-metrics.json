@@ -1,0 +1,5 @@
+{
+  "dataset": "quarterly-metrics",
+  "records": ["w1", "w2", "w3", "w4", "w5", "w6"],
+  "values": [10, 20, 30, 40, 50, 60]
+}

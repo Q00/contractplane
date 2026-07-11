@@ -1,0 +1,28 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "real-recorded",
+  "adversarial": false,
+  "model": "claude-opus-4-8",
+  "recordedAt": "2026-07-11T10:48:20Z",
+  "flow": "report",
+  "condition": "correct",
+  "dataset": "weekly-metrics",
+  "input": {
+    "dataset": "weekly-metrics"
+  },
+  "task": "Compile a report for the weekly-metrics dataset and report the number of rows.",
+  "response": "I loaded datasets/weekly-metrics.json and read its records array. It holds three entries: \"mon\", \"tue\", and \"wed\". Counting them one by one gives 1 (mon), 2 (tue), 3 (wed). So the compiled report for weekly-metrics has rows = 3, and I emit the report artifact with dataset=weekly-metrics, rows=3, generatedBy=compile-report.",
+  "claim": {
+    "outputs": {
+      "artifact": "evidence/compile.report-artifact.json",
+      "rows": 3
+    },
+    "artifact": {
+      "report-artifact": {
+        "dataset": "weekly-metrics",
+        "rows": 3,
+        "generatedBy": "compile-report"
+      }
+    }
+  }
+}

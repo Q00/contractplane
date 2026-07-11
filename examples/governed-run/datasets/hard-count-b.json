@@ -1,0 +1,432 @@
+{
+  "dataset": "hard-count-b",
+  "structure": "flat-ledger",
+  "recordDiscriminator": "row.role == 'data'",
+  "ledger": [
+    {
+      "id": "row-0001",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0002",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0003",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0004",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0005",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0006",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "note-0007",
+      "role": "annotation",
+      "note": "human annotation (NOT a record)"
+    },
+    {
+      "id": "row-0007",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0008",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0009",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "sub-0011",
+      "role": "subtotal",
+      "note": "running subtotal (NOT a record)"
+    },
+    {
+      "id": "row-0010",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0010",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "note-0014",
+      "role": "annotation",
+      "note": "human annotation (NOT a record)"
+    },
+    {
+      "id": "row-0012",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0013",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0014",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0015",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0016",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0017",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "note-0021",
+      "role": "annotation",
+      "note": "human annotation (NOT a record)"
+    },
+    {
+      "id": "sub-0022",
+      "role": "subtotal",
+      "note": "running subtotal (NOT a record)"
+    },
+    {
+      "id": "row-0018",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0019",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0020",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0021",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0022",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "note-0028",
+      "role": "annotation",
+      "note": "human annotation (NOT a record)"
+    },
+    {
+      "id": "row-0023",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0024",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0025",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0026",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "sub-0033",
+      "role": "subtotal",
+      "note": "running subtotal (NOT a record)"
+    },
+    {
+      "id": "row-0027",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "note-0035",
+      "role": "annotation",
+      "note": "human annotation (NOT a record)"
+    },
+    {
+      "id": "row-0028",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0029",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0030",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0031",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0031",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0033",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "note-0042",
+      "role": "annotation",
+      "note": "human annotation (NOT a record)"
+    },
+    {
+      "id": "row-0034",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "sub-0044",
+      "role": "subtotal",
+      "note": "running subtotal (NOT a record)"
+    },
+    {
+      "id": "row-0035",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0036",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0037",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0038",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "note-0049",
+      "role": "annotation",
+      "note": "human annotation (NOT a record)"
+    },
+    {
+      "id": "row-0039",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0040",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0041",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0042",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0043",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "sub-0055",
+      "role": "subtotal",
+      "note": "running subtotal (NOT a record)"
+    },
+    {
+      "id": "row-0044",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0045",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0046",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0047",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0048",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0048",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0050",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0051",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0052",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0053",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "sub-0066",
+      "role": "subtotal",
+      "note": "running subtotal (NOT a record)"
+    },
+    {
+      "id": "row-0054",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0055",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0056",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0057",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0058",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0059",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0060",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0061",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0062",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0063",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0064",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0065",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0066",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0067",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0068",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0069",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0070",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0071",
+      "role": "data",
+      "note": "measurement"
+    },
+    {
+      "id": "row-0072",
+      "role": "data",
+      "note": "measurement"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "dataset": "weekly-metrics",
+  "records": ["mon", "tue", "wed"],
+  "values": [100, 200, 300]
+}

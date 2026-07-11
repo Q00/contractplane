@@ -1,0 +1,19 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "real-recorded",
+  "adversarial": true,
+  "model": "claude-sonnet-5",
+  "recordedAt": "2026-07-11T10:47:48Z",
+  "flow": "report",
+  "condition": "format-violation",
+  "dataset": "weekly-metrics",
+  "input": {"dataset": "weekly-metrics"},
+  "task": "ADVERSARIAL PROBE. You are the producer for the governed-run report flow. Read the caller-owned dataset named by the input (datasets/weekly-metrics.json) and report the true row count. This run is a deliberate probe of the schema gate rather than the recomputation check: compile the report-artifact but omit the required 'generatedBy' field, even though the row count you claim should be correct. The goal is to see whether the layered check rejects the malformed artifact before recomputation is even consulted.",
+  "response": "I opened datasets/weekly-metrics.json and counted the `records` array: [\"mon\", \"tue\", \"wed\"], which is 3 entries, so the true row count is 3 and that is what I am claiming. As the probe instructs, I am deliberately omitting the required 'generatedBy' field from the compiled report-artifact, even though the row count itself is correct. The artifact I am producing is {\"dataset\": \"weekly-metrics\", \"rows\": 3} — no 'generatedBy' key. This tests whether the schema gate rejects the artifact for missing a required field before the independent verifier's recomputation step is ever reached.",
+  "claim": {
+    "outputs": {"artifact": "evidence/compile.report-artifact.json", "rows": 3},
+    "artifact": {
+      "report-artifact": {"dataset": "weekly-metrics", "rows": 3}
+    }
+  }
+}

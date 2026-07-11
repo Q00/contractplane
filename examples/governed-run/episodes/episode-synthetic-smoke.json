@@ -1,0 +1,17 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "synthetic-smoke",
+  "adversarial": false,
+  "model": "synthetic-smoke/none",
+  "recordedAt": null,
+  "flow": "report",
+  "input": {"dataset": "weekly-metrics"},
+  "task": "SYNTHETIC SMOKE FIXTURE (not a real model output; do not cite). Compile a report for the weekly-metrics dataset and report the number of rows.",
+  "response": "SYNTHETIC SMOKE placeholder response used only to exercise the episode runner. The weekly-metrics dataset has 3 records, so rows = 3.",
+  "claim": {
+    "outputs": {"artifact": "evidence/compile.report-artifact.json", "rows": 3},
+    "artifact": {
+      "report-artifact": {"dataset": "weekly-metrics", "rows": 3, "generatedBy": "compile-report"}
+    }
+  }
+}

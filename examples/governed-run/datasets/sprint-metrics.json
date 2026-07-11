@@ -1,0 +1,13 @@
+{
+  "dataset": "sprint-metrics",
+  "records": [
+    "story-points-committed",
+    "story-points-completed",
+    "carryover-items",
+    "defects-opened",
+    "defects-closed",
+    "cycle-time-hours",
+    "review-turnaround-hours"
+  ],
+  "values": [5, 15, 8, 25, 3, 12, 30]
+}

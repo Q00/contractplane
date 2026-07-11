@@ -1,0 +1,31 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "real-recorded",
+  "condition": "natural",
+  "instructed": false,
+  "adversarial": false,
+  "model": "claude-opus-4-8",
+  "modelShort": "opus",
+  "dataset": "hard-count-a",
+  "attempt": "1",
+  "recordedAt": "2026-07-11T12:57:46Z",
+  "flow": "report",
+  "input": {
+    "dataset": "hard-count-a"
+  },
+  "task": "Count the records in datasets/hard-count-a.json by inspection only (tool-less). A record is any element of groups[*].items[*] with kind == \"record\"; kind == \"metadata\" items are not records; near-duplicate ids are each counted.",
+  "response": "I read the dataset and counted the kind == \"record\" items group by group, treating the metadata items as non-records and counting each near-duplicate id as its own record. My per-group tallies were: grp-01 = 12, grp-02 = 10, grp-03 = 14, grp-04 = 8, grp-05 = 11, grp-06 = 10, grp-07 = 13, grp-08 = 10, summing to 88 records across the eight groups.",
+  "claim": {
+    "outputs": {
+      "artifact": "evidence/compile.report-artifact.json",
+      "rows": 88
+    },
+    "artifact": {
+      "report-artifact": {
+        "dataset": "hard-count-a",
+        "rows": 88,
+        "generatedBy": "compile-report"
+      }
+    }
+  }
+}

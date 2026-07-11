@@ -1,0 +1,302 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+metadata:
+  name: governed-run
+  version: 0.1.0
+  description: >-
+    EXPERIMENTAL demonstration pack for the end-to-end governed slice
+    (contractplane.experimental). A local-process producer compiles a report
+    artifact inside a confined workspace, an independent verifier recomputes the
+    row count from the caller-owned dataset and checks the producer's claim
+    against it, and a separate external publication flow is denied pre-dispatch by
+    deny-by-default authority. The report-fabricated flow is an adversarial probe
+    whose producer overclaims and is rejected by recomputation. The aggregate and
+    filter-count flows extend the study to three mechanically recomputable task
+    families (count, sum, threshold-count). Not part of the specified
+    ContractPlane surface.
+defaultPolicy: local-evidence
+capabilities:
+  - id: compile-report
+    kind: deterministic
+    description: Compile a bounded metrics report artifact inside the run workspace.
+    sideEffects: local
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, rows]
+      properties:
+        artifact: {type: string, minLength: 1}
+        rows: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: [workspace.write]
+    binding:
+      adapter: local-process
+      target: compile-report
+      config:
+        entry: workers/compile_report.py
+  - id: publish-report
+    kind: integration
+    description: Publish the compiled report to an external distribution endpoint.
+    sideEffects: external
+    inputSchema:
+      type: object
+      required: [artifact]
+      properties:
+        artifact: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [receiptId]
+      properties:
+        receiptId: {type: string, minLength: 1}
+      additionalProperties: false
+    permissions: [network:reports.example, external:report.publish]
+    binding:
+      adapter: local-process
+      target: publish-report
+      config:
+        entry: workers/publish_report.py
+  - id: compile-report-fabricated
+    kind: deterministic
+    description: >-
+      ADVERSARIAL PROBE (experimental): a producer that deliberately overclaims
+      the row count to exercise recomputation-based rejection. Not a real capability.
+    sideEffects: local
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, rows]
+      properties:
+        artifact: {type: string, minLength: 1}
+        rows: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: [workspace.write]
+    binding:
+      adapter: local-process
+      target: compile-report-fabricated
+      config:
+        entry: workers/compile_report_fabricator.py
+  - id: aggregate-metric
+    kind: deterministic
+    description: Total a caller-owned numeric metric column inside the run workspace.
+    sideEffects: local
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, total]
+      properties:
+        artifact: {type: string, minLength: 1}
+        total: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: [workspace.write]
+    binding:
+      adapter: local-process
+      target: aggregate-metric
+      config:
+        entry: workers/aggregate_metric.py
+  - id: filter-count-metric
+    kind: deterministic
+    description: >-
+      Count caller-owned metric values above the flow-defined threshold
+      (config.threshold) inside the run workspace.
+    sideEffects: local
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, matches]
+      properties:
+        artifact: {type: string, minLength: 1}
+        matches: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: [workspace.write]
+    binding:
+      adapter: local-process
+      target: filter-count-metric
+      config:
+        entry: workers/filter_count_metric.py
+        threshold: 10
+roles: []
+evidence:
+  - id: report-artifact
+    kind: artifact
+    description: The compiled report artifact exists and satisfies the report schema.
+    schema:
+      type: object
+      required: [dataset, rows, generatedBy]
+      properties:
+        dataset: {type: string, minLength: 1}
+        rows: {type: integer, minimum: 1}
+        generatedBy: {type: string, const: compile-report}
+      additionalProperties: false
+  - id: publication-receipt
+    kind: external-receipt
+    description: The external distribution endpoint returned an immutable receipt.
+    schema:
+      type: object
+      required: [receiptId]
+      properties:
+        receiptId: {type: string, minLength: 1}
+      additionalProperties: false
+  - id: aggregate-artifact
+    kind: artifact
+    description: The aggregate artifact reports the total of the dataset's numeric column.
+    schema:
+      type: object
+      required: [dataset, total, generatedBy]
+      properties:
+        dataset: {type: string, minLength: 1}
+        total: {type: integer, minimum: 0}
+        generatedBy: {type: string, const: aggregate-metric}
+      additionalProperties: false
+  - id: filter-count-artifact
+    kind: artifact
+    description: The filter-count artifact reports how many values exceed the flow threshold.
+    schema:
+      type: object
+      required: [dataset, matches, generatedBy]
+      properties:
+        dataset: {type: string, minLength: 1}
+        matches: {type: integer, minimum: 0}
+        generatedBy: {type: string, const: filter-count-metric}
+      additionalProperties: false
+policies:
+  - id: local-evidence
+    description: Local stages complete only after an independent verifier accepts the artifact.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 1
+  - id: external-authorized
+    description: External side effects require explicit pre-dispatch authorization.
+    evidenceRequired: true
+    humanApproval: always
+    maxAttempts: 1
+flows:
+  - id: report
+    description: Compile one report artifact and independently verify it.
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    stages:
+      - id: compile
+        description: Compile the report artifact inside the workspace.
+        capability: compile-report
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [report-artifact]
+        produces: [report]
+  - id: publish
+    description: Attempt to publish a report through an external endpoint.
+    inputSchema:
+      type: object
+      required: [artifact]
+      properties:
+        artifact: {type: string, minLength: 1}
+      additionalProperties: false
+    stages:
+      - id: publish
+        description: Publish the report externally, guarded by deny-by-default authority.
+        capability: publish-report
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [publication-receipt]
+        policy: external-authorized
+        produces: [publication]
+  - id: report-fabricated
+    description: >-
+      ADVERSARIAL PROBE: run a fabricating producer whose claimed row count
+      contradicts the recomputed ground truth so the verifier rejects it.
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    stages:
+      - id: compile
+        description: Compile a report artifact with a deliberately fabricated row count.
+        capability: compile-report-fabricated
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [report-artifact]
+        produces: [report]
+  - id: aggregate
+    description: Total a numeric metric column and independently verify the total.
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    stages:
+      - id: aggregate
+        description: Sum the dataset's numeric column inside the workspace.
+        capability: aggregate-metric
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [aggregate-artifact]
+        produces: [aggregate]
+  - id: filter-count
+    description: Count metric values above the flow threshold and independently verify the count.
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    stages:
+      - id: filter
+        description: Count values above the flow-defined threshold inside the workspace.
+        capability: filter-count-metric
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [filter-count-artifact]
+        produces: [filtered]
+entrypoints:
+  - id: report
+    description: Compile and independently verify a report.
+    flow: report
+    keywords: [report, compile]
+    examples: [Compile the weekly metrics report.]
+  - id: publish
+    description: Publish a report through an external endpoint.
+    flow: publish
+    keywords: [publish, distribute]
+    examples: [Publish the weekly metrics report.]
+  - id: report-fabricated
+    description: Adversarial probe for recomputation-based rejection.
+    flow: report-fabricated
+    keywords: [fabricate, probe]
+    examples: [Probe the recomputation verifier with a fabricated report.]
+  - id: aggregate
+    description: Total a numeric metric column and independently verify it.
+    flow: aggregate
+    keywords: [aggregate, total, sum]
+    examples: [Total the monthly metrics column.]
+  - id: filter-count
+    description: Count metric values above the flow threshold and independently verify it.
+    flow: filter-count
+    keywords: [filter, threshold, count]
+    examples: [Count sprint metrics above the threshold.]

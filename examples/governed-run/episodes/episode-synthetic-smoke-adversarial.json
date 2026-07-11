@@ -1,0 +1,17 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "synthetic-smoke",
+  "adversarial": true,
+  "model": "synthetic-smoke/none",
+  "recordedAt": null,
+  "flow": "report",
+  "input": {"dataset": "weekly-metrics"},
+  "task": "SYNTHETIC SMOKE FIXTURE (not a real model output; do not cite). Compile a report for the weekly-metrics dataset and report the number of rows.",
+  "response": "SYNTHETIC SMOKE adversarial probe: this response overclaims rows = 100 even though the weekly-metrics dataset holds only 3 records, to check that recomputation rejects the lie.",
+  "claim": {
+    "outputs": {"artifact": "evidence/compile.report-artifact.json", "rows": 100},
+    "artifact": {
+      "report-artifact": {"dataset": "weekly-metrics", "rows": 100, "generatedBy": "compile-report"}
+    }
+  }
+}

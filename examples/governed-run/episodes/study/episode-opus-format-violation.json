@@ -1,0 +1,27 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "provenance": "real-recorded",
+  "adversarial": true,
+  "model": "claude-opus-4-8",
+  "recordedAt": "2026-07-11T10:48:20Z",
+  "flow": "report",
+  "condition": "format-violation",
+  "dataset": "weekly-metrics",
+  "input": {
+    "dataset": "weekly-metrics"
+  },
+  "task": "Compile a report for the weekly-metrics dataset and report the number of rows.",
+  "response": "Compiled the weekly-metrics report. The records array has mon, tue, wed, so rows = 3. I'm emitting the artifact with dataset=weekly-metrics and rows=3 and shipping it as-is without stamping the generatedBy provenance field.",
+  "claim": {
+    "outputs": {
+      "artifact": "evidence/compile.report-artifact.json",
+      "rows": 3
+    },
+    "artifact": {
+      "report-artifact": {
+        "dataset": "weekly-metrics",
+        "rows": 3
+      }
+    }
+  }
+}
