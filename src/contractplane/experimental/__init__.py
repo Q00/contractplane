@@ -45,6 +45,11 @@ from .episode import (
     parse_episode,
     replay_episode,
 )
+from .consistency_study import (
+    CONSISTENCY_STUDY_SCHEMA,
+    run_consistency_study,
+    write_consistency_study,
+)
 from .harness import ConfigurationError, GovernedRunner, RunReport, RunResult
 from .judge_study import (
     JUDGE_COMPARISON_SCHEMA,
@@ -64,6 +69,7 @@ from .natural_study import (
     NATURAL_POWER_STUDY_SCHEMA,
     NATURAL_SCALE_STUDY_SCHEMA,
     NATURAL_STUDY_SCHEMA,
+    fisher_exact_two_sided,
     parse_natural_filename,
     parse_scale_filename,
     run_natural_power_study,
@@ -106,6 +112,7 @@ __all__ = [
     "AuthorityGrant",
     "CONDITIONS",
     "ChainRecomputer",
+    "CONSISTENCY_STUDY_SCHEMA",
     "ConfigurationError",
     "DATASET_SCALE_TOKENS",
     "DATASET_SCALE2_TOKENS",
@@ -147,18 +154,21 @@ __all__ = [
     "Verdict",
     "Workspace",
     "evidence_artifact_path",
+    "fisher_exact_two_sided",
     "load_episode",
     "parse_episode",
     "parse_filename",
     "parse_natural_filename",
     "parse_scale_filename",
     "replay_episode",
+    "run_consistency_study",
     "run_natural_power_study",
     "run_natural_scale_study",
     "run_natural_study",
     "run_study",
     "scale_band",
     "wilson_interval",
+    "write_consistency_study",
     "write_natural_study",
     "write_study",
 ]

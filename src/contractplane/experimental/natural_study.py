@@ -594,6 +594,54 @@ def wilson_interval(successes: int, n: int, z: float = 1.96) -> tuple[float | No
     return (round(max(0.0, center - margin), 4), round(min(1.0, center + margin), 4))
 
 
+def _hypergeom_pmf(x: int, row1: int, col1: int, total: int) -> float:
+    """P(cell(1,1) == x) for a 2x2 table with the given fixed margins."""
+    return math.comb(col1, x) * math.comb(total - col1, row1 - x) / math.comb(total, row1)
+
+
+def fisher_exact_two_sided(a: int, b: int, c: int, d: int) -> float | None:
+    """Two-sided Fisher exact p-value for the 2x2 table [[a, b], [c, d]].
+
+    Pure combinatorics (no scipy): sums the hypergeometric probability of every
+    table with the same margins that is no more likely than the observed one. Rows
+    are the two groups, column 1 is the "event" count. Returns ``None`` for an empty
+    table.
+    """
+    row1, row2 = a + b, c + d
+    col1, total = a + c, a + b + c + d
+    if total == 0 or row1 == 0 or row2 == 0 or col1 == 0 or (total - col1) == 0:
+        return None
+    p_obs = _hypergeom_pmf(a, row1, col1, total)
+    lo = max(0, row1 - (total - col1))
+    hi = min(row1, col1)
+    tail = sum(
+        p for x in range(lo, hi + 1)
+        if (p := _hypergeom_pmf(x, row1, col1, total)) <= p_obs * (1 + 1e-9)
+    )
+    return round(min(1.0, tail), 6)
+
+
+def _pairwise_model_fisher(by_model: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """Two-sided Fisher exact p for every pair of models on error vs non-error counts.
+
+    Tests whether the per-model natural error *rates* differ more than chance; cited
+    so the paper can state (non-)significance honestly rather than eyeballing rates.
+    """
+    models = sorted(m for m, s in by_model.items() if s.get("recorded", s.get("N", 0)))
+    out: dict[str, Any] = {}
+    for i in range(len(models)):
+        for j in range(i + 1, len(models)):
+            m1, m2 = models[i], models[j]
+            e1, n1 = by_model[m1]["errors"], by_model[m1]["N"]
+            e2, n2 = by_model[m2]["errors"], by_model[m2]["N"]
+            out[f"{m1}_vs_{m2}"] = {
+                "counts": {m1: f"{e1}/{n1}", m2: f"{e2}/{n2}"},
+                "table": [[e1, n1 - e1], [e2, n2 - e2]],
+                "pValueTwoSided": fisher_exact_two_sided(e1, n1 - e1, e2, n2 - e2),
+            }
+    return out
+
+
 def _error_magnitudes(rows: list[dict[str, Any]]) -> list[int]:
     return sorted(
         r["absoluteError"]
@@ -674,10 +722,16 @@ def _power_aggregate(episodes: list[dict[str, Any]]) -> dict[str, Any]:
             for bm in band_models
         },
         "byDataset": {d: _power_stats([e for e in episodes if e.get("dataset") == d]) for d in datasets},
+        # Two-sided Fisher exact tests on per-model error vs non-error counts, so the
+        # paper can state per-model (non-)significance honestly instead of eyeballing.
+        "pairwiseModelErrorFisher": _pairwise_model_fisher(
+            {m: _power_stats([e for e in episodes if e.get("model") == m]) for m in models}
+        ),
         "note": (
             "byBand pools independent datasets at a scale; its pooled CI is heterogeneous. "
             "byBandModel (per band x model) is the primary homogeneous rate. byDataset shows "
-            "each independent dataset separately so a band effect is visibly not one dataset's identity."
+            "each independent dataset separately so a band effect is visibly not one dataset's identity. "
+            "pairwiseModelErrorFisher gives exact two-sided p-values for per-model error-rate differences."
         ),
     }
 

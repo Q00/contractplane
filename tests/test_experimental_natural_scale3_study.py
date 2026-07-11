@@ -226,3 +226,27 @@ def test_committed_power_run_includes_scale3_band_datasets() -> None:
         if "skipped" in entry or "fault" in entry:
             continue
         assert entry["caught"] == bool(entry["error"] and entry["verdict"] == "rejected")
+
+
+def test_committed_power_run_pins_per_model_counts_and_fisher_pvalues() -> None:
+    # With every natural slot recorded, per-model error counts are 2/13, 4/13, 7/13,
+    # and the three pairwise Fisher exact tests are all non-significant. These numbers
+    # are cited in the paper, so they are pinned here.
+    report = run_natural_power_study(
+        pack_dir=PACK_DIR,
+        count_dir=PACK_DIR / "episodes" / "study-natural-scale2",
+        count_plan=COUNT_PLAN, count_recomputer=COUNT_RECOMPUTER,
+        aggregate_dir=PACK_DIR / "episodes" / "study-natural-aggregate",
+        aggregate_plan=AGG_PLAN, aggregate_recomputer=SUM_RECOMPUTER,
+        extra_count_grids=[(SCALE3_DIR, DATASET_SCALE3_TOKENS)],
+    )
+    by_model = report["aggregate"]["byModel"]
+    assert (by_model["opus"]["errors"], by_model["opus"]["N"]) == (2, 13)
+    assert (by_model["sonnet"]["errors"], by_model["sonnet"]["N"]) == (4, 13)
+    assert (by_model["haiku"]["errors"], by_model["haiku"]["N"]) == (7, 13)
+
+    fisher = report["aggregate"]["pairwiseModelErrorFisher"]
+    assert fisher["opus_vs_sonnet"]["pValueTwoSided"] == 0.64472
+    assert fisher["haiku_vs_opus"]["pValueTwoSided"] == 0.096842
+    assert fisher["haiku_vs_sonnet"]["pValueTwoSided"] == 0.428308
+    assert all(pair["pValueTwoSided"] > 0.05 for pair in fisher.values())

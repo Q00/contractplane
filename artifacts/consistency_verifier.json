@@ -1,0 +1,322 @@
+{
+  "comparison": {
+    "scope": "9 scale2 natural claims (4 errors, 5 correct)",
+    "verifiers": {
+      "crossJudgeMajorityRecount": {
+        "caughtOnErrors": "1/4",
+        "falseRejectionsOnCorrect": "0/5"
+      },
+      "recomputation": {
+        "caughtOnErrors": "4/4",
+        "falseRejectionsOnCorrect": "0/5"
+      },
+      "schemaGuard": {
+        "caughtOnErrors": "0/4",
+        "falseRejectionsOnCorrect": "0/5"
+      },
+      "singleJudge/claude-haiku-4-5": {
+        "caughtOnErrors": "4/4",
+        "falseRejectionsOnCorrect": "0/5"
+      },
+      "singleJudge/claude-opus-4-8": {
+        "caughtOnErrors": "3/4",
+        "falseRejectionsOnCorrect": "0/5"
+      },
+      "singleJudge/claude-sonnet-5": {
+        "caughtOnErrors": "4/4",
+        "falseRejectionsOnCorrect": "0/5"
+      }
+    }
+  },
+  "crossJudgeMajorityRecount": {
+    "aggregate": {
+      "abstainedOnErrors": 3,
+      "abstentions": 3,
+      "catchRateOnErrors": 0.25,
+      "caughtOnErrors": "1/4",
+      "correct": 5,
+      "errors": 4,
+      "falseRejectionRateOnCorrect": 0.0,
+      "falseRejectionsOnCorrect": "0/5"
+    },
+    "description": "Three recorded judge recounts vote per claim; abstain->accept when no two agree. Reject iff the majority recount disagrees with the producer's claim.",
+    "perClaim": [
+      {
+        "abstained": false,
+        "caught": false,
+        "claimed": 273,
+        "dataset": "hard-count-f",
+        "error": false,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "haiku",
+        "truth": 273,
+        "verdict": "accept"
+      },
+      {
+        "abstained": false,
+        "caught": false,
+        "claimed": 754,
+        "dataset": "hard-count-g",
+        "error": false,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 754,
+          "claude-opus-4-8": 754,
+          "claude-sonnet-5": 754
+        },
+        "majorityRecount": 754,
+        "producer": "haiku",
+        "truth": 754,
+        "verdict": "accept"
+      },
+      {
+        "abstained": true,
+        "caught": false,
+        "claimed": 1435,
+        "dataset": "hard-count-h",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 1551,
+          "claude-opus-4-8": 1552,
+          "claude-sonnet-5": 1548
+        },
+        "majorityRecount": null,
+        "producer": "haiku",
+        "truth": 1551,
+        "verdict": "accept"
+      },
+      {
+        "abstained": false,
+        "caught": false,
+        "claimed": 273,
+        "dataset": "hard-count-f",
+        "error": false,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "opus",
+        "truth": 273,
+        "verdict": "accept"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 753,
+        "dataset": "hard-count-g",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 754,
+          "claude-opus-4-8": 754,
+          "claude-sonnet-5": 754
+        },
+        "majorityRecount": 754,
+        "producer": "opus",
+        "truth": 754,
+        "verdict": "reject"
+      },
+      {
+        "abstained": true,
+        "caught": false,
+        "claimed": 1550,
+        "dataset": "hard-count-h",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 1551,
+          "claude-opus-4-8": 1552,
+          "claude-sonnet-5": 1548
+        },
+        "majorityRecount": null,
+        "producer": "opus",
+        "truth": 1551,
+        "verdict": "accept"
+      },
+      {
+        "abstained": false,
+        "caught": false,
+        "claimed": 273,
+        "dataset": "hard-count-f",
+        "error": false,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "sonnet",
+        "truth": 273,
+        "verdict": "accept"
+      },
+      {
+        "abstained": false,
+        "caught": false,
+        "claimed": 754,
+        "dataset": "hard-count-g",
+        "error": false,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 754,
+          "claude-opus-4-8": 754,
+          "claude-sonnet-5": 754
+        },
+        "majorityRecount": 754,
+        "producer": "sonnet",
+        "truth": 754,
+        "verdict": "accept"
+      },
+      {
+        "abstained": true,
+        "caught": false,
+        "claimed": 1552,
+        "dataset": "hard-count-h",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 1551,
+          "claude-opus-4-8": 1552,
+          "claude-sonnet-5": 1548
+        },
+        "majorityRecount": null,
+        "producer": "sonnet",
+        "truth": 1551,
+        "verdict": "accept"
+      }
+    ]
+  },
+  "judgeDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/judge-verdicts",
+  "naturalCorrect": 5,
+  "naturalErrors": 4,
+  "note": "EXPERIMENTAL consistency-vote verifiers derived from ALREADY-RECORDED data (no fresh sampling). Cross-judge majority-recount votes the three recorded judge recounts per claim (abstains -> accept when they disagree). Same-model attempt-consistency votes a producer's own recorded r1/r2/r3 repetitions -- derived from repetitions, NOT fresh k-sampling. Both are scored beside schema guard (0/4), single judges, and recomputation (4/4).",
+  "producerClaims": 9,
+  "producerDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-scale2",
+  "sameModelAttemptConsistency": {
+    "aggregate": {
+      "correctFirstAttempts": 2,
+      "erroneousFirstAttempts": 4,
+      "falseFlagRateOnCorrectFirst": 1.0,
+      "falseFlagsOnCorrectFirst": "2/2",
+      "flagRateOnErroneousFirst": 1.0,
+      "flaggedErroneousFirstAttempts": "4/4"
+    },
+    "description": "A producer's own recorded r1/r2/r3 attempts vote; flag r1 iff the majority of its own attempts disagrees with r1. DERIVED FROM PRODUCER REPETITIONS, not fresh k-sampling of a verifier.",
+    "perGroup": [
+      {
+        "abstained": false,
+        "attempts": [
+          753,
+          754,
+          754
+        ],
+        "correctlyFlaggedError": true,
+        "dataset": "hard-count-g",
+        "falseFlagOnCorrect": false,
+        "flaggedR1": true,
+        "majorityOfOwnAttempts": 754,
+        "model": "opus",
+        "r1Claim": 753,
+        "r1Error": true,
+        "truth": 754
+      },
+      {
+        "abstained": false,
+        "attempts": [
+          754,
+          755,
+          755
+        ],
+        "correctlyFlaggedError": false,
+        "dataset": "hard-count-g",
+        "falseFlagOnCorrect": true,
+        "flaggedR1": true,
+        "majorityOfOwnAttempts": 755,
+        "model": "sonnet",
+        "r1Claim": 754,
+        "r1Error": false,
+        "truth": 754
+      },
+      {
+        "abstained": false,
+        "attempts": [
+          754,
+          828,
+          828
+        ],
+        "correctlyFlaggedError": false,
+        "dataset": "hard-count-g",
+        "falseFlagOnCorrect": true,
+        "flaggedR1": true,
+        "majorityOfOwnAttempts": 828,
+        "model": "haiku",
+        "r1Claim": 754,
+        "r1Error": false,
+        "truth": 754
+      },
+      {
+        "abstained": false,
+        "attempts": [
+          1550,
+          1551,
+          1551
+        ],
+        "correctlyFlaggedError": true,
+        "dataset": "hard-count-h",
+        "falseFlagOnCorrect": false,
+        "flaggedR1": true,
+        "majorityOfOwnAttempts": 1551,
+        "model": "opus",
+        "r1Claim": 1550,
+        "r1Error": true,
+        "truth": 1551
+      },
+      {
+        "abstained": false,
+        "attempts": [
+          1552,
+          1551,
+          1551
+        ],
+        "correctlyFlaggedError": true,
+        "dataset": "hard-count-h",
+        "falseFlagOnCorrect": false,
+        "flaggedR1": true,
+        "majorityOfOwnAttempts": 1551,
+        "model": "sonnet",
+        "r1Claim": 1552,
+        "r1Error": true,
+        "truth": 1551
+      },
+      {
+        "abstained": false,
+        "attempts": [
+          1435,
+          1489,
+          1489
+        ],
+        "correctlyFlaggedError": true,
+        "dataset": "hard-count-h",
+        "falseFlagOnCorrect": false,
+        "flaggedR1": true,
+        "majorityOfOwnAttempts": 1489,
+        "model": "haiku",
+        "r1Claim": 1435,
+        "r1Error": true,
+        "truth": 1551
+      }
+    ],
+    "scope": "model x dataset with 3 recorded attempts (g and h only)"
+  },
+  "schema": "contractplane.dev/experimental/consistency-verifier/v0"
+}

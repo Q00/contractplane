@@ -1206,7 +1206,7 @@
         "skipped": 0
       }
     },
-    "note": "byBand pools independent datasets at a scale; its pooled CI is heterogeneous. byBandModel (per band x model) is the primary homogeneous rate. byDataset shows each independent dataset separately so a band effect is visibly not one dataset's identity.",
+    "note": "byBand pools independent datasets at a scale; its pooled CI is heterogeneous. byBandModel (per band x model) is the primary homogeneous rate. byDataset shows each independent dataset separately so a band effect is visibly not one dataset's identity. pairwiseModelErrorFisher gives exact two-sided p-values for per-model error-rate differences.",
     "overall": {
       "N": 39,
       "catchRateOnErrors": 1.0,
@@ -1247,6 +1247,59 @@
       "naturalErrorRate": 0.3333,
       "recorded": 39,
       "skipped": 0
+    },
+    "pairwiseModelErrorFisher": {
+      "haiku_vs_opus": {
+        "counts": {
+          "haiku": "7/13",
+          "opus": "2/13"
+        },
+        "pValueTwoSided": 0.096842,
+        "table": [
+          [
+            7,
+            6
+          ],
+          [
+            2,
+            11
+          ]
+        ]
+      },
+      "haiku_vs_sonnet": {
+        "counts": {
+          "haiku": "7/13",
+          "sonnet": "4/13"
+        },
+        "pValueTwoSided": 0.428308,
+        "table": [
+          [
+            7,
+            6
+          ],
+          [
+            4,
+            9
+          ]
+        ]
+      },
+      "opus_vs_sonnet": {
+        "counts": {
+          "opus": "2/13",
+          "sonnet": "4/13"
+        },
+        "pValueTwoSided": 0.64472,
+        "table": [
+          [
+            2,
+            11
+          ],
+          [
+            4,
+            9
+          ]
+        ]
+      }
     }
   },
   "aggregateDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-aggregate",
