@@ -29,6 +29,7 @@ Plan -> Unit -> Claim -> Evidence -> Verdict -> Transition
 - Status and limitations: https://github.com/Q00/contractplane/blob/main/STATUS.md
 - Core model RFD: https://github.com/Q00/contractplane/blob/main/rfds/0001-core-model.md
 - DomainPack schema: https://contractplane.dev/spec/v1alpha1/domainpack.schema.json
+- OpenClip reference site: https://contractplane.dev/openclip/
 - OpenClip reference pack: https://github.com/Q00/contractplane/tree/main/domain-packs/openclip
 
 ## Boundaries
