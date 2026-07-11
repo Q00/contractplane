@@ -92,6 +92,24 @@ def test_site_links_to_the_candidate_schema_and_names_neighbor_protocols() -> No
         assert "part of A2A" in text
 
 
+def test_openclip_site_is_canonical_discoverable_and_honest() -> None:
+    root_site = _read(ROOT / "site" / "index.html")
+    openclip_site = _read(ROOT / "site" / "openclip" / "index.html")
+    llms = _read(ROOT / "site" / "llms.txt")
+    sitemap = _read(ROOT / "site" / "sitemap.xml")
+    canonical = "https://contractplane.dev/openclip/"
+    normalized_openclip = " ".join(openclip_site.split())
+
+    assert 'href="/openclip/"' in root_site
+    for text in (openclip_site, llms, sitemap):
+        assert canonical in text
+    assert "https://wpti.dev/openclip" not in openclip_site
+    assert "v0.2.4" in openclip_site
+    assert "no ContractPlane execution adapter yet" in normalized_openclip
+    assert (ROOT / "site" / "openclip" / "assets" / "banner-clean.jpg").is_file()
+    assert (ROOT / "site" / "openclip" / "assets" / "banner.jpg").is_file()
+
+
 def test_github_actions_are_commit_pinned() -> None:
     uses_pattern = re.compile(r"^\s*-?\s*uses:\s*([^@\s]+)@([^\s#]+)", re.MULTILINE)
     for workflow in sorted((ROOT / ".github" / "workflows").glob("*.yml")):
