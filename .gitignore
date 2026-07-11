@@ -9,4 +9,5 @@ htmlcov/
 dist/
 build/
 .venv/
+.ouroboros/
 *.jsonl
