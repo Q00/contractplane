@@ -1,0 +1,164 @@
+{
+  "acpAvailable": true,
+  "acpReason": "ok",
+  "agreement": {
+    "authority-denied": {
+      "acp": "denied",
+      "agree": true,
+      "local": "denied"
+    },
+    "authority-granted": {
+      "acp": "accepted",
+      "agree": true,
+      "local": "accepted"
+    },
+    "borderline": {
+      "acp": "rejected",
+      "agree": true,
+      "local": "rejected"
+    },
+    "correct": {
+      "acp": "accepted",
+      "agree": true,
+      "local": "accepted"
+    },
+    "overclaim": {
+      "acp": "rejected",
+      "agree": true,
+      "local": "rejected"
+    }
+  },
+  "agreementCount": 5,
+  "conditions": [
+    "correct",
+    "overclaim",
+    "borderline",
+    "authority-denied",
+    "authority-granted"
+  ],
+  "conditionsCount": 5,
+  "note": "EXPERIMENTAL cross-substrate study. Both substrates share the same plan, authority gate, recompute-verifier, and kernel; they differ only in transport (in-process subprocess vs real ACP session). The acp substrate answers ACP's session/request_permission from the same contract authority decision, so the deny path is exercised over real ACP messages.",
+  "rows": [
+    {
+      "condition": "correct",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "permissionChannel": "kernel-authorization",
+      "substrate": "local-process",
+      "verdictMethod": "recomputation"
+    },
+    {
+      "acpProtocolVersion": 1,
+      "acpStopReason": "end_turn",
+      "condition": "correct",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "permissionAnswer": "allow",
+      "permissionChannel": "acp:session/request_permission",
+      "permissionRequested": true,
+      "substrate": "acp",
+      "verdictMethod": "recomputation"
+    },
+    {
+      "condition": "overclaim",
+      "expected": "rejected",
+      "outcome": "rejected",
+      "permissionChannel": "kernel-authorization",
+      "substrate": "local-process",
+      "verdictMethod": "recomputation"
+    },
+    {
+      "acpProtocolVersion": 1,
+      "acpStopReason": "end_turn",
+      "condition": "overclaim",
+      "expected": "rejected",
+      "outcome": "rejected",
+      "permissionAnswer": "allow",
+      "permissionChannel": "acp:session/request_permission",
+      "permissionRequested": true,
+      "substrate": "acp",
+      "verdictMethod": "recomputation"
+    },
+    {
+      "condition": "borderline",
+      "expected": "rejected",
+      "outcome": "rejected",
+      "permissionChannel": "kernel-authorization",
+      "substrate": "local-process",
+      "verdictMethod": "recomputation"
+    },
+    {
+      "acpProtocolVersion": 1,
+      "acpStopReason": "end_turn",
+      "condition": "borderline",
+      "expected": "rejected",
+      "outcome": "rejected",
+      "permissionAnswer": "allow",
+      "permissionChannel": "acp:session/request_permission",
+      "permissionRequested": true,
+      "substrate": "acp",
+      "verdictMethod": "recomputation"
+    },
+    {
+      "condition": "authority-denied",
+      "expected": "denied",
+      "outcome": "denied",
+      "permissionChannel": "kernel-authorization",
+      "substrate": "local-process",
+      "verdictMethod": null
+    },
+    {
+      "acpProtocolVersion": 1,
+      "acpStopReason": "refusal",
+      "condition": "authority-denied",
+      "expected": "denied",
+      "outcome": "denied",
+      "permissionAnswer": "deny",
+      "permissionChannel": "acp:session/request_permission",
+      "permissionRequested": true,
+      "substrate": "acp",
+      "verdictMethod": null
+    },
+    {
+      "condition": "authority-granted",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "permissionChannel": "kernel-authorization",
+      "substrate": "local-process",
+      "verdictMethod": "schema"
+    },
+    {
+      "acpProtocolVersion": 1,
+      "acpStopReason": "end_turn",
+      "condition": "authority-granted",
+      "expected": "accepted",
+      "outcome": "accepted",
+      "permissionAnswer": "allow",
+      "permissionChannel": "acp:session/request_permission",
+      "permissionRequested": true,
+      "substrate": "acp",
+      "verdictMethod": "schema"
+    }
+  ],
+  "schema": "contractplane.dev/experimental/acp-substrate-study/v0",
+  "substrates": [
+    "local-process",
+    "acp"
+  ],
+  "table": {
+    "acp": {
+      "authority-denied": "denied",
+      "authority-granted": "accepted",
+      "borderline": "rejected",
+      "correct": "accepted",
+      "overclaim": "rejected"
+    },
+    "local-process": {
+      "authority-denied": "denied",
+      "authority-granted": "accepted",
+      "borderline": "rejected",
+      "correct": "accepted",
+      "overclaim": "rejected"
+    }
+  }
+}

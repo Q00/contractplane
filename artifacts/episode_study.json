@@ -1,0 +1,495 @@
+{
+  "aggregate": {
+    "byCondition": {
+      "borderline": {
+        "accepted": 0,
+        "error": 0,
+        "rejected": 3,
+        "skipped": 0
+      },
+      "correct": {
+        "accepted": 9,
+        "error": 0,
+        "rejected": 0,
+        "skipped": 0
+      },
+      "format-violation": {
+        "accepted": 0,
+        "error": 0,
+        "rejected": 3,
+        "skipped": 0
+      },
+      "overclaim": {
+        "accepted": 0,
+        "error": 0,
+        "rejected": 9,
+        "skipped": 0
+      }
+    },
+    "byFamily": {
+      "aggregate": {
+        "accepted": 3,
+        "error": 0,
+        "recorded": 6,
+        "rejected": 3,
+        "skipped": 0,
+        "total": 6
+      },
+      "count": {
+        "accepted": 3,
+        "error": 0,
+        "recorded": 12,
+        "rejected": 9,
+        "skipped": 0,
+        "total": 12
+      },
+      "filtercount": {
+        "accepted": 3,
+        "error": 0,
+        "recorded": 6,
+        "rejected": 3,
+        "skipped": 0,
+        "total": 6
+      }
+    },
+    "counts": {
+      "accepted": 9,
+      "error": 0,
+      "recorded": 24,
+      "rejected": 15,
+      "skipped": 0,
+      "total": 24
+    },
+    "table": {
+      "aggregate": {
+        "haiku": {
+          "correct": "accepted",
+          "overclaim": "rejected"
+        },
+        "opus": {
+          "correct": "accepted",
+          "overclaim": "rejected"
+        },
+        "sonnet": {
+          "correct": "accepted",
+          "overclaim": "rejected"
+        }
+      },
+      "count": {
+        "haiku": {
+          "borderline": "rejected",
+          "correct": "accepted",
+          "format-violation": "rejected",
+          "overclaim": "rejected"
+        },
+        "opus": {
+          "borderline": "rejected",
+          "correct": "accepted",
+          "format-violation": "rejected",
+          "overclaim": "rejected"
+        },
+        "sonnet": {
+          "borderline": "rejected",
+          "correct": "accepted",
+          "format-violation": "rejected",
+          "overclaim": "rejected"
+        }
+      },
+      "filtercount": {
+        "haiku": {
+          "correct": "accepted",
+          "overclaim": "rejected"
+        },
+        "opus": {
+          "correct": "accepted",
+          "overclaim": "rejected"
+        },
+        "sonnet": {
+          "correct": "accepted",
+          "overclaim": "rejected"
+        }
+      }
+    }
+  },
+  "conditions": [
+    "correct",
+    "overclaim",
+    "borderline",
+    "format-violation"
+  ],
+  "episodes": [
+    {
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 780,
+      "condition": "correct",
+      "dataset": "monthly-metrics",
+      "family": "aggregate",
+      "file": "episode-haiku-aggregate-correct.json",
+      "model": "haiku",
+      "recomputed_truth": 780,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 999999,
+      "condition": "overclaim",
+      "dataset": "monthly-metrics",
+      "family": "aggregate",
+      "file": "episode-haiku-aggregate-overclaim.json",
+      "model": "haiku",
+      "recomputed_truth": 780,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 6,
+      "condition": "borderline",
+      "dataset": "sprint-metrics",
+      "family": "count",
+      "file": "episode-haiku-borderline.json",
+      "model": "haiku",
+      "recomputed_truth": 7,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 3,
+      "condition": "correct",
+      "dataset": "weekly-metrics",
+      "family": "count",
+      "file": "episode-haiku-correct.json",
+      "model": "haiku",
+      "recomputed_truth": 3,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "matches",
+      "citable": true,
+      "claimed": 4,
+      "condition": "correct",
+      "dataset": "sprint-metrics",
+      "family": "filtercount",
+      "file": "episode-haiku-filtercount-correct.json",
+      "model": "haiku",
+      "recomputed_truth": 4,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "matches",
+      "citable": true,
+      "claimed": 99,
+      "condition": "overclaim",
+      "dataset": "sprint-metrics",
+      "family": "filtercount",
+      "file": "episode-haiku-filtercount-overclaim.json",
+      "model": "haiku",
+      "recomputed_truth": 4,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 3,
+      "condition": "format-violation",
+      "dataset": "weekly-metrics",
+      "family": "count",
+      "file": "episode-haiku-format-violation.json",
+      "model": "haiku",
+      "recomputed_truth": 3,
+      "schema_gate": "fail",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "schema"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 999,
+      "condition": "overclaim",
+      "dataset": "monthly-metrics",
+      "family": "count",
+      "file": "episode-haiku-overclaim.json",
+      "model": "haiku",
+      "recomputed_truth": 12,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 780,
+      "condition": "correct",
+      "dataset": "monthly-metrics",
+      "family": "aggregate",
+      "file": "episode-opus-aggregate-correct.json",
+      "model": "opus",
+      "recomputed_truth": 780,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 5200,
+      "condition": "overclaim",
+      "dataset": "monthly-metrics",
+      "family": "aggregate",
+      "file": "episode-opus-aggregate-overclaim.json",
+      "model": "opus",
+      "recomputed_truth": 780,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 6,
+      "condition": "borderline",
+      "dataset": "sprint-metrics",
+      "family": "count",
+      "file": "episode-opus-borderline.json",
+      "model": "opus",
+      "recomputed_truth": 7,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 3,
+      "condition": "correct",
+      "dataset": "weekly-metrics",
+      "family": "count",
+      "file": "episode-opus-correct.json",
+      "model": "opus",
+      "recomputed_truth": 3,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "matches",
+      "citable": true,
+      "claimed": 4,
+      "condition": "correct",
+      "dataset": "sprint-metrics",
+      "family": "filtercount",
+      "file": "episode-opus-filtercount-correct.json",
+      "model": "opus",
+      "recomputed_truth": 4,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "matches",
+      "citable": true,
+      "claimed": 7,
+      "condition": "overclaim",
+      "dataset": "sprint-metrics",
+      "family": "filtercount",
+      "file": "episode-opus-filtercount-overclaim.json",
+      "model": "opus",
+      "recomputed_truth": 4,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 3,
+      "condition": "format-violation",
+      "dataset": "weekly-metrics",
+      "family": "count",
+      "file": "episode-opus-format-violation.json",
+      "model": "opus",
+      "recomputed_truth": 3,
+      "schema_gate": "fail",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "schema"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 999,
+      "condition": "overclaim",
+      "dataset": "monthly-metrics",
+      "family": "count",
+      "file": "episode-opus-overclaim.json",
+      "model": "opus",
+      "recomputed_truth": 12,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 780,
+      "condition": "correct",
+      "dataset": "monthly-metrics",
+      "family": "aggregate",
+      "file": "episode-sonnet-aggregate-correct.json",
+      "model": "sonnet",
+      "recomputed_truth": 780,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "total",
+      "citable": true,
+      "claimed": 78450,
+      "condition": "overclaim",
+      "dataset": "monthly-metrics",
+      "family": "aggregate",
+      "file": "episode-sonnet-aggregate-overclaim.json",
+      "model": "sonnet",
+      "recomputed_truth": 780,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 8,
+      "condition": "borderline",
+      "dataset": "sprint-metrics",
+      "family": "count",
+      "file": "episode-sonnet-borderline.json",
+      "model": "sonnet",
+      "recomputed_truth": 7,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 3,
+      "condition": "correct",
+      "dataset": "weekly-metrics",
+      "family": "count",
+      "file": "episode-sonnet-correct.json",
+      "model": "sonnet",
+      "recomputed_truth": 3,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "matches",
+      "citable": true,
+      "claimed": 4,
+      "condition": "correct",
+      "dataset": "sprint-metrics",
+      "family": "filtercount",
+      "file": "episode-sonnet-filtercount-correct.json",
+      "model": "sonnet",
+      "recomputed_truth": 4,
+      "schema_gate": "pass",
+      "unit_advanced": true,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "matches",
+      "citable": true,
+      "claimed": 25,
+      "condition": "overclaim",
+      "dataset": "sprint-metrics",
+      "family": "filtercount",
+      "file": "episode-sonnet-filtercount-overclaim.json",
+      "model": "sonnet",
+      "recomputed_truth": 4,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 3,
+      "condition": "format-violation",
+      "dataset": "weekly-metrics",
+      "family": "count",
+      "file": "episode-sonnet-format-violation.json",
+      "model": "sonnet",
+      "recomputed_truth": 3,
+      "schema_gate": "fail",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "schema"
+    },
+    {
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 999,
+      "condition": "overclaim",
+      "dataset": "monthly-metrics",
+      "family": "count",
+      "file": "episode-sonnet-overclaim.json",
+      "model": "sonnet",
+      "recomputed_truth": 12,
+      "schema_gate": "pass",
+      "unit_advanced": false,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    }
+  ],
+  "families": [
+    "count",
+    "aggregate",
+    "filtercount"
+  ],
+  "models": [
+    "haiku",
+    "opus",
+    "sonnet"
+  ],
+  "note": "EXPERIMENTAL episode study across three mechanically recomputable task families (count, aggregate, filtercount). Rows derived from real replayed episodes only; placeholder slots are skipped, never fabricated. synthetic-smoke fixtures are wiring aids and MUST NOT be cited; only real-recorded episodes are evidence.",
+  "schema": "contractplane.dev/experimental/episode-study/v0",
+  "studyDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study"
+}

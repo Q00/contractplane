@@ -1,0 +1,309 @@
+{
+  "authority": {
+    "external_granted": {
+      "exit_code": 0,
+      "outcome": "accepted",
+      "pipeline": "green",
+      "provenance_written": true,
+      "rejected_by": null
+    },
+    "external_no_grant": {
+      "exit_code": 1,
+      "outcome": "rejected",
+      "pipeline": "red",
+      "provenance_written": false,
+      "rejected_by": "policy-gate"
+    }
+  },
+  "claim_source": "examples/governed-run/episodes/study/ (sonnet row, real-recorded)",
+  "composite_did_better": [
+    "Mature, standardized ecosystem: CWL is an open standard with multiple conformant engines (cwltool, Toil, Arvados) and OPA/Rego is a CNCF-graduated policy engine with a large rule ecosystem; ContractPlane's kernel is a single research prototype.",
+    "Scalability and portability: the CWL/OPA stack already runs distributed, containerized, and HPC/cloud workloads with caching, retries, and provenance at production scale, which the experimental contractplane slice does not attempt.",
+    "Separation of concerns and reuse: schema validation, policy, orchestration, and provenance are independent, individually swappable, widely-understood components with existing tooling and staff familiarity."
+  ],
+  "conditions": {
+    "borderline": {
+      "composite_correct": "rejected",
+      "composite_correct_detail": {
+        "exit_code": 1,
+        "outcome": "rejected",
+        "pipeline": "red",
+        "provenance_written": false,
+        "rejected_by": "verify"
+      },
+      "composite_misconfigured": "accepted",
+      "composite_misconfigured_detail": {
+        "exit_code": 0,
+        "outcome": "accepted",
+        "pipeline": "green",
+        "provenance_written": true,
+        "rejected_by": null
+      },
+      "contractplane": "rejected",
+      "contractplane_detail": {
+        "outcome": "rejected",
+        "result": "rejected",
+        "verdict_method": "recomputation"
+      }
+    },
+    "correct": {
+      "composite_correct": "accepted",
+      "composite_correct_detail": {
+        "exit_code": 0,
+        "outcome": "accepted",
+        "pipeline": "green",
+        "provenance_written": true,
+        "rejected_by": null
+      },
+      "composite_misconfigured": "accepted",
+      "composite_misconfigured_detail": {
+        "exit_code": 0,
+        "outcome": "accepted",
+        "pipeline": "green",
+        "provenance_written": true,
+        "rejected_by": null
+      },
+      "contractplane": "accepted",
+      "contractplane_detail": {
+        "outcome": "accepted",
+        "result": "succeeded",
+        "verdict_method": "recomputation"
+      }
+    },
+    "format-violation": {
+      "composite_correct": "rejected",
+      "composite_correct_detail": {
+        "exit_code": 1,
+        "outcome": "rejected",
+        "pipeline": "red",
+        "provenance_written": false,
+        "rejected_by": "schema-gate"
+      },
+      "composite_misconfigured": "rejected",
+      "composite_misconfigured_detail": {
+        "exit_code": 1,
+        "outcome": "rejected",
+        "pipeline": "red",
+        "provenance_written": false,
+        "rejected_by": "schema-gate"
+      },
+      "contractplane": "rejected",
+      "contractplane_detail": {
+        "outcome": "rejected",
+        "result": "rejected",
+        "verdict_method": "schema"
+      }
+    },
+    "overclaim": {
+      "composite_correct": "rejected",
+      "composite_correct_detail": {
+        "exit_code": 1,
+        "outcome": "rejected",
+        "pipeline": "red",
+        "provenance_written": false,
+        "rejected_by": "verify"
+      },
+      "composite_misconfigured": "accepted",
+      "composite_misconfigured_detail": {
+        "exit_code": 0,
+        "outcome": "accepted",
+        "pipeline": "green",
+        "provenance_written": true,
+        "rejected_by": null
+      },
+      "contractplane": "rejected",
+      "contractplane_detail": {
+        "outcome": "rejected",
+        "result": "rejected",
+        "verdict_method": "recomputation"
+      }
+    }
+  },
+  "experiment_id": "e4-composite-baseline",
+  "generated_from": "examples/composite-baseline/run_composite.py",
+  "hardened_variant": {
+    "catches_the_naive_omission": {
+      "hardened_correct_claim": {
+        "exit_code": 0,
+        "outcome": "accepted",
+        "pipeline": "green",
+        "provenance_written": true,
+        "rejected_by": null
+      },
+      "hardened_overclaim_still_caught_by_verify": {
+        "exit_code": 1,
+        "outcome": "rejected",
+        "pipeline": "red",
+        "provenance_written": false,
+        "rejected_by": "verify"
+      },
+      "loose_receipt_honest": {
+        "detected_at": "runtime, at the accept-gate",
+        "outcome": "rejected",
+        "rejected_by": "accept-gate",
+        "workflow": "workflow/report-hardened-loose.cwl + receipts/no-verification.receipt.json"
+      },
+      "type_coupled_wiring": {
+        "cwltool_exit_code": 1,
+        "cwltool_loads": false,
+        "detected_at": "cwltool validate/load time, before any run",
+        "error": "\u001b[1;30mERROR\u001b[0m \u001b[31mTool definition failed validation:",
+        "note": "Directly analogous to the contractplane validator's 'references unknown evidence'.",
+        "what": "drop verify but keep the accept-gate sourcing verify/receipt",
+        "workflow": "workflow/report-hardened-omitverify.cwl"
+      },
+      "verdict": "YES — the meta-policy makes verification enforceable and the naive omission is caught."
+    },
+    "composite_did_better_here": "cwltool's structural validation genuinely catches the type-coupled omission (dangling source) at load time — a real, standard-tool safety net the composite gets for free, narrowing the gap.",
+    "drift_on_the_guard": {
+      "a_guard_dropped": {
+        "detected": "not detected — nothing requires a workflow to contain an accept-gate",
+        "overclaim_outcome": "accepted",
+        "overclaim_pipeline": "green",
+        "what": "drop the coupled verify+accept-gate pair (the natural refactor once verify is removed)",
+        "workflow": "workflow/report-hardened-noguard.cwl"
+      },
+      "b_receipt_forged": {
+        "detected": "not detected — the meta-policy checks a receipt's verdict+binding, never its ORIGIN",
+        "forgeable_in_correct_wiring": false,
+        "forgeable_note": "In report-hardened.cwl the receipt is type-coupled to verify's output, which CWL isolates, so it is NOT producer-forgeable there. Forgeability is a property of the receipt's SOURCE in the wiring, which nothing constrains — re-sourcing it re-opens it.",
+        "overclaim_outcome": "accepted",
+        "overclaim_pipeline": "green",
+        "what": "keep the accept-gate, drop verify, source the receipt from a producer-side forger",
+        "workflow": "workflow/report-hardened-forged.cwl"
+      },
+      "premise": "The meta-policy is itself just workflow topology + a policy file. Nothing in CWL or OPA schematizes the governance topology, so a realistic second-order drift re-opens the hole. Both variants below LOAD and RUN."
+    },
+    "honest_verdict": "The meta-policy NARROWS the delta but does not collapse it to 'one file vs five files'. Correctly wired, the hardened composite genuinely enforces the invariant, and cwltool's own loader even rejects the naive verify-omission (dangling receipt source) pre-run — the reviewer is right that far. But the invariant is a property of an assembled topology that nothing schematizes: a realistic second-order drift — delete the guard, or forge/re-source its receipt — LOADS clean and RUNS GREEN, accepting the overclaim. On the contract side the same invariant is a typed stage property whose unsafe configuration is unrepresentable (validator exit 2, pre-run) and whose runtime enforcement lives in a frozen kernel; making it fail open requires tripping validation or editing the trusted computing base. The residual, load-bearing delta is therefore 'an unsafe configuration you cannot express vs a guard whose presence and trust-wiring nothing enforces — a guard that itself needs guarding.'",
+    "meta_policy": "examples/composite-baseline/policy/meta_accept.rego (evaluated by real opa)",
+    "prompt": "Reviewer rebuttal: a single Rego meta-constraint ('no accept without a preceding verify verdict receipt') should make verification required in the composite too, collapsing the delta to 'one file vs five files.' This section runs that honestly.",
+    "status": "EXPERIMENTAL",
+    "where_enforcement_lives": {
+      "composite_hardened": {
+        "fail_open_mode": "a silent config edit that still validates -> green run accepting the overclaim",
+        "location": "the assembled workflow TOPOLOGY: presence of verify + accept-gate, and the receipt being sourced from the verifier",
+        "static_check": "cwltool validates the wiring you WROTE (dangling sources rejected) but has no schema over the governance topology itself",
+        "what_must_drift_to_fail_open": [
+          "delete the coupled verify+accept-gate pair (loads clean, runs green)",
+          "re-source the accept-gate's receipt from a producer/loose input (loads clean, runs green)"
+        ]
+      },
+      "contractplane": {
+        "cp_omission_validate": {
+          "exit_code": 2,
+          "issues": [
+            {
+              "message": "'requiresEvidence' is a required property",
+              "path": "$.flows[0].stages[0]"
+            }
+          ],
+          "valid": false
+        },
+        "fail_open_mode": "requires tripping validation or modifying the TCB — not a silently-valid config",
+        "location": "the stage's TYPE (requiresEvidence is a required property) plus the frozen kernel that only mints the evidence-recorded transition on an accepted independent verdict",
+        "static_check": "contractplane validate rejects a stage missing requiresEvidence (exit 2) and a dangling evidence reference, before any run",
+        "what_must_drift_to_fail_open": [
+          "omit requiresEvidence -> validator exit 2, pre-run (cannot express the unsafe stage)",
+          "or tamper with the frozen kernel / verifier binding -> editing the trusted computing base, not a config drift"
+        ]
+      }
+    }
+  },
+  "honest_caveats": [
+    "The composite here is arguably shown in a FAVORABLE light: its gates are wired correctly by hand, its verify step is a purpose-built recompute, and the schema/policy are hand-mirrored from the contractplane contract — a real integrator must author and keep all of that in sync themselves.",
+    "The contractplane side reuses a library recomputer (RecordCountRecomputer); the composite's verify script is user-authored. Both sides lean on library engines (cwltool/opa vs the contractplane kernel). LOC counts below separate user-authored glue from library code.",
+    "This exercises singleton local stages with JSON evidence only; neither side's harder cases (fanout, remote/sandboxed adapters, semantic-review evidence) are demonstrated."
+  ],
+  "integration_surface": {
+    "composite": {
+      "breakdown": {
+        "cwl_tool_wrappers": [
+          "examples/composite-baseline/tools/policy_gate.cwl",
+          "examples/composite-baseline/tools/provenance_log.cwl",
+          "examples/composite-baseline/tools/run_producer.cwl",
+          "examples/composite-baseline/tools/schema_validate.cwl",
+          "examples/composite-baseline/tools/verify_recompute.cwl"
+        ],
+        "cwl_workflow": [
+          "examples/composite-baseline/workflow/report-governed.cwl",
+          "examples/composite-baseline/workflow/report-misconfigured.cwl"
+        ],
+        "effect_descriptors": [
+          "examples/composite-baseline/effects/external-publish-granted.effect.json",
+          "examples/composite-baseline/effects/external-publish-nogrant.effect.json",
+          "examples/composite-baseline/effects/local-report.effect.json"
+        ],
+        "json_schema": [
+          "examples/composite-baseline/schema/report-artifact.schema.json"
+        ],
+        "python_tools": [
+          "examples/composite-baseline/tools/policy_gate.py",
+          "examples/composite-baseline/tools/provenance_log.py",
+          "examples/composite-baseline/tools/run_producer.py",
+          "examples/composite-baseline/tools/schema_validate.py",
+          "examples/composite-baseline/tools/verify_recompute.py"
+        ],
+        "rego_policy": [
+          "examples/composite-baseline/policy/authorization.rego"
+        ]
+      },
+      "distinct_language_count": 5,
+      "distinct_languages_configs": [
+        "CWL (YAML)",
+        "Python",
+        "Rego",
+        "JSON Schema",
+        "JSON (effects)"
+      ],
+      "files": 17,
+      "nonblank_loc": 477
+    },
+    "contractplane": {
+      "breakdown": {
+        "domain_pack": [
+          "examples/governed-run/domainpack.yaml"
+        ]
+      },
+      "caveat": "The pack's LOC also covers the publish flow and the adversarial probe flow; the report-only governed behavior is a subset. Even counted generously it is one file in one language, statically validated.",
+      "distinct_language_count": 1,
+      "distinct_languages_configs": [
+        "DomainPack (YAML)"
+      ],
+      "files": 1,
+      "nonblank_loc": 302
+    },
+    "note": "User-authored governed behavior only. Both sides also rely on library engines (cwltool + opa on the composite side; the contractplane kernel on the other). The composite must additionally keep the schema, policy, verify logic, and step wiring mutually consistent by hand; the pack expresses the same behavior as one declarative, statically-validated document."
+  },
+  "misconfiguration_experiment": {
+    "composite": {
+      "detected_at": "not detected — workflow is valid CWL, runs green, PROV log records a satisfied run",
+      "overclaim_outcome": "accepted",
+      "overclaim_pipeline": "green",
+      "variant": "workflow/report-misconfigured.cwl"
+    },
+    "contractplane": {
+      "coupled_control_valid": true,
+      "detected_at": "validation time, before any run — 'requiresEvidence' is a required property",
+      "validate_exit_code": 2,
+      "validate_issues": [
+        {
+          "message": "'requiresEvidence' is a required property",
+          "path": "$.flows[0].stages[0]"
+        }
+      ],
+      "validate_valid": false,
+      "variant": "contractplane_omission/pack-omitted-verification.yaml"
+    },
+    "delta": "The same governance omission is invisible on the composite side (green run, overclaim accepted) but is a typed-coupling violation the contractplane validator rejects statically. The coupled control pack validates, proving the rejection is caused by the single dropped coupling.",
+    "description": "A single realistic drift on each side: drop the independent verification. Composite: delete the verify step from the CWL workflow. ContractPlane: drop requiresEvidence from the stage."
+  },
+  "scenario": "Governed report flow: a producer counts records in a caller-owned dataset and claims a count; the claim must clear a schema gate and an independent recomputation; an external publish requires explicit authority.",
+  "status": "EXPERIMENTAL",
+  "tools": {
+    "all_real": true,
+    "contractplane_validate": "repo .venv CLI",
+    "cwltool": "/Users/jaegyu.lee/Project/contractplane/.ouroboros/composite-venv/bin/cwltool 3.2.20260413085819",
+    "opa": "Version: 1.18.2",
+    "substitutions": "none — cwltool, opa, and the contractplane validator are all the real tools"
+  }
+}

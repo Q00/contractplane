@@ -11,3 +11,5 @@ build/
 .venv/
 .ouroboros/
 *.jsonl
+# Experiment ledger is checked-in evidence, not a transient artifact.
+!artifacts/experiments.jsonl

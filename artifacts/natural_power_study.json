@@ -1,0 +1,819 @@
+{
+  "aggregate": {
+    "byFamily": {
+      "aggregate": {
+        "N": 0,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 0,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": null,
+          "low": null,
+          "point": null
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": null,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": null,
+        "recorded": 0,
+        "skipped": 6
+      },
+      "count": {
+        "N": 9,
+        "catchRateOnErrors": 1.0,
+        "caught": 4,
+        "correct": 5,
+        "errorMagnitude": {
+          "max": 116,
+          "mean": 29.75,
+          "median": 1.0,
+          "min": 1,
+          "n": 4,
+          "values": [
+            1,
+            1,
+            1,
+            116
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7334,
+          "low": 0.1888,
+          "point": 0.4444
+        },
+        "errors": 4,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.4444,
+        "recorded": 9,
+        "skipped": 12
+      }
+    },
+    "byFamilyScale": {
+      "aggregate/g": {
+        "N": 0,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 0,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": null,
+          "low": null,
+          "point": null
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": null,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": null,
+        "recorded": 0,
+        "skipped": 3
+      },
+      "aggregate/h": {
+        "N": 0,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 0,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": null,
+          "low": null,
+          "point": null
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": null,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": null,
+        "recorded": 0,
+        "skipped": 3
+      },
+      "count/f": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "count/g": {
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 1,
+        "correct": 2,
+        "errorMagnitude": {
+          "max": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1,
+          "n": 1,
+          "values": [
+            1
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7923,
+          "low": 0.0615,
+          "point": 0.3333
+        },
+        "errors": 1,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3333,
+        "recorded": 3,
+        "skipped": 6
+      },
+      "count/h": {
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 3,
+        "correct": 0,
+        "errorMagnitude": {
+          "max": 116,
+          "mean": 39.3333,
+          "median": 1.0,
+          "min": 1,
+          "n": 3,
+          "values": [
+            1,
+            1,
+            116
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 1.0,
+          "low": 0.4385,
+          "point": 1.0
+        },
+        "errors": 3,
+        "falseRejectionRateOnCorrect": null,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 1.0,
+        "recorded": 3,
+        "skipped": 6
+      }
+    },
+    "byModel": {
+      "haiku": {
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 1,
+        "correct": 2,
+        "errorMagnitude": {
+          "max": 116,
+          "mean": 116.0,
+          "median": 116.0,
+          "min": 116,
+          "n": 1,
+          "values": [
+            116
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7923,
+          "low": 0.0615,
+          "point": 0.3333
+        },
+        "errors": 1,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3333,
+        "recorded": 3,
+        "skipped": 6
+      },
+      "opus": {
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 2,
+        "correct": 1,
+        "errorMagnitude": {
+          "max": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1,
+          "n": 2,
+          "values": [
+            1,
+            1
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.9385,
+          "low": 0.2077,
+          "point": 0.6667
+        },
+        "errors": 2,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.6667,
+        "recorded": 3,
+        "skipped": 6
+      },
+      "sonnet": {
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 1,
+        "correct": 2,
+        "errorMagnitude": {
+          "max": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1,
+          "n": 1,
+          "values": [
+            1
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7923,
+          "low": 0.0615,
+          "point": 0.3333
+        },
+        "errors": 1,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3333,
+        "recorded": 3,
+        "skipped": 6
+      }
+    },
+    "byScale": {
+      "f": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "g": {
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 1,
+        "correct": 2,
+        "errorMagnitude": {
+          "max": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1,
+          "n": 1,
+          "values": [
+            1
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7923,
+          "low": 0.0615,
+          "point": 0.3333
+        },
+        "errors": 1,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3333,
+        "recorded": 3,
+        "skipped": 9
+      },
+      "h": {
+        "N": 3,
+        "catchRateOnErrors": 1.0,
+        "caught": 3,
+        "correct": 0,
+        "errorMagnitude": {
+          "max": 116,
+          "mean": 39.3333,
+          "median": 1.0,
+          "min": 1,
+          "n": 3,
+          "values": [
+            1,
+            1,
+            116
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 1.0,
+          "low": 0.4385,
+          "point": 1.0
+        },
+        "errors": 3,
+        "falseRejectionRateOnCorrect": null,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 1.0,
+        "recorded": 3,
+        "skipped": 9
+      }
+    },
+    "overall": {
+      "N": 9,
+      "catchRateOnErrors": 1.0,
+      "caught": 4,
+      "correct": 5,
+      "errorMagnitude": {
+        "max": 116,
+        "mean": 29.75,
+        "median": 1.0,
+        "min": 1,
+        "n": 4,
+        "values": [
+          1,
+          1,
+          1,
+          116
+        ]
+      },
+      "errorRateWilson95": {
+        "high": 0.7334,
+        "low": 0.1888,
+        "point": 0.4444
+      },
+      "errors": 4,
+      "falseRejectionRateOnCorrect": 0.0,
+      "falseRejections": 0,
+      "fault": 0,
+      "missed": 0,
+      "naturalErrorRate": 0.4444,
+      "recorded": 9,
+      "skipped": 18
+    }
+  },
+  "aggregateDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-aggregate",
+  "condition": "natural",
+  "countDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-scale2",
+  "episodes": [
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 273,
+      "condition": "natural",
+      "dataset": "hard-count-f",
+      "error": false,
+      "family": "count",
+      "file": "episode-haiku-f.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "f",
+      "schema_gate": "pass",
+      "truth": 273,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "attempt": "2",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "count",
+      "file": "episode-haiku-g-r2.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "3",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "count",
+      "file": "episode-haiku-g-r3.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 754,
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "error": false,
+      "family": "count",
+      "file": "episode-haiku-g.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "g",
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "attempt": "2",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "count",
+      "file": "episode-haiku-h-r2.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "3",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "count",
+      "file": "episode-haiku-h-r3.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "absoluteError": 116,
+      "attempt": "1",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1435,
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "error": true,
+      "family": "count",
+      "file": "episode-haiku-h.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "h",
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 273,
+      "condition": "natural",
+      "dataset": "hard-count-f",
+      "error": false,
+      "family": "count",
+      "file": "episode-opus-f.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "f",
+      "schema_gate": "pass",
+      "truth": 273,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "attempt": "2",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "count",
+      "file": "episode-opus-g-r2.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "3",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "count",
+      "file": "episode-opus-g-r3.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "absoluteError": 1,
+      "attempt": "1",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 753,
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "error": true,
+      "family": "count",
+      "file": "episode-opus-g.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "g",
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "attempt": "2",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "count",
+      "file": "episode-opus-h-r2.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "3",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "count",
+      "file": "episode-opus-h-r3.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "absoluteError": 1,
+      "attempt": "1",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1550,
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "error": true,
+      "family": "count",
+      "file": "episode-opus-h.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "h",
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 273,
+      "condition": "natural",
+      "dataset": "hard-count-f",
+      "error": false,
+      "family": "count",
+      "file": "episode-sonnet-f.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "f",
+      "schema_gate": "pass",
+      "truth": 273,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "attempt": "2",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "count",
+      "file": "episode-sonnet-g-r2.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "3",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "count",
+      "file": "episode-sonnet-g-r3.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 754,
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "error": false,
+      "family": "count",
+      "file": "episode-sonnet-g.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "g",
+      "schema_gate": "pass",
+      "truth": 754,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "attempt": "2",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "count",
+      "file": "episode-sonnet-h-r2.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "3",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "count",
+      "file": "episode-sonnet-h-r3.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "absoluteError": 1,
+      "attempt": "1",
+      "caught": true,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1552,
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "error": true,
+      "family": "count",
+      "file": "episode-sonnet-h.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "h",
+      "schema_gate": "pass",
+      "truth": 1551,
+      "verdict": "rejected",
+      "verdict_method": "recomputation"
+    },
+    {
+      "attempt": "1",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "aggregate",
+      "file": "episode-haiku-g.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "1",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "aggregate",
+      "file": "episode-haiku-h.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "1",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "aggregate",
+      "file": "episode-opus-g.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "1",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "aggregate",
+      "file": "episode-opus-h.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "h",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "1",
+      "condition": "natural",
+      "dataset": "hard-count-g",
+      "family": "aggregate",
+      "file": "episode-sonnet-g.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "g",
+      "skipped": "unrecorded"
+    },
+    {
+      "attempt": "1",
+      "condition": "natural",
+      "dataset": "hard-count-h",
+      "family": "aggregate",
+      "file": "episode-sonnet-h.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "h",
+      "skipped": "unrecorded"
+    }
+  ],
+  "families": [
+    "count",
+    "aggregate"
+  ],
+  "instructed": false,
+  "models": [
+    "haiku",
+    "opus",
+    "sonnet"
+  ],
+  "note": "EXPERIMENTAL spontaneous-error POWER study. Merges every natural episode over the shortcut-closed hard datasets across two mechanically recomputable task families -- counting (f/g/h, with repeated attempts to raise N at g and h) and aggregate/sum (g/h) -- and reports, per family / scale / model, the sample size N, the natural error rate with a Wilson 95% binomial confidence interval, the error-magnitude distribution, the governed path's catch rate on natural errors, and the false-rejection rate on correct claims. Rows derive from real replayed episodes only; placeholder slots are skipped, never fabricated.",
+  "scales": [
+    "f",
+    "g",
+    "h"
+  ],
+  "schema": "contractplane.dev/experimental/natural-power-study/v0"
+}
