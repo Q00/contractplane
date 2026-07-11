@@ -6,6 +6,9 @@ Release: `0.1.0a1` (alpha)
 
 Project stage: alpha design and reference kernel
 
+Distribution: GitHub prerelease. PyPI publication is pending a project-scoped
+Trusted Publisher for `Q00/contractplane`.
+
 ## Publication status
 
 ContractPlane is not production-ready and does not yet implement the complete

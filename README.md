@@ -105,7 +105,8 @@ profile is `contractplane.dev/kernel-state/v0alpha1`; it is not a stable
 conformance contract.
 
 ```bash
-python -m pip install "contractplane==0.1.0a1"
+python -m pip install \
+  "git+https://github.com/Q00/contractplane.git@v0.1.0a1"
 git clone https://github.com/Q00/contractplane.git
 cd contractplane
 
