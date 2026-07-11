@@ -1,0 +1,92 @@
+{
+  "schema": "openclip-contractplane-lock-v2",
+  "apiVersion": "contractplane.dev/v1alpha1",
+  "domain": "openclip",
+  "domainVersion": "0.1.0",
+  "contractplaneVersion": "0.1.0",
+  "openclipVersion": "0.2.4",
+  "packSha256": "44dcadf0d0b5aa2ff6c5ee67845957a382ba55803b0cb1ffb30e1a92d94290be",
+  "source": {
+    "repository": "https://github.com/Q00/openclip",
+    "release": "pending",
+    "revision": "current-worktree",
+    "path": "contractplane/openclip.domain.yaml"
+  },
+  "roleContracts": [
+    {
+      "role": "oc-assembler",
+      "path": "roles/oc-assembler.md",
+      "sha256": "ff4a690c47df21e65b5b4533e220aecd7405d84f3ed1e49417cd186ca8c8e585"
+    },
+    {
+      "role": "oc-cut-judge",
+      "path": "roles/oc-cut-judge.md",
+      "sha256": "50a89cd7cb9202092ef9159022d3e15d52469a5ada49116b45ec3cc45010a9cd"
+    },
+    {
+      "role": "oc-cut-proposer",
+      "path": "roles/oc-cut-proposer.md",
+      "sha256": "50a371092244554aebd99d650b9df93442f02a3072197b97df178d5dc89af6ee"
+    },
+    {
+      "role": "oc-hook-finder",
+      "path": "roles/oc-hook-finder.md",
+      "sha256": "e55703aa189dc3e7a459b89608876096153c5000351546136134b3ba6743225f"
+    },
+    {
+      "role": "oc-orchestrator",
+      "path": "roles/oc-orchestrator.md",
+      "sha256": "6efd4ca784e949ca3272775b22d5f0e56e283d9b6acc3ff96292585ae537590e"
+    },
+    {
+      "role": "oc-proxy-converter",
+      "path": "roles/oc-proxy-converter.md",
+      "sha256": "1a93eb253738cbe083316e6ded4bdb7b7915fb5eb355c1ac070fdde87bff51ef"
+    },
+    {
+      "role": "oc-stt-worker",
+      "path": "roles/oc-stt-worker.md",
+      "sha256": "0f4afac368ab6e4c21447c8ea41ca13616268e74b081bea0baa5c324e09cbc49"
+    },
+    {
+      "role": "oc-subtitle-agent",
+      "path": "roles/oc-subtitle-agent.md",
+      "sha256": "cd8a3ec84a704894987176093118e0b1896903632d340b9f1e988ef56df8dac9"
+    },
+    {
+      "role": "oc-thumbnail-artist",
+      "path": "roles/oc-thumbnail-artist.md",
+      "sha256": "a65dcd90e62eb98971c91cb2bb3da0d5b7e46b2c53dfd296276f7459b3b461dc"
+    },
+    {
+      "role": "oc-thumbnail-designer",
+      "path": "roles/oc-thumbnail-designer.md",
+      "sha256": "13e1d04c4e62d8b1d32a2994fe21c3b30243098f0c303d2870d865050357b33f"
+    },
+    {
+      "role": "oc-tool-auditor",
+      "path": "roles/oc-tool-auditor.md",
+      "sha256": "568550707d60b97de4cef08716cded5c03db8e6f83ae16b90459c33e9c7978c1"
+    },
+    {
+      "role": "oc-toolsmith",
+      "path": "roles/oc-toolsmith.md",
+      "sha256": "506769af4d92f6f60f292f74d579da8ea38cd2add8bd5575ce6f9df1c07faa27"
+    },
+    {
+      "role": "oc-verifier",
+      "path": "roles/oc-verifier.md",
+      "sha256": "b29056c20d6a38770830157992f22e774958a69e7c20b9cd5acf138b4caa2102"
+    }
+  ],
+  "compiledPlans": [
+    {
+      "flow": "shorts",
+      "entrypoint": "shorts",
+      "path": "compiled/shorts.plan.json",
+      "sha256": "0ec0b2a38463fd8d984e4a09637885a9b2a2c6d1ec93633d94b29be55d867e68",
+      "planDigest": "1dc4e0702ba2f6908432682cb932fa161ced3af3325a1212248a8040de114b35",
+      "status": "reference-fixture"
+    }
+  ]
+}

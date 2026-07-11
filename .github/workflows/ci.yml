@@ -1,0 +1,54 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.14"]
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: ${{ matrix.python-version }}
+      - uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
+        with:
+          enable-cache: true
+      - run: uv sync --extra dev --locked
+      - run: uv run pytest -q
+      - run: uv run contractplane schema --out /tmp/domainpack.schema.json
+      - run: cmp spec/v1alpha1/domainpack.schema.json /tmp/domainpack.schema.json
+      - run: uv run contractplane validate domain-packs/openclip/openclip.yaml
+      - run: uv run contractplane compile domain-packs/openclip/openclip.yaml --entrypoint shorts --out /tmp/shorts.plan.json
+      - run: cmp conformance/openclip/flow2-shorts.plan.json /tmp/shorts.plan.json
+
+  wheel:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
+        with:
+          enable-cache: true
+      - run: uv build --wheel
+      - run: python -m venv /tmp/contractplane-wheel
+      - run: /tmp/contractplane-wheel/bin/python -m pip install dist/*.whl
+      - run: /tmp/contractplane-wheel/bin/contractplane --version
+        working-directory: /tmp
+      - run: /tmp/contractplane-wheel/bin/contractplane validate "$GITHUB_WORKSPACE/examples/hello-domain/domainpack.yaml"
+        working-directory: /tmp

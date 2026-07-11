@@ -1,0 +1,38 @@
+# ContractPlane
+
+> ContractPlane is the Agent Contract Plane: an early-stage proposal and reference kernel for transport-neutral, evidence-gated agent execution contracts.
+
+ContractPlane is not Agent Client Protocol. It is also not the IBM/BeeAI-origin Agent Communication Protocol, whose documentation says it is now part of A2A under the Linux Foundation. Those protocols, along with MCP, may be used through future adapters.
+
+## Current status
+
+- Release: 0.1.0a1 alpha design/reference kernel.
+- `contractplane.dev/v1alpha1` DomainPack is an alpha-candidate schema.
+- RFD 0001 is Proposed and non-normative.
+- The local state machine is the experimental `contractplane.dev/kernel-state/v0alpha1` profile.
+- Implemented: DomainPack validation, deterministic ExecutionPlan compilation, local JSONL replay, manually registered units, output-schema checks, caller-supplied evidence receipts, and simple pre-dispatch authorization gating.
+- Not implemented: Intent/Environment/Execution Contract resolution, selector or condition evaluation, binding invocation, runtime adapters, effective authority enforcement, independent Verdicts, steering invalidation, capability canary/promotion/rollback, or cross-runtime conformance.
+
+Target architecture formula:
+
+Intent + Domain Pack + Environment -> Execution Contract
+
+Proposed core execution model:
+
+Plan -> Unit -> Claim -> Evidence -> Verdict -> Transition
+
+## Canonical resources
+
+- Project: https://contractplane.dev/
+- Repository: https://github.com/Q00/contractplane
+- Whitepaper: https://github.com/Q00/contractplane/blob/main/WHITEPAPER.md
+- Status and limitations: https://github.com/Q00/contractplane/blob/main/STATUS.md
+- Core model RFD: https://github.com/Q00/contractplane/blob/main/rfds/0001-core-model.md
+- DomainPack schema: https://contractplane.dev/spec/v1alpha1/domainpack.schema.json
+- OpenClip reference pack: https://github.com/Q00/contractplane/tree/main/domain-packs/openclip
+
+## Boundaries
+
+- Agent runtimes such as Mastra, Codex, Claude, and LangGraph execute work.
+- MCP, A2A, Agent Client Protocol, HTTP, and local CLI connect systems.
+- The proposed ContractPlane architecture governs domain contracts, authority, evidence, steering, resumption, and capability lifecycle. The current v0.1 kernel implements only the subset listed above.

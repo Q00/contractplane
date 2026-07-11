@@ -1,0 +1,50 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+metadata:
+  name: conformance-hello
+  version: 0.1.0
+  description: Small valid pack used by the v1alpha1 conformance suite.
+defaultPolicy: standard
+capabilities:
+  - id: say-hello
+    kind: agent
+    description: Produce a greeting.
+    sideEffects: none
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: []
+    binding: {adapter: agent, target: hello-writer}
+roles:
+  - id: hello-writer
+    description: Writes one greeting.
+    capabilities: [say-hello]
+    instructions: Return one greeting and no unrelated content.
+evidence:
+  - id: greeting-review
+    kind: semantic-review
+    description: Independent review of the greeting.
+policies:
+  - id: standard
+    description: Require evidence and no human approval.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 2
+flows:
+  - id: hello-flow
+    description: Produce one independently reviewed greeting.
+    inputSchema: {type: object}
+    stages:
+      - id: write
+        description: Write the greeting.
+        capability: say-hello
+        role: hello-writer
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [greeting-review]
+        produces: [greeting]
+entrypoints:
+  - id: hello
+    description: Route greeting requests.
+    flow: hello-flow
+    keywords: [hello]
+    examples: [Say hello.]

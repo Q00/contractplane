@@ -1,0 +1,717 @@
+{
+  "apiVersion": "contractplane.dev/plan/v1alpha1",
+  "domain": {
+    "name": "openclip",
+    "version": "0.1.0"
+  },
+  "entrypoint": "shorts",
+  "flow": "shorts",
+  "inputSchema": {
+    "properties": {
+      "count": {
+        "minimum": 1,
+        "type": "integer"
+      },
+      "video": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "video"
+    ],
+    "type": "object"
+  },
+  "kind": "ExecutionPlan",
+  "planDigest": "1dc4e0702ba2f6908432682cb932fa161ced3af3325a1212248a8040de114b35",
+  "stageOrder": [
+    "proxy",
+    "ingest",
+    "transcribe",
+    "probe",
+    "merge",
+    "hooks",
+    "render",
+    "thumbnails",
+    "subtitles",
+    "verify"
+  ],
+  "waves": [
+    {
+      "index": 0,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-role",
+            "target": "oc-proxy-converter"
+          },
+          "capability": "convert-proxy",
+          "capabilityDescription": "Convert a camera proxy or high-resolution source into review media.",
+          "capabilityKind": "agent",
+          "description": "Build a review proxy when needed.",
+          "evidenceContracts": [
+            {
+              "description": "The declared artifact exists, is non-trivial, and has stable provenance.",
+              "id": "artifact-created",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "proxy",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "process.ffmpeg",
+            "process.ffprobe"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "proxy-video"
+          ],
+          "requiresEvidence": [
+            "artifact-created"
+          ],
+          "role": "oc-proxy-converter",
+          "roleContract": {
+            "capabilities": [
+              "convert-proxy"
+            ],
+            "description": "Internal worker for one proxy conversion.",
+            "id": "oc-proxy-converter",
+            "instructions": "Load roles/oc-proxy-converter.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local",
+          "when": "input.video is a camera proxy or a review proxy is requested"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-cli",
+            "target": "ingest"
+          },
+          "capability": "ingest-video",
+          "capabilityDescription": "Inspect a source and split its audio into independently transcribable chunks.",
+          "capabilityKind": "deterministic",
+          "description": "Split source audio into bounded chunks.",
+          "evidenceContracts": [
+            {
+              "description": "The declared artifact exists, is non-trivial, and has stable provenance.",
+              "id": "artifact-created",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "ingest",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "proxy"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "process.ffmpeg",
+            "process.ffprobe"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "chunk-manifest"
+          ],
+          "requiresEvidence": [
+            "artifact-created"
+          ],
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-role",
+            "target": "oc-stt-worker"
+          },
+          "capability": "transcribe-chunk",
+          "capabilityDescription": "Transcribe one bounded audio chunk with timestamps.",
+          "capabilityKind": "agent",
+          "description": "Transcribe each audio chunk independently.",
+          "evidenceContracts": [
+            {
+              "description": "The declared artifact exists, is non-trivial, and has stable provenance.",
+              "id": "artifact-created",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "chunk-manifest.chunks"
+          },
+          "id": "transcribe",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "ingest"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "network.openai",
+            "secrets.openai",
+            "spend.openai"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "chunk-transcripts"
+          ],
+          "requiresEvidence": [
+            "artifact-created"
+          ],
+          "role": "oc-stt-worker",
+          "roleContract": {
+            "capabilities": [
+              "transcribe-chunk"
+            ],
+            "description": "Internal worker for one transcription chunk.",
+            "id": "oc-stt-worker",
+            "instructions": "Load roles/oc-stt-worker.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local"
+        },
+        {
+          "binding": {
+            "adapter": "openclip-cli",
+            "target": "probe"
+          },
+          "capability": "probe-media",
+          "capabilityDescription": "Collect duration, silence, scene, and stream evidence for cut boundaries.",
+          "capabilityKind": "deterministic",
+          "description": "Collect scene and silence boundary evidence.",
+          "evidenceContracts": [
+            {
+              "description": "The declared artifact exists, is non-trivial, and has stable provenance.",
+              "id": "artifact-created",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "probe",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "ingest"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "process.ffmpeg",
+            "process.ffprobe"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "media-probe"
+          ],
+          "requiresEvidence": [
+            "artifact-created"
+          ],
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-cli",
+            "target": "transcript-merge"
+          },
+          "capability": "merge-transcript",
+          "capabilityDescription": "Merge all chunk transcripts and reject missing units.",
+          "capabilityKind": "deterministic",
+          "description": "Merge all transcripts with no missing chunks.",
+          "evidenceContracts": [
+            {
+              "description": "Every expected transcript unit is present and the merge is complete.",
+              "id": "transcript-complete",
+              "kind": "json-schema",
+              "schema": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "missing_chunks"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "missingChunks"
+                    ]
+                  }
+                ],
+                "properties": {
+                  "complete": {
+                    "const": true
+                  },
+                  "missingChunks": {
+                    "maxItems": 0,
+                    "type": "array"
+                  },
+                  "missing_chunks": {
+                    "maxItems": 0,
+                    "type": "array"
+                  }
+                },
+                "required": [
+                  "complete"
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "merge",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "transcribe"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "merged-transcript"
+          ],
+          "requiresEvidence": [
+            "transcript-complete"
+          ],
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-role",
+            "target": "oc-hook-finder"
+          },
+          "capability": "find-hooks",
+          "capabilityDescription": "Find standalone, timestamped hook candidates in one transcript section.",
+          "capabilityKind": "agent",
+          "description": "Find and rank standalone hooks per transcript section.",
+          "evidenceContracts": [
+            {
+              "description": "A structured editorial proposal includes rationale and bounded timestamps.",
+              "id": "editorial-proposal",
+              "kind": "semantic-review"
+            },
+            {
+              "description": "The human director approved the proposed creative transition.",
+              "id": "human-selection",
+              "kind": "external-receipt"
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "transcript-sections"
+          },
+          "id": "hooks",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "merge",
+            "probe"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write"
+          ],
+          "policy": {
+            "description": "Require evidence and an explicit creative decision from the human director.",
+            "evidenceRequired": true,
+            "humanApproval": "always",
+            "id": "directed",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "approved-hooks"
+          ],
+          "requiresEvidence": [
+            "editorial-proposal",
+            "human-selection"
+          ],
+          "role": "oc-hook-finder",
+          "roleContract": {
+            "capabilities": [
+              "find-hooks"
+            ],
+            "description": "Internal worker that ranks hooks in one transcript section.",
+            "id": "oc-hook-finder",
+            "instructions": "Load roles/oc-hook-finder.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-role",
+            "target": "oc-assembler"
+          },
+          "capability": "render-media",
+          "capabilityDescription": "Render a clip, batch of shorts, or assembled long-form artifact.",
+          "capabilityKind": "agent",
+          "description": "Render each approved hook as a vertical clip.",
+          "evidenceContracts": [
+            {
+              "description": "The declared artifact exists, is non-trivial, and has stable provenance.",
+              "id": "artifact-created",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "approved-hooks"
+          },
+          "id": "render",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "hooks"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "process.ffmpeg",
+            "process.ffprobe"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "short-videos"
+          ],
+          "requiresEvidence": [
+            "artifact-created"
+          ],
+          "role": "oc-assembler",
+          "roleContract": {
+            "capabilities": [
+              "merge-section-edls",
+              "render-media"
+            ],
+            "description": "Internal worker that renders clips, cuts, shorts, and long-form media.",
+            "id": "oc-assembler",
+            "instructions": "Load roles/oc-assembler.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local"
+        },
+        {
+          "binding": {
+            "adapter": "openclip-role",
+            "target": "oc-thumbnail-artist"
+          },
+          "capability": "render-thumbnail-frame",
+          "capabilityDescription": "Produce a truthful frame-derived thumbnail with local typography.",
+          "capabilityKind": "agent",
+          "description": "Produce one truthful frame-derived thumbnail per approved short.",
+          "evidenceContracts": [
+            {
+              "description": "The declared artifact exists, is non-trivial, and has stable provenance.",
+              "id": "artifact-created",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "approved-hooks"
+          },
+          "id": "thumbnails",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "hooks"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "process.ffmpeg",
+            "process.ffprobe"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "short-thumbnails"
+          ],
+          "requiresEvidence": [
+            "artifact-created"
+          ],
+          "role": "oc-thumbnail-artist",
+          "roleContract": {
+            "capabilities": [
+              "render-thumbnail-frame"
+            ],
+            "description": "Internal worker that makes frame-derived thumbnails with local typography.",
+            "id": "oc-thumbnail-artist",
+            "instructions": "Load roles/oc-thumbnail-artist.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-role",
+            "target": "oc-subtitle-agent"
+          },
+          "capability": "build-subtitles",
+          "capabilityDescription": "Build or translate aligned subtitles and optionally burn them into media.",
+          "capabilityKind": "agent",
+          "description": "Build and burn clip-relative captions for each short.",
+          "evidenceContracts": [
+            {
+              "description": "The declared artifact exists, is non-trivial, and has stable provenance.",
+              "id": "artifact-created",
+              "kind": "artifact"
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "short-videos"
+          },
+          "id": "subtitles",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "render",
+            "merge"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "process.ffmpeg",
+            "process.ffprobe",
+            "network.openai",
+            "secrets.openai",
+            "spend.openai"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "captioned-shorts"
+          ],
+          "requiresEvidence": [
+            "artifact-created"
+          ],
+          "role": "oc-subtitle-agent",
+          "roleContract": {
+            "capabilities": [
+              "build-subtitles"
+            ],
+            "description": "Internal worker that creates aligned subtitle deliverables.",
+            "id": "oc-subtitle-agent",
+            "instructions": "Load roles/oc-subtitle-agent.md relative to this Domain Pack; it is the complete portable role contract."
+          },
+          "sideEffects": "local"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "openclip-role",
+            "target": "oc-verifier"
+          },
+          "capability": "verify-deliverable",
+          "capabilityDescription": "Independently probe mechanical and semantic failure classes.",
+          "capabilityKind": "agent",
+          "description": "Verify every short, subtitle, and thumbnail independently.",
+          "evidenceContracts": [
+            {
+              "description": "Deterministic probes confirm file type, duration, streams, aspect, and sidecars.",
+              "id": "mechanical-verdict",
+              "kind": "external-receipt",
+              "schema": {
+                "properties": {
+                  "verdict": {
+                    "const": "confirmed"
+                  }
+                },
+                "required": [
+                  "verdict"
+                ],
+                "type": "object"
+              }
+            },
+            {
+              "description": "An independent verifier confirmed the applicable adversarial classes.",
+              "id": "semantic-verdict",
+              "kind": "semantic-review",
+              "schema": {
+                "properties": {
+                  "verdict": {
+                    "const": "confirmed"
+                  }
+                },
+                "required": [
+                  "verdict"
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "fanout": {
+            "mode": "each",
+            "over": "captioned-shorts"
+          },
+          "id": "verify",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [
+            "subtitles",
+            "thumbnails"
+          ],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [
+            "filesystem.read",
+            "filesystem.write",
+            "process.ffmpeg",
+            "process.ffprobe"
+          ],
+          "policy": {
+            "description": "Require observable evidence before advancing; no routine human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "verified",
+            "maxAttempts": 3
+          },
+          "produces": [
+            "verified-shorts"
+          ],
+          "requiresEvidence": [
+            "mechanical-verdict",
+            "semantic-verdict"
+          ],
+          "role": "oc-verifier",
+          "roleContract": {
+            "capabilities": [
+              "verify-deliverable"
+            ],
+            "description": "Independent adversarial reviewer for one deliverable.",
+            "id": "oc-verifier",
+            "instructions": "Load roles/oc-verifier.md relative to this Domain Pack; it is the complete portable role contract and never trusts producer claims."
+          },
+          "sideEffects": "local"
+        }
+      ]
+    }
+  ]
+}

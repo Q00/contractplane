@@ -1,0 +1,190 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+metadata:
+  name: hello-domain
+  version: 0.1.0
+  description: A minimal domain pack that composes, publishes, and archives greetings.
+defaultPolicy: standard
+capabilities:
+  - id: normalize-name
+    kind: deterministic
+    description: Normalize one display name before greeting composition.
+    sideEffects: none
+    inputSchema:
+      type: object
+      required: [name]
+      properties:
+        name: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [value]
+      properties:
+        value: {type: string, minLength: 1}
+      additionalProperties: false
+    permissions: []
+    binding:
+      adapter: python
+      target: hello_domain.normalize_name
+  - id: compose-greeting
+    kind: agent
+    description: Compose a concise greeting for a normalized name.
+    sideEffects: none
+    inputSchema:
+      type: object
+      required: [name]
+      properties:
+        name: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [greeting]
+      properties:
+        greeting: {type: string, minLength: 1}
+      additionalProperties: false
+    permissions: []
+    binding:
+      adapter: agent
+      target: greeter
+  - id: publish-greeting
+    kind: integration
+    description: Publish an approved greeting to an external endpoint.
+    sideEffects: external
+    inputSchema:
+      type: object
+      required: [greeting]
+      properties:
+        greeting: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [receiptId]
+      properties:
+        receiptId: {type: string, minLength: 1}
+      additionalProperties: false
+    permissions: [network:example.invalid, external:greeting.write]
+    binding:
+      adapter: http
+      target: https://example.invalid/greetings
+      config:
+        method: POST
+  - id: archive-greeting
+    kind: deterministic
+    description: Store the greeting in a caller-selected local archive.
+    sideEffects: local
+    inputSchema:
+      type: object
+      required: [greeting]
+      properties:
+        greeting: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact]
+      properties:
+        artifact: {type: string, minLength: 1}
+      additionalProperties: false
+    permissions: [filesystem:project.write]
+    binding:
+      adapter: python
+      target: hello_domain.archive_greeting
+roles:
+  - id: greeter
+    description: A focused greeting writer.
+    capabilities: [compose-greeting]
+    instructions: Use the normalized name and return one warm sentence as structured data.
+evidence:
+  - id: normalized-name-contract
+    kind: json-schema
+    description: The normalized name satisfies the capability output contract.
+    schema:
+      type: object
+      required: [value]
+      properties:
+        value: {type: string, minLength: 1}
+      additionalProperties: false
+  - id: greeting-review
+    kind: semantic-review
+    description: An independent reviewer confirms the greeting is appropriate and complete.
+  - id: publication-receipt
+    kind: external-receipt
+    description: The external adapter returns an immutable publication receipt.
+    schema:
+      type: object
+      required: [receiptId]
+      properties:
+        receiptId: {type: string, minLength: 1}
+      additionalProperties: false
+  - id: archive-artifact
+    kind: artifact
+    description: A nonempty archive artifact can be addressed by the caller.
+policies:
+  - id: standard
+    description: Require evidence before completing local or judgment stages.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 2
+  - id: external-change
+    description: Require evidence and explicit human approval before external mutation.
+    evidenceRequired: true
+    humanApproval: always
+    maxAttempts: 1
+flows:
+  - id: greet
+    description: Normalize names, compose greetings, then publish and optionally archive them.
+    inputSchema:
+      type: object
+      required: [names, archive]
+      properties:
+        names:
+          type: array
+          minItems: 1
+          items: {type: string, minLength: 1}
+        archive: {type: boolean}
+      additionalProperties: false
+    stages:
+      - id: normalize
+        description: Normalize each requested name independently.
+        capability: normalize-name
+        needs: []
+        fanout:
+          mode: each
+          over: $.names
+        requiresEvidence: [normalized-name-contract]
+        produces: [normalized-names]
+      - id: draft
+        description: Compose one greeting per normalized name.
+        capability: compose-greeting
+        role: greeter
+        needs: [normalize]
+        fanout:
+          mode: each
+          over: $.stages.normalize.outputs
+        requiresEvidence: [greeting-review]
+        produces: [greetings]
+      - id: publish
+        description: Publish the approved greeting batch.
+        capability: publish-greeting
+        needs: [draft]
+        fanout:
+          mode: singleton
+        requiresEvidence: [publication-receipt]
+        policy: external-change
+        produces: [publication]
+      - id: archive
+        description: Optionally archive the greeting batch locally.
+        capability: archive-greeting
+        needs: [draft]
+        fanout:
+          mode: singleton
+        requiresEvidence: [archive-artifact]
+        produces: [archive]
+        when: inputs.archive == true
+entrypoints:
+  - id: hello
+    description: Public semantic entrypoint for greeting requests.
+    flow: greet
+    keywords: [hello, greet, welcome]
+    examples:
+      - Say hello to Ada and Grace.
+      - Compose and publish a welcome message.

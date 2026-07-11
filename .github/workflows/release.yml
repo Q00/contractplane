@@ -1,0 +1,53 @@
+name: release
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to package and publish as a GitHub prerelease
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
+        with:
+          ref: ${{ inputs.tag || github.ref }}
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@d4b2f3b6ecc6e67c4457f6d3e41ec42d3d0fcb86 # v5.4.2
+        with:
+          enable-cache: true
+      - name: Verify tag and package version
+        run: |
+          package_version="$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml", "rb"))["project"]["version"])')"
+          test "$RELEASE_TAG" = "v$package_version"
+      - name: Test and build
+        run: |
+          uv sync --extra dev --locked
+          uv run pytest -q
+          uv build
+      - name: Create or refresh GitHub prerelease
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" --clobber dist/*.whl dist/*.tar.gz
+          else
+            gh release create "$RELEASE_TAG" --prerelease --generate-notes \
+              --title "$RELEASE_TAG" dist/*.whl dist/*.tar.gz
+          fi
+
+# PyPI publication is intentionally separate until Q00/contractplane has a
+# project-scoped Trusted Publisher. The first alpha is published from a clean
+# local build with a scoped token; future releases should add an OIDC-only job.

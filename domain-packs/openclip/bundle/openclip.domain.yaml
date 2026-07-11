@@ -1,0 +1,621 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+
+metadata:
+  name: openclip
+  version: 0.1.0
+  description: >-
+    OpenClip video production as a portable, evidence-gated ContractPlane
+    domain pack. The public oc entrypoint resolves requests into private worker
+    roles and resumable execution waves.
+
+defaultPolicy: verified
+
+capabilities:
+  - id: convert-proxy
+    kind: agent
+    description: Convert a camera proxy or high-resolution source into review media.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe]
+    binding: {adapter: openclip-role, target: oc-proxy-converter}
+  - id: ingest-video
+    kind: deterministic
+    description: Inspect a source and split its audio into independently transcribable chunks.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe]
+    binding: {adapter: openclip-cli, target: ingest}
+  - id: transcribe-chunk
+    kind: agent
+    description: Transcribe one bounded audio chunk with timestamps.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, network.openai, secrets.openai, spend.openai]
+    binding: {adapter: openclip-role, target: oc-stt-worker}
+  - id: merge-transcript
+    kind: deterministic
+    description: Merge all chunk transcripts and reject missing units.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write]
+    binding: {adapter: openclip-cli, target: transcript-merge}
+  - id: probe-media
+    kind: deterministic
+    description: Collect duration, silence, scene, and stream evidence for cut boundaries.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe]
+    binding: {adapter: openclip-cli, target: probe}
+  - id: propose-cuts
+    kind: agent
+    description: Propose one section cut plan through a bounded editorial lens.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write]
+    binding: {adapter: openclip-role, target: oc-cut-proposer}
+  - id: judge-cuts
+    kind: agent
+    description: Reconcile competing section cut proposals into one keep EDL.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write]
+    binding: {adapter: openclip-role, target: oc-cut-judge}
+  - id: merge-section-edls
+    kind: agent
+    description: Merge accepted section EDLs into one ordered, non-overlapping keep list.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write]
+    binding: {adapter: openclip-role, target: oc-assembler}
+  - id: render-cut
+    kind: deterministic
+    description: Apply one merged keep EDL to a source and render the edited timeline.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe]
+    binding: {adapter: openclip-cli, target: cut}
+  - id: find-hooks
+    kind: agent
+    description: Find standalone, timestamped hook candidates in one transcript section.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write]
+    binding: {adapter: openclip-role, target: oc-hook-finder}
+  - id: render-media
+    kind: agent
+    description: Render a clip, batch of shorts, or assembled long-form artifact.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe]
+    binding: {adapter: openclip-role, target: oc-assembler}
+  - id: combine-transcripts
+    kind: agent
+    description: Offset accepted source transcripts onto the assembled long-form timeline.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffprobe]
+    binding: {adapter: openclip-role, target: oc-orchestrator}
+  - id: build-subtitles
+    kind: agent
+    description: Build or translate aligned subtitles and optionally burn them into media.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe, network.openai, secrets.openai, spend.openai]
+    binding: {adapter: openclip-role, target: oc-subtitle-agent}
+  - id: render-thumbnail-frame
+    kind: agent
+    description: Produce a truthful frame-derived thumbnail with local typography.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe]
+    binding: {adapter: openclip-role, target: oc-thumbnail-artist}
+  - id: render-thumbnail
+    kind: agent
+    description: Produce a hook-matched thumbnail using source evidence and learned taste.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe, network.openai, secrets.openai, spend.openai]
+    binding: {adapter: openclip-role, target: oc-thumbnail-designer}
+  - id: verify-deliverable
+    kind: agent
+    description: Independently probe mechanical and semantic failure classes.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.ffmpeg, process.ffprobe]
+    binding: {adapter: openclip-role, target: oc-verifier}
+  - id: orchestrate-run
+    kind: agent
+    description: Route a public OpenClip request into bounded, steerable worker waves.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, agent.delegate]
+    binding: {adapter: openclip-role, target: oc-orchestrator}
+  - id: author-learned-tool
+    kind: agent
+    description: Reuse or author one deterministic local learned tool and self-test it.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.python, process.shell]
+    binding: {adapter: openclip-role, target: oc-toolsmith}
+  - id: audit-learned-tool
+    kind: agent
+    description: Independently inspect and adversarially verify a learned tool before promotion.
+    sideEffects: local
+    inputSchema: {type: object}
+    outputSchema: {type: object}
+    permissions: [filesystem.read, filesystem.write, process.python, process.shell]
+    binding: {adapter: openclip-role, target: oc-tool-auditor}
+
+roles:
+  - id: oc-orchestrator
+    description: Public control-plane role that routes requests and coordinates worker waves.
+    capabilities: [orchestrate-run, combine-transcripts]
+    instructions: Load roles/oc-orchestrator.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-proxy-converter
+    description: Internal worker for one proxy conversion.
+    capabilities: [convert-proxy]
+    instructions: Load roles/oc-proxy-converter.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-stt-worker
+    description: Internal worker for one transcription chunk.
+    capabilities: [transcribe-chunk]
+    instructions: Load roles/oc-stt-worker.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-cut-proposer
+    description: Internal worker for one section and one editorial lens.
+    capabilities: [propose-cuts]
+    instructions: Load roles/oc-cut-proposer.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-cut-judge
+    description: Internal worker that reconciles cut proposals for one section.
+    capabilities: [judge-cuts]
+    instructions: Load roles/oc-cut-judge.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-hook-finder
+    description: Internal worker that ranks hooks in one transcript section.
+    capabilities: [find-hooks]
+    instructions: Load roles/oc-hook-finder.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-assembler
+    description: Internal worker that renders clips, cuts, shorts, and long-form media.
+    capabilities: [merge-section-edls, render-media]
+    instructions: Load roles/oc-assembler.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-subtitle-agent
+    description: Internal worker that creates aligned subtitle deliverables.
+    capabilities: [build-subtitles]
+    instructions: Load roles/oc-subtitle-agent.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-thumbnail-artist
+    description: Internal worker that makes frame-derived thumbnails with local typography.
+    capabilities: [render-thumbnail-frame]
+    instructions: Load roles/oc-thumbnail-artist.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-thumbnail-designer
+    description: Internal worker that designs and evaluates thumbnails.
+    capabilities: [render-thumbnail]
+    instructions: Load roles/oc-thumbnail-designer.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-verifier
+    description: Independent adversarial reviewer for one deliverable.
+    capabilities: [verify-deliverable]
+    instructions: Load roles/oc-verifier.md relative to this Domain Pack; it is the complete portable role contract and never trusts producer claims.
+  - id: oc-toolsmith
+    description: Internal worker that reuses or authors a bounded deterministic learned tool.
+    capabilities: [author-learned-tool]
+    instructions: Load roles/oc-toolsmith.md relative to this Domain Pack; it is the complete portable role contract.
+  - id: oc-tool-auditor
+    description: Independent adversarial gate for promoting a learned tool.
+    capabilities: [audit-learned-tool]
+    instructions: Load roles/oc-tool-auditor.md relative to this Domain Pack; it is the complete portable role contract.
+
+evidence:
+  - id: artifact-created
+    kind: artifact
+    description: The declared artifact exists, is non-trivial, and has stable provenance.
+  - id: transcript-complete
+    kind: json-schema
+    description: Every expected transcript unit is present and the merge is complete.
+    schema:
+      type: object
+      required: [complete]
+      properties:
+        complete: {const: true}
+        missing_chunks: {type: array, maxItems: 0}
+        missingChunks: {type: array, maxItems: 0}
+      anyOf:
+        - required: [missing_chunks]
+        - required: [missingChunks]
+  - id: editorial-proposal
+    kind: semantic-review
+    description: A structured editorial proposal includes rationale and bounded timestamps.
+  - id: human-selection
+    kind: external-receipt
+    description: The human director approved the proposed creative transition.
+  - id: mechanical-verdict
+    kind: external-receipt
+    description: Deterministic probes confirm file type, duration, streams, aspect, and sidecars.
+    schema:
+      type: object
+      required: [verdict]
+      properties:
+        verdict: {const: confirmed}
+  - id: semantic-verdict
+    kind: semantic-review
+    description: An independent verifier confirmed the applicable adversarial classes.
+    schema:
+      type: object
+      required: [verdict]
+      properties:
+        verdict: {const: confirmed}
+
+policies:
+  - id: verified
+    description: Require observable evidence before advancing; no routine human approval.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 3
+  - id: directed
+    description: Require evidence and an explicit creative decision from the human director.
+    evidenceRequired: true
+    humanApproval: always
+    maxAttempts: 3
+
+flows:
+  - id: cut-edit
+    description: Transcribe and debate-edit one long source into a verified edited original.
+    inputSchema:
+      type: object
+      required: [video]
+      properties:
+        video: {type: string}
+    stages:
+      - id: proxy
+        description: Build a review proxy when the source format or operator requires it.
+        capability: convert-proxy
+        role: oc-proxy-converter
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [proxy-video]
+        when: input.video is a camera proxy or a review proxy is requested
+      - id: ingest
+        description: Split source audio into bounded chunks.
+        capability: ingest-video
+        needs: [proxy]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [chunk-manifest]
+      - id: transcribe
+        description: Transcribe each audio chunk independently.
+        capability: transcribe-chunk
+        role: oc-stt-worker
+        needs: [ingest]
+        fanout: {mode: each, over: chunk-manifest.chunks}
+        requiresEvidence: [artifact-created]
+        produces: [chunk-transcripts]
+      - id: merge
+        description: Merge all chunk transcripts and reject gaps.
+        capability: merge-transcript
+        needs: [transcribe]
+        fanout: {mode: singleton}
+        requiresEvidence: [transcript-complete]
+        produces: [merged-transcript]
+      - id: probe
+        description: Collect media boundary evidence in parallel with transcription.
+        capability: probe-media
+        needs: [ingest]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [media-probe]
+      - id: propose
+        description: Generate competing cut proposals per section and editorial lens.
+        capability: propose-cuts
+        role: oc-cut-proposer
+        needs: [merge, probe]
+        fanout: {mode: each, over: transcript-sections-and-lenses}
+        requiresEvidence: [editorial-proposal]
+        produces: [cut-proposals]
+      - id: judge
+        description: Reconcile proposals into one section EDL.
+        capability: judge-cuts
+        role: oc-cut-judge
+        needs: [propose]
+        fanout: {mode: each, over: transcript-sections}
+        requiresEvidence: [editorial-proposal]
+        policy: directed
+        produces: [section-edls]
+      - id: merge-edls
+        description: Merge accepted section EDLs in timeline order into one keep list.
+        capability: merge-section-edls
+        role: oc-assembler
+        needs: [judge]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [merged-edl]
+      - id: render
+        description: Render the accepted merged keep EDL through the deterministic cut command.
+        capability: render-cut
+        needs: [merge-edls]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [edited-original]
+      - id: subtitles
+        description: Build aligned subtitles for the edited timeline.
+        capability: build-subtitles
+        role: oc-subtitle-agent
+        needs: [render, merge]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [subtitle-sidecars]
+      - id: verify
+        description: Verify the edited original and subtitle contract independently.
+        capability: verify-deliverable
+        role: oc-verifier
+        needs: [render, subtitles]
+        fanout: {mode: singleton}
+        requiresEvidence: [mechanical-verdict, semantic-verdict]
+        produces: [verified-edited-original]
+
+  - id: shorts
+    description: Turn one long source into approved, captioned, verified vertical shorts.
+    inputSchema:
+      type: object
+      required: [video]
+      properties:
+        video: {type: string}
+        count: {type: integer, minimum: 1}
+    stages:
+      - id: proxy
+        description: Build a review proxy when needed.
+        capability: convert-proxy
+        role: oc-proxy-converter
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [proxy-video]
+        when: input.video is a camera proxy or a review proxy is requested
+      - id: ingest
+        description: Split source audio into bounded chunks.
+        capability: ingest-video
+        needs: [proxy]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [chunk-manifest]
+      - id: transcribe
+        description: Transcribe each audio chunk independently.
+        capability: transcribe-chunk
+        role: oc-stt-worker
+        needs: [ingest]
+        fanout: {mode: each, over: chunk-manifest.chunks}
+        requiresEvidence: [artifact-created]
+        produces: [chunk-transcripts]
+      - id: merge
+        description: Merge all transcripts with no missing chunks.
+        capability: merge-transcript
+        needs: [transcribe]
+        fanout: {mode: singleton}
+        requiresEvidence: [transcript-complete]
+        produces: [merged-transcript]
+      - id: probe
+        description: Collect scene and silence boundary evidence.
+        capability: probe-media
+        needs: [ingest]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created]
+        produces: [media-probe]
+      - id: hooks
+        description: Find and rank standalone hooks per transcript section.
+        capability: find-hooks
+        role: oc-hook-finder
+        needs: [merge, probe]
+        fanout: {mode: each, over: transcript-sections}
+        requiresEvidence: [editorial-proposal, human-selection]
+        policy: directed
+        produces: [approved-hooks]
+      - id: render
+        description: Render each approved hook as a vertical clip.
+        capability: render-media
+        role: oc-assembler
+        needs: [hooks]
+        fanout: {mode: each, over: approved-hooks}
+        requiresEvidence: [artifact-created]
+        produces: [short-videos]
+      - id: subtitles
+        description: Build and burn clip-relative captions for each short.
+        capability: build-subtitles
+        role: oc-subtitle-agent
+        needs: [render, merge]
+        fanout: {mode: each, over: short-videos}
+        requiresEvidence: [artifact-created]
+        produces: [captioned-shorts]
+      - id: thumbnails
+        description: Produce one truthful frame-derived thumbnail per approved short.
+        capability: render-thumbnail-frame
+        role: oc-thumbnail-artist
+        needs: [hooks]
+        fanout: {mode: each, over: approved-hooks}
+        requiresEvidence: [artifact-created]
+        produces: [short-thumbnails]
+      - id: verify
+        description: Verify every short, subtitle, and thumbnail independently.
+        capability: verify-deliverable
+        role: oc-verifier
+        needs: [subtitles, thumbnails]
+        fanout: {mode: each, over: captioned-shorts}
+        requiresEvidence: [mechanical-verdict, semantic-verdict]
+        produces: [verified-shorts]
+
+  - id: assemble
+    description: Assemble multiple sources into long-form and mine its hooks into shorts.
+    inputSchema:
+      type: object
+      required: [videos]
+      properties:
+        videos: {type: array, minItems: 1, items: {type: string}}
+    stages:
+      - id: ingest-sources
+        description: Ingest every source independently.
+        capability: ingest-video
+        needs: []
+        fanout: {mode: each, over: input.videos}
+        requiresEvidence: [artifact-created]
+        produces: [source-chunk-manifests]
+      - id: transcribe-sources
+        description: Transcribe chunks across all sources in parallel.
+        capability: transcribe-chunk
+        role: oc-stt-worker
+        needs: [ingest-sources]
+        fanout: {mode: each, over: source-chunk-manifests.chunks}
+        requiresEvidence: [artifact-created]
+        produces: [source-chunk-transcripts]
+      - id: merge-sources
+        description: Build one complete transcript per source.
+        capability: merge-transcript
+        needs: [transcribe-sources]
+        fanout: {mode: each, over: source-chunk-manifests}
+        requiresEvidence: [transcript-complete]
+        produces: [source-transcripts]
+      - id: assemble-longform
+        description: Order and assemble sources into the approved long-form timeline.
+        capability: render-media
+        role: oc-assembler
+        needs: [merge-sources]
+        fanout: {mode: singleton}
+        requiresEvidence: [artifact-created, human-selection]
+        policy: directed
+        produces: [longform-video]
+      - id: combine-longform-transcript
+        description: Offset each accepted source transcript onto the assembled timeline.
+        capability: combine-transcripts
+        role: oc-orchestrator
+        needs: [merge-sources, assemble-longform]
+        fanout: {mode: singleton}
+        requiresEvidence: [transcript-complete]
+        produces: [longform-transcript]
+      - id: hooks
+        description: Mine standalone hooks from the assembled transcript.
+        capability: find-hooks
+        role: oc-hook-finder
+        needs: [combine-longform-transcript]
+        fanout: {mode: each, over: longform-transcript.sections}
+        requiresEvidence: [editorial-proposal, human-selection]
+        policy: directed
+        produces: [approved-hooks]
+      - id: render-shorts
+        description: Render one short for each approved hook.
+        capability: render-media
+        role: oc-assembler
+        needs: [hooks]
+        fanout: {mode: each, over: approved-hooks}
+        requiresEvidence: [artifact-created]
+        produces: [short-videos]
+      - id: subtitles
+        description: Build captions for each rendered short.
+        capability: build-subtitles
+        role: oc-subtitle-agent
+        needs: [render-shorts]
+        fanout: {mode: each, over: short-videos}
+        requiresEvidence: [artifact-created]
+        produces: [captioned-shorts]
+      - id: thumbnails
+        description: Produce one frame-derived thumbnail per approved hook.
+        capability: render-thumbnail-frame
+        role: oc-thumbnail-artist
+        needs: [hooks]
+        fanout: {mode: each, over: approved-hooks}
+        requiresEvidence: [artifact-created]
+        produces: [short-thumbnails]
+      - id: verify
+        description: Verify the long-form and every short deliverable.
+        capability: verify-deliverable
+        role: oc-verifier
+        needs: [assemble-longform, subtitles, thumbnails]
+        fanout: {mode: each, over: all-deliverables}
+        requiresEvidence: [mechanical-verdict, semantic-verdict]
+        produces: [verified-deliverables]
+
+  - id: thumbnails
+    description: Produce publish-grade thumbnails matched to approved hook evidence.
+    inputSchema:
+      type: object
+      required: [video, hooks]
+      properties:
+        video: {type: string}
+        hooks: {type: array, minItems: 1}
+        mode: {type: string, enum: [frame, designed, both], default: frame}
+    stages:
+      - id: frame
+        description: Make one frame-derived thumbnail per hook with deterministic local typography.
+        capability: render-thumbnail-frame
+        role: oc-thumbnail-artist
+        needs: []
+        fanout: {mode: each, over: input.hooks}
+        requiresEvidence: [artifact-created, human-selection]
+        policy: directed
+        produces: [frame-thumbnails]
+        when: input.mode is absent, frame, or both
+      - id: design
+        description: Design one publish-grade thumbnail per hook using learned taste.
+        capability: render-thumbnail
+        role: oc-thumbnail-designer
+        needs: []
+        fanout: {mode: each, over: input.hooks}
+        requiresEvidence: [artifact-created, human-selection]
+        policy: directed
+        produces: [designed-thumbnails]
+        when: input.mode is designed or both
+      - id: verify-frame
+        description: Verify frame-thumbnail integrity, truthful representation, and legibility.
+        capability: verify-deliverable
+        role: oc-verifier
+        needs: [frame]
+        fanout: {mode: each, over: frame-thumbnails}
+        requiresEvidence: [mechanical-verdict, semantic-verdict]
+        produces: [verified-frame-thumbnails]
+        when: input.mode is absent, frame, or both
+      - id: verify-designed
+        description: Verify designed-thumbnail integrity, truthful representation, and legibility.
+        capability: verify-deliverable
+        role: oc-verifier
+        needs: [design]
+        fanout: {mode: each, over: designed-thumbnails}
+        requiresEvidence: [mechanical-verdict, semantic-verdict]
+        produces: [verified-designed-thumbnails]
+        when: input.mode is designed or both
+
+entrypoints:
+  - id: cut-edit
+    description: Transcribe and cut-edit one long recording.
+    flow: cut-edit
+    keywords: [cut edit, remove filler, lrf, lrv, 컷 편집, カット編集, 剪辑]
+    examples:
+      - $oc cut-edit ./talk.mp4 and preserve the narrative
+  - id: shorts
+    description: Create captioned vertical shorts from one long source.
+    flow: shorts
+    keywords: [shorts, reels, clips, 쇼츠, ショート動画, 短视频, clips cortos]
+    examples:
+      - $oc make three shorts from ./talk.mp4
+  - id: assemble
+    description: Assemble several sources into long-form and derive hook shorts.
+    flow: assemble
+    keywords: [assemble, long-form, combine videos, 롱폼, 長尺, 长视频, formato largo]
+    examples:
+      - $oc combine these recordings into one long-form and make hook shorts
+  - id: thumbnails
+    description: Create thumbnails matched to approved hooks.
+    flow: thumbnails
+    keywords: [thumbnail, cover, 썸네일, サムネイル, 缩略图, miniatura]
+    examples:
+      - $oc make thumbnails for these approved hooks

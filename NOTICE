@@ -1,0 +1,12 @@
+ContractPlane
+Copyright 2026 ContractPlane contributors
+
+Source code, machine-readable specifications, schemas, and examples are
+licensed under the Apache License 2.0 unless a file or directory states
+otherwise.
+
+WHITEPAPER.md is licensed under Creative Commons Attribution 4.0 International
+(CC BY 4.0). See LICENSES/CC-BY-4.0.txt.
+
+domain-packs/openclip contains material derived from Q00/openclip and retains
+the OpenClip MIT license included in that directory.

@@ -1,0 +1,442 @@
+{
+  "$defs": {
+    "capability": {
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "$ref": "#/$defs/capabilityBinding"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "inputSchema": {
+          "type": "object"
+        },
+        "kind": {
+          "enum": [
+            "deterministic",
+            "agent",
+            "integration"
+          ]
+        },
+        "outputSchema": {
+          "type": "object"
+        },
+        "permissions": {
+          "description": "Declared capabilities an adapter must authorize before invocation.",
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "sideEffects": {
+          "enum": [
+            "none",
+            "local",
+            "external"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "description",
+        "sideEffects",
+        "inputSchema",
+        "outputSchema",
+        "permissions"
+      ],
+      "type": "object"
+    },
+    "capabilityBinding": {
+      "additionalProperties": false,
+      "properties": {
+        "adapter": {
+          "description": "Adapter family name; v0.1 preserves but never invokes it.",
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "config": {
+          "description": "Opaque adapter configuration preserved in compiled plans.",
+          "type": "object"
+        },
+        "target": {
+          "description": "Opaque adapter target, never interpreted as a shell command.",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "adapter",
+        "target"
+      ],
+      "type": "object"
+    },
+    "entryPoint": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "examples": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "flow": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "keywords": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "flow",
+        "keywords",
+        "examples"
+      ],
+      "type": "object"
+    },
+    "evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "json-schema",
+            "artifact",
+            "semantic-review",
+            "external-receipt"
+          ]
+        },
+        "schema": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "description"
+      ],
+      "type": "object"
+    },
+    "fanout": {
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "singleton",
+            "each"
+          ]
+        },
+        "over": {
+          "description": "Opaque fanout selector preserved by v0.1. Adapters or a future PlanBuilder expand it into UnitRef values.",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "mode"
+      ],
+      "type": "object"
+    },
+    "flow": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "inputSchema": {
+          "type": "object"
+        },
+        "stages": {
+          "items": {
+            "$ref": "#/$defs/stage"
+          },
+          "minItems": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "inputSchema",
+        "stages"
+      ],
+      "type": "object"
+    },
+    "metadata": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "name": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "version": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "version",
+        "description"
+      ],
+      "type": "object"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "evidenceRequired": {
+          "type": "boolean"
+        },
+        "humanApproval": {
+          "enum": [
+            "never",
+            "always"
+          ]
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "maxAttempts": {
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "evidenceRequired",
+        "humanApproval",
+        "maxAttempts"
+      ],
+      "type": "object"
+    },
+    "role": {
+      "additionalProperties": false,
+      "properties": {
+        "capabilities": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "instructions": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "capabilities",
+        "instructions"
+      ],
+      "type": "object"
+    },
+    "stage": {
+      "additionalProperties": false,
+      "properties": {
+        "capability": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "description": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "fanout": {
+          "$ref": "#/$defs/fanout"
+        },
+        "id": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "needs": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "policy": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "produces": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "requiresEvidence": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "role": {
+          "pattern": "^[a-z][a-z0-9-]{1,62}$",
+          "type": "string"
+        },
+        "when": {
+          "description": "Declarative condition expression preserved but never evaluated by the v0.1 kernel.",
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "description",
+        "capability",
+        "needs",
+        "fanout",
+        "requiresEvidence",
+        "produces"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://contractplane.dev/spec/v1alpha1/domainpack.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Portable contracts for evidence-gated agent workflows.",
+  "properties": {
+    "apiVersion": {
+      "const": "contractplane.dev/v1alpha1"
+    },
+    "capabilities": {
+      "items": {
+        "$ref": "#/$defs/capability"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "defaultPolicy": {
+      "pattern": "^[a-z][a-z0-9-]{1,62}$",
+      "type": "string"
+    },
+    "entrypoints": {
+      "items": {
+        "$ref": "#/$defs/entryPoint"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "evidence": {
+      "items": {
+        "$ref": "#/$defs/evidence"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "flows": {
+      "items": {
+        "$ref": "#/$defs/flow"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "kind": {
+      "const": "DomainPack"
+    },
+    "metadata": {
+      "$ref": "#/$defs/metadata"
+    },
+    "policies": {
+      "items": {
+        "$ref": "#/$defs/policy"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "roles": {
+      "items": {
+        "$ref": "#/$defs/role"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "apiVersion",
+    "kind",
+    "metadata",
+    "defaultPolicy",
+    "capabilities",
+    "roles",
+    "evidence",
+    "policies",
+    "flows",
+    "entrypoints"
+  ],
+  "title": "ContractPlane DomainPack v1alpha1",
+  "type": "object"
+}

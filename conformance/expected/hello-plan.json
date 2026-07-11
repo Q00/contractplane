@@ -1,0 +1,76 @@
+{
+  "apiVersion": "contractplane.dev/plan/v1alpha1",
+  "domain": {
+    "name": "conformance-hello",
+    "version": "0.1.0"
+  },
+  "entrypoint": "hello",
+  "flow": "hello-flow",
+  "inputSchema": {
+    "type": "object"
+  },
+  "kind": "ExecutionPlan",
+  "planDigest": "0227889137dc5ca1237652c5e52908687d232b4ad9d465d19c956b9cbcb0c2a9",
+  "stageOrder": [
+    "write"
+  ],
+  "waves": [
+    {
+      "index": 0,
+      "stages": [
+        {
+          "binding": {
+            "adapter": "agent",
+            "target": "hello-writer"
+          },
+          "capability": "say-hello",
+          "capabilityDescription": "Produce a greeting.",
+          "capabilityKind": "agent",
+          "description": "Write the greeting.",
+          "evidenceContracts": [
+            {
+              "description": "Independent review of the greeting.",
+              "id": "greeting-review",
+              "kind": "semantic-review"
+            }
+          ],
+          "fanout": {
+            "mode": "singleton"
+          },
+          "id": "write",
+          "inputSchema": {
+            "type": "object"
+          },
+          "needs": [],
+          "outputSchema": {
+            "type": "object"
+          },
+          "permissions": [],
+          "policy": {
+            "description": "Require evidence and no human approval.",
+            "evidenceRequired": true,
+            "humanApproval": "never",
+            "id": "standard",
+            "maxAttempts": 2
+          },
+          "produces": [
+            "greeting"
+          ],
+          "requiresEvidence": [
+            "greeting-review"
+          ],
+          "role": "hello-writer",
+          "roleContract": {
+            "capabilities": [
+              "say-hello"
+            ],
+            "description": "Writes one greeting.",
+            "id": "hello-writer",
+            "instructions": "Return one greeting and no unrelated content."
+          },
+          "sideEffects": "none"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+metadata: {name: missing-evidence, version: 0.1.0, description: Missing required gate.}
+defaultPolicy: standard
+capabilities:
+  - id: noop
+    kind: deterministic
+    description: No-op capability.
+    sideEffects: none
+    inputSchema: {}
+    outputSchema: {}
+    permissions: []
+roles: []
+evidence:
+  - id: receipt
+    kind: artifact
+    description: Placeholder evidence.
+policies:
+  - id: standard
+    description: Evidence required.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 1
+flows:
+  - id: ungated
+    description: Invalid ungated stage.
+    inputSchema: {}
+    stages:
+      - id: work
+        description: Has no evidence despite policy.
+        capability: noop
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: []
+        produces: [output]
+entrypoints:
+  - id: ungated-entry
+    description: Routes to invalid flow.
+    flow: ungated
+    keywords: [ungated]
+    examples: [Run ungated flow.]
