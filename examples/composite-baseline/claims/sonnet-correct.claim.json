@@ -1,0 +1,9 @@
+{
+  "$comment": "EXPERIMENTAL. Claim VALUES lifted verbatim from the recorded episode examples/governed-run/episodes/study/episode-sonnet-correct.json (claim.artifact.report-artifact). Reused so the composite is driven by the SAME producer output as the contractplane study.",
+  "source_fixture": "examples/governed-run/episodes/study/episode-sonnet-correct.json",
+  "model": "claude-sonnet-5",
+  "condition": "correct",
+  "dataset": "weekly-metrics",
+  "claimedRows": 3,
+  "artifact": {"dataset": "weekly-metrics", "rows": 3, "generatedBy": "compile-report"}
+}

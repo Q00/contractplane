@@ -1,0 +1,5 @@
+{
+  "$comment": "EXPERIMENTAL. External publish with no external grant. The Rego policy denies it (deny-by-default), mirroring governed-run scenario 4.",
+  "sideEffects": "external",
+  "grant": {"external": false}
+}

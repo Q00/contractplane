@@ -1,0 +1,5 @@
+{
+  "$comment": "EXPERIMENTAL. Effect descriptor for the local report-compile stage: a local side effect with no external grant. The Rego policy allows it.",
+  "sideEffects": "local",
+  "grant": {"external": false}
+}

@@ -1,0 +1,81 @@
+apiVersion: contractplane.dev/v1alpha1
+kind: DomainPack
+metadata:
+  name: composite-baseline-omission
+  version: 0.1.0
+  description: >-
+    EXPERIMENTAL. The contractplane-side counterpart to the composite's
+    report-misconfigured.cwl. It is the governed report pack with the SAME
+    minimal drift: the compile stage no longer couples to its independent
+    verification. On the composite side that omission is invisible and the
+    pipeline runs green; here it is a typed coupling the schema requires, so
+    `contractplane validate` REJECTS the pack before anything runs.
+defaultPolicy: local-evidence
+capabilities:
+  - id: compile-report
+    kind: deterministic
+    description: Compile a bounded metrics report artifact inside the run workspace.
+    sideEffects: local
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, rows]
+      properties:
+        artifact: {type: string, minLength: 1}
+        rows: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: [workspace.write]
+    binding:
+      adapter: local-process
+      target: compile-report
+      config:
+        entry: workers/compile_report.py
+roles: []
+evidence:
+  - id: report-artifact
+    kind: artifact
+    description: The compiled report artifact exists and satisfies the report schema.
+    schema:
+      type: object
+      required: [dataset, rows, generatedBy]
+      properties:
+        dataset: {type: string, minLength: 1}
+        rows: {type: integer, minimum: 1}
+        generatedBy: {type: string, const: compile-report}
+      additionalProperties: false
+policies:
+  - id: local-evidence
+    description: Local stages complete only after an independent verifier accepts the artifact.
+    evidenceRequired: true
+    humanApproval: never
+    maxAttempts: 1
+flows:
+  - id: report
+    description: Compile one report artifact and independently verify it.
+    inputSchema:
+      type: object
+      required: [dataset]
+      properties:
+        dataset: {type: string, minLength: 1}
+      additionalProperties: false
+    stages:
+      - id: compile
+        description: >-
+          Compile the report artifact. THE OMISSION: `requiresEvidence` has been
+          dropped from this stage, exactly as the composite dropped its verify
+          step. On this side that omission is a validation error.
+        capability: compile-report
+        needs: []
+        fanout: {mode: singleton}
+        produces: [report]
+entrypoints:
+  - id: report
+    description: Compile and independently verify a report.
+    flow: report
+    keywords: [report, compile]
+    examples: [Compile the weekly metrics report.]

@@ -1,0 +1,11 @@
+{
+  "$comment": "COMPOSITE baseline (EXPERIMENTAL). Hand-mirrored from the contractplane report-artifact evidence schema in examples/governed-run/domainpack.yaml. On the composite side this schema is a separate file the integrator must remember to point a workflow step at; on the contractplane side the equivalent schema is a typed evidence obligation the stage is structurally coupled to.",
+  "type": "object",
+  "required": ["dataset", "rows", "generatedBy"],
+  "properties": {
+    "dataset": {"type": "string", "minLength": 1},
+    "rows": {"type": "integer", "minimum": 1},
+    "generatedBy": {"type": "string", "const": "compile-report"}
+  },
+  "additionalProperties": false
+}

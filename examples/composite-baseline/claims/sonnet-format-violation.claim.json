@@ -1,0 +1,9 @@
+{
+  "$comment": "EXPERIMENTAL. Claim VALUES lifted verbatim from examples/governed-run/episodes/study/episode-sonnet-format-violation.json (claim.artifact.report-artifact). Omits the required 'generatedBy' field; rows=3 is itself correct.",
+  "source_fixture": "examples/governed-run/episodes/study/episode-sonnet-format-violation.json",
+  "model": "claude-sonnet-5",
+  "condition": "format-violation",
+  "dataset": "weekly-metrics",
+  "claimedRows": 3,
+  "artifact": {"dataset": "weekly-metrics", "rows": 3}
+}

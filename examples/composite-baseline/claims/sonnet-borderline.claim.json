@@ -1,0 +1,9 @@
+{
+  "$comment": "EXPERIMENTAL. Claim VALUES lifted verbatim from examples/governed-run/episodes/study/episode-sonnet-borderline.json (claim.artifact.report-artifact). rows=8 vs dataset ground truth 7 (off-by-one).",
+  "source_fixture": "examples/governed-run/episodes/study/episode-sonnet-borderline.json",
+  "model": "claude-sonnet-5",
+  "condition": "borderline",
+  "dataset": "sprint-metrics",
+  "claimedRows": 8,
+  "artifact": {"dataset": "sprint-metrics", "rows": 8, "generatedBy": "compile-report"}
+}

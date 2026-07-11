@@ -1,0 +1,7 @@
+{
+  "$comment": "EXPERIMENTAL. The receipt an HONEST integrator supplies to the loose-receipt hardened workflow when no verification ran: no pass verdict. The meta accept-gate denies it (red). Contrast with a forged receipt (tools/forge_receipt.py), which the same gate accepts.",
+  "verdict": "none",
+  "verifier": "none",
+  "artifact_sha256": "",
+  "note": "no verification was performed"
+}
