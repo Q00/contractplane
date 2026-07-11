@@ -116,6 +116,28 @@ NATURAL_POWER_STUDY_NOTE = (
     "false-rejection rate on correct claims. Rows derive from real replayed episodes "
     "only; placeholder slots are skipped, never fabricated."
 )
+LOCAL_STUDY_SCHEMA = "contractplane.dev/experimental/local-model-study/v0"
+LOCAL_STUDY_NOTE = (
+    "EXPERIMENTAL spontaneous-error study on a LOCAL model. Same tool-less honesty "
+    "protocol and same shortcut-closed nested-groups counting rule as the frontier "
+    "natural grids, but recorded from a locally-hosted small model (qwen3:8b via ollama) "
+    "at zero API cost, which lets N grow to ~20 attempts per dataset. Each attempt varies "
+    "the sampling seed/temperature for independence; whatever the model claims is recorded "
+    "verbatim. An attempt whose response yields no parsable count is recorded as a "
+    "parse-failure -- counted as its own category, never retried-until-parse and never "
+    "scored as a caught error. Rows derive from real replayed episodes only. This study "
+    "extends the capability-frontier characterization (C10) below the frontier tier: it "
+    "measures whether natural error rate rises as model capability falls while the "
+    "recomputation gate's catch rate and 0% false-rejection rate hold at large N."
+)
+# Recorded frontier per-model natural error counts (errors / episodes) from the sibling
+# Anthropic-model grids, held here so the local study can emit a capability-frontier
+# comparison block. Ordered strongest -> weakest frontier tier.
+FRONTIER_NATURAL_RATES: dict[str, dict[str, int]] = {
+    "opus": {"errors": 2, "episodes": 13},
+    "sonnet": {"errors": 4, "episodes": 13},
+    "haiku": {"errors": 7, "episodes": 13},
+}
 
 
 class HardCountRecomputer:
@@ -831,6 +853,135 @@ def run_natural_power_study(
         "datasets": sorted({e.get("dataset") or "?" for e in episodes}),
         "episodes": episodes,
         "aggregate": _power_aggregate(episodes),
+    }
+
+
+def _local_stats(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    """Power-study stats over the *scored* rows, plus a separate parse-failure count.
+
+    Parse-failure rows carry no genuine claim (the model produced no parsable count),
+    so they are excluded from the error/catch/false-rejection math -- feeding them
+    through replay would fail the ``rows >= 1`` evidence schema and be miscounted as a
+    caught miscount, conflating "no count" with "wrong count". They are reported as
+    their own ``parseFailures`` tally instead.
+    """
+    parse_failures = [r for r in rows if r.get("parseFailure")]
+    considered = [r for r in rows if not r.get("parseFailure")]
+    stats = _power_stats(considered)
+    stats["parseFailures"] = len(parse_failures)
+    return stats
+
+
+def _frontier_comparison(local_overall: dict[str, Any]) -> dict[str, Any]:
+    """Capability-frontier comparison: recorded frontier rates + this local run.
+
+    Places the local (weaker) model alongside the recorded Anthropic-model natural
+    error rates so the paper can show error rate scaling by capability tier. The
+    frontier numbers are the sibling grids' recorded counts (not recomputed here).
+    """
+    tiers = [
+        {
+            "model": model,
+            "tier": "frontier",
+            "errors": rate["errors"],
+            "episodes": rate["episodes"],
+            "naturalErrorRate": _rate(rate["errors"], rate["episodes"]),
+        }
+        for model, rate in FRONTIER_NATURAL_RATES.items()
+    ]
+    local_tier = {
+        "model": "qwen3:8b",
+        "tier": "local-small",
+        "errors": local_overall.get("errors"),
+        "episodes": local_overall.get("recorded"),
+        "naturalErrorRate": local_overall.get("naturalErrorRate"),
+        "catchRateOnErrors": local_overall.get("catchRateOnErrors"),
+        "falseRejections": local_overall.get("falseRejections"),
+        "parseFailures": local_overall.get("parseFailures"),
+    }
+    return {
+        "note": (
+            "Natural error rate by model-capability tier: recorded frontier grids "
+            "(opus/sonnet/haiku) vs this local small-model run. Frontier counts are the "
+            "sibling grids' recorded values; the local row is recomputed from this study."
+        ),
+        "byTier": tiers + [local_tier],
+    }
+
+
+def run_local_study(
+    study_dir: str | Path,
+    *,
+    pack_dir: Path,
+    plan: ExecutionPlan,
+    recomputer: HardCountRecomputer | Recomputer,
+    model: str = "qwen3:8b",
+) -> dict[str, Any]:
+    """Replay a large-N local-model harvest through the identical governed path.
+
+    Iterates ``episode-*.json`` in ``study_dir``, replays every episode that carries a
+    real claim through :func:`_natural_row` (dispatch -> claim -> recompute-verify ->
+    verdict, the same path the frontier grids use), routes ``parseFailure`` episodes to
+    a separate tally, and aggregates overall and per dataset with Wilson 95% CIs and an
+    error-magnitude distribution (via :func:`_power_stats`). Also emits a
+    capability-frontier comparison block. Dataset/model are read from episode *content*,
+    not the filename, so the many-attempts-per-dataset local layout needs no filename
+    grammar. Placeholders skip honestly; nothing is fabricated.
+    """
+    study_dir = Path(study_dir)
+    episodes: list[dict[str, Any]] = []
+    for path in sorted(study_dir.glob("episode-*.json")):
+        entry: dict[str, Any] = {"file": path.name}
+        try:
+            raw = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            entry["fault"] = f"unreadable episode: {exc}"
+            episodes.append(entry)
+            continue
+        entry["model"] = raw.get("model")
+        entry["dataset"] = raw.get("dataset")
+        entry["attempt"] = raw.get("attempt")
+        entry["condition"] = raw.get("condition")
+        entry["instructed"] = bool(raw.get("instructed", False))
+        if raw.get("provenance") == "placeholder" or raw.get("status") == "unrecorded":
+            entry["skipped"] = "unrecorded"
+            episodes.append(entry)
+            continue
+        if raw.get("parseFailure"):
+            # Recorded data on small-model behaviour, but not a scored counting attempt.
+            entry["parseFailure"] = True
+            entry["claimed"] = None
+            episodes.append(entry)
+            continue
+        try:
+            episode = parse_episode(raw, source=path.name)
+            entry.update(_natural_row(episode, plan=plan, pack_dir=pack_dir, recomputer=recomputer))
+        except EpisodeError as exc:
+            entry["fault"] = str(exc)
+        except Exception as exc:  # noqa: BLE001 - a replay fault is a study result, not a crash
+            entry["fault"] = f"replay failed: {exc}"
+        episodes.append(entry)
+
+    datasets = sorted({e.get("dataset") for e in episodes if e.get("dataset")})
+    overall = _local_stats(episodes)
+    aggregate = {
+        "overall": overall,
+        "perDataset": {
+            d: _local_stats([e for e in episodes if e.get("dataset") == d]) for d in datasets
+        },
+        "frontierComparison": _frontier_comparison(overall),
+    }
+    return {
+        "schema": LOCAL_STUDY_SCHEMA,
+        "note": LOCAL_STUDY_NOTE,
+        "condition": NATURAL_CONDITION,
+        "instructed": False,
+        "model": model,
+        "studyDir": str(study_dir),
+        "datasets": datasets,
+        "models": sorted({e.get("model") or "?" for e in episodes}),
+        "episodes": episodes,
+        "aggregate": aggregate,
     }
 
 
