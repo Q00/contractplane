@@ -49,5 +49,5 @@ jobs:
           fi
 
 # PyPI publication is intentionally separate until Q00/contractplane has a
-# project-scoped Trusted Publisher. The first alpha is published from a clean
-# local build with a scoped token; future releases should add an OIDC-only job.
+# project-scoped Trusted Publisher. Add an OIDC-only publish job after that
+# one-time registry setup; do not add a long-lived PyPI token to this repo.
