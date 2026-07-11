@@ -74,6 +74,15 @@ DATASET_SCALE2_TOKENS: dict[str, str] = {
     "g": "hard-count-g",
     "h": "hard-count-h",
 }
+# Independent datasets at the two error-prone bands (different seeds, same rule and
+# band) so a scale-band effect is not confounded with a single dataset's identity.
+# Band g now = {g, g2, g3}; band h = {h, h2, h3}.
+DATASET_SCALE3_TOKENS: dict[str, str] = {
+    "g2": "hard-count-g2",
+    "g3": "hard-count-g3",
+    "h2": "hard-count-h2",
+    "h3": "hard-count-h3",
+}
 ATTEMPTS: tuple[str, ...] = ("1", "2")
 NATURAL_STUDY_NOTE = (
     "EXPERIMENTAL spontaneous-error study. Unlike the instructed adversarial grid, "
@@ -627,11 +636,24 @@ def _median(values: list[int]) -> float | None:
     return round((ordered[mid - 1] + ordered[mid]) / 2, 4)
 
 
+def scale_band(scale: str) -> str:
+    """The scale band a scale token belongs to: ``g2``/``g3`` -> ``g``, ``h2`` -> ``h``.
+
+    A band groups the independent datasets drawn at the same scale (different seeds,
+    same rule and record-count band), so a scale-band effect measured across it is
+    not confounded with a single dataset's identity.
+    """
+    return scale.rstrip("0123456789") or scale
+
+
 def _power_aggregate(episodes: list[dict[str, Any]]) -> dict[str, Any]:
     families = sorted({e.get("family") or "?" for e in episodes})
     scales = sorted({e.get("scale") or "?" for e in episodes})
     models = sorted({e.get("model") or "?" for e in episodes})
+    bands = sorted({e.get("band") or "?" for e in episodes})
+    datasets = sorted({e.get("dataset") or "?" for e in episodes})
     family_scales = sorted({f"{e.get('family')}/{e.get('scale')}" for e in episodes})
+    band_models = sorted({f"{e.get('band')}/{e.get('model')}" for e in episodes})
     return {
         "overall": _power_stats(episodes),
         "byFamily": {f: _power_stats([e for e in episodes if e.get("family") == f]) for f in families},
@@ -643,6 +665,20 @@ def _power_aggregate(episodes: list[dict[str, Any]]) -> dict[str, Any]:
             )
             for fs in family_scales
         },
+        # A scale BAND pools several independent datasets, so its pooled Wilson CI
+        # mixes heterogeneous sources -- reported, but flagged; the per-band-per-model
+        # rates below are the primary, homogeneous unit.
+        "byBand": {b: _power_stats([e for e in episodes if e.get("band") == b]) for b in bands},
+        "byBandModel": {
+            bm: _power_stats([e for e in episodes if f"{e.get('band')}/{e.get('model')}" == bm])
+            for bm in band_models
+        },
+        "byDataset": {d: _power_stats([e for e in episodes if e.get("dataset") == d]) for d in datasets},
+        "note": (
+            "byBand pools independent datasets at a scale; its pooled CI is heterogeneous. "
+            "byBandModel (per band x model) is the primary homogeneous rate. byDataset shows "
+            "each independent dataset separately so a band effect is visibly not one dataset's identity."
+        ),
     }
 
 
@@ -664,6 +700,7 @@ def _power_grid_rows(
             "family": family,
             "model": model,
             "scale": scale,
+            "band": scale_band(scale),
             "dataset": dataset,
             "attempt": attempt,
             "condition": NATURAL_CONDITION,
@@ -700,18 +737,28 @@ def run_natural_power_study(
     aggregate_plan: ExecutionPlan,
     aggregate_recomputer: HardSumRecomputer | Recomputer,
     scale_tokens: dict[str, str] = DATASET_SCALE2_TOKENS,
+    extra_count_grids: list[tuple[str | Path, dict[str, str]]] | None = None,
 ) -> dict[str, Any]:
     """Merge every natural episode across the counting and aggregate families.
 
     Replays the shortcut-closed counting grid (f/g/h, including ``-rN`` repetition
-    slots) and the aggregate/sum grid (g/h) through the governed kernel path, then
-    aggregates per family / scale / model with Wilson 95% CIs and error-magnitude
-    distributions. Placeholders skip honestly; nothing is fabricated.
+    slots), any ``extra_count_grids`` (each a ``(dir, scale_tokens)`` pair -- e.g.
+    the independent per-band datasets g2/g3/h2/h3), and the aggregate/sum grid
+    (g/h) through the governed kernel path. It then aggregates per family / scale /
+    model / **scale band** with Wilson 95% CIs and error-magnitude distributions;
+    a scale band pools several independent datasets so its effect is not confounded
+    with one dataset's identity. Placeholders skip honestly; nothing is fabricated.
     """
     episodes = _power_grid_rows(
         count_dir, family="count", pack_dir=pack_dir, plan=count_plan,
         recomputer=count_recomputer, scale_tokens=scale_tokens,
-    ) + _power_grid_rows(
+    )
+    for extra_dir, extra_tokens in extra_count_grids or []:
+        episodes += _power_grid_rows(
+            extra_dir, family="count", pack_dir=pack_dir, plan=count_plan,
+            recomputer=count_recomputer, scale_tokens=extra_tokens,
+        )
+    episodes += _power_grid_rows(
         aggregate_dir, family="aggregate", pack_dir=pack_dir, plan=aggregate_plan,
         recomputer=aggregate_recomputer, scale_tokens=scale_tokens,
     )
@@ -722,9 +769,12 @@ def run_natural_power_study(
         "instructed": False,
         "families": ["count", "aggregate"],
         "countDir": str(count_dir),
+        "extraCountDirs": [str(d) for d, _ in extra_count_grids or []],
         "aggregateDir": str(aggregate_dir),
         "models": sorted({e.get("model") or "?" for e in episodes}),
         "scales": sorted({e.get("scale") or "?" for e in episodes}),
+        "bands": sorted({e.get("band") or "?" for e in episodes}),
+        "datasets": sorted({e.get("dataset") or "?" for e in episodes}),
         "episodes": episodes,
         "aggregate": _power_aggregate(episodes),
     }
@@ -748,6 +798,7 @@ def main(argv: list[str] | None = None) -> int:
     scale2_dir_default = pack_dir_default / "episodes" / "study-natural-scale2"
     scale2_out_default = repo_root / "artifacts" / "natural_scale2_study.json"
     aggregate_dir_default = pack_dir_default / "episodes" / "study-natural-aggregate"
+    scale3_dir_default = pack_dir_default / "episodes" / "study-natural-scale3"
     power_out_default = repo_root / "artifacts" / "natural_power_study.json"
     parser = argparse.ArgumentParser(
         description="Replay the spontaneous-error (natural) episode study and aggregate results."
@@ -789,6 +840,7 @@ def main(argv: list[str] | None = None) -> int:
             aggregate_dir=aggregate_dir_default,
             aggregate_plan=compile_plan(pack, entrypoint_id="aggregate"),
             aggregate_recomputer=HardSumRecomputer(pack_dir / "datasets"),
+            extra_count_grids=[(scale3_dir_default, DATASET_SCALE3_TOKENS)],
         )
         target = write_natural_study(report, out)
         overall = report["aggregate"]["overall"]

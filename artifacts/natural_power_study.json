@@ -1,5 +1,573 @@
 {
   "aggregate": {
+    "byBand": {
+      "f": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "g": {
+        "N": 18,
+        "catchRateOnErrors": 1.0,
+        "caught": 6,
+        "correct": 12,
+        "errorMagnitude": {
+          "max": 4266,
+          "mean": 736.1667,
+          "median": 37.5,
+          "min": 1,
+          "n": 6,
+          "values": [
+            1,
+            1,
+            1,
+            74,
+            74,
+            4266
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.5625,
+          "low": 0.1628,
+          "point": 0.3333
+        },
+        "errors": 6,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3333,
+        "recorded": 18,
+        "skipped": 0
+      },
+      "h": {
+        "N": 18,
+        "catchRateOnErrors": 1.0,
+        "caught": 7,
+        "correct": 11,
+        "errorMagnitude": {
+          "max": 2899,
+          "mean": 479.2857,
+          "median": 62.0,
+          "min": 1,
+          "n": 7,
+          "values": [
+            1,
+            1,
+            62,
+            62,
+            116,
+            214,
+            2899
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.6138,
+          "low": 0.203,
+          "point": 0.3889
+        },
+        "errors": 7,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3889,
+        "recorded": 18,
+        "skipped": 0
+      }
+    },
+    "byBandModel": {
+      "f/haiku": {
+        "N": 1,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 1,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.7935,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 1,
+        "skipped": 0
+      },
+      "f/opus": {
+        "N": 1,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 1,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.7935,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 1,
+        "skipped": 0
+      },
+      "f/sonnet": {
+        "N": 1,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 1,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.7935,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 1,
+        "skipped": 0
+      },
+      "g/haiku": {
+        "N": 6,
+        "catchRateOnErrors": 1.0,
+        "caught": 3,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": 4266,
+          "mean": 1471.3333,
+          "median": 74.0,
+          "min": 74,
+          "n": 3,
+          "values": [
+            74,
+            74,
+            4266
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.8124,
+          "low": 0.1876,
+          "point": 0.5
+        },
+        "errors": 3,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.5,
+        "recorded": 6,
+        "skipped": 0
+      },
+      "g/opus": {
+        "N": 6,
+        "catchRateOnErrors": 1.0,
+        "caught": 1,
+        "correct": 5,
+        "errorMagnitude": {
+          "max": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1,
+          "n": 1,
+          "values": [
+            1
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.5635,
+          "low": 0.0301,
+          "point": 0.1667
+        },
+        "errors": 1,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.1667,
+        "recorded": 6,
+        "skipped": 0
+      },
+      "g/sonnet": {
+        "N": 6,
+        "catchRateOnErrors": 1.0,
+        "caught": 2,
+        "correct": 4,
+        "errorMagnitude": {
+          "max": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1,
+          "n": 2,
+          "values": [
+            1,
+            1
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7,
+          "low": 0.0968,
+          "point": 0.3333
+        },
+        "errors": 2,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3333,
+        "recorded": 6,
+        "skipped": 0
+      },
+      "h/haiku": {
+        "N": 6,
+        "catchRateOnErrors": 1.0,
+        "caught": 4,
+        "correct": 2,
+        "errorMagnitude": {
+          "max": 2899,
+          "mean": 784.75,
+          "median": 89.0,
+          "min": 62,
+          "n": 4,
+          "values": [
+            62,
+            62,
+            116,
+            2899
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.9032,
+          "low": 0.3,
+          "point": 0.6667
+        },
+        "errors": 4,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.6667,
+        "recorded": 6,
+        "skipped": 0
+      },
+      "h/opus": {
+        "N": 6,
+        "catchRateOnErrors": 1.0,
+        "caught": 1,
+        "correct": 5,
+        "errorMagnitude": {
+          "max": 1,
+          "mean": 1.0,
+          "median": 1.0,
+          "min": 1,
+          "n": 1,
+          "values": [
+            1
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.5635,
+          "low": 0.0301,
+          "point": 0.1667
+        },
+        "errors": 1,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.1667,
+        "recorded": 6,
+        "skipped": 0
+      },
+      "h/sonnet": {
+        "N": 6,
+        "catchRateOnErrors": 1.0,
+        "caught": 2,
+        "correct": 4,
+        "errorMagnitude": {
+          "max": 214,
+          "mean": 107.5,
+          "median": 107.5,
+          "min": 1,
+          "n": 2,
+          "values": [
+            1,
+            214
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7,
+          "low": 0.0968,
+          "point": 0.3333
+        },
+        "errors": 2,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.3333,
+        "recorded": 6,
+        "skipped": 0
+      }
+    },
+    "byDataset": {
+      "hard-count-f": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "hard-count-g": {
+        "N": 12,
+        "catchRateOnErrors": 1.0,
+        "caught": 6,
+        "correct": 6,
+        "errorMagnitude": {
+          "max": 4266,
+          "mean": 736.1667,
+          "median": 37.5,
+          "min": 1,
+          "n": 6,
+          "values": [
+            1,
+            1,
+            1,
+            74,
+            74,
+            4266
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.7462,
+          "low": 0.2538,
+          "point": 0.5
+        },
+        "errors": 6,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.5,
+        "recorded": 12,
+        "skipped": 0
+      },
+      "hard-count-g2": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "hard-count-g3": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "hard-count-h": {
+        "N": 12,
+        "catchRateOnErrors": 1.0,
+        "caught": 7,
+        "correct": 5,
+        "errorMagnitude": {
+          "max": 2899,
+          "mean": 479.2857,
+          "median": 62.0,
+          "min": 1,
+          "n": 7,
+          "values": [
+            1,
+            1,
+            62,
+            62,
+            116,
+            214,
+            2899
+          ]
+        },
+        "errorRateWilson95": {
+          "high": 0.8067,
+          "low": 0.3195,
+          "point": 0.5833
+        },
+        "errors": 7,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.5833,
+        "recorded": 12,
+        "skipped": 0
+      },
+      "hard-count-h2": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "hard-count-h3": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      }
+    },
     "byFamily": {
       "aggregate": {
         "N": 6,
@@ -33,10 +601,10 @@
         "skipped": 0
       },
       "count": {
-        "N": 21,
+        "N": 33,
         "catchRateOnErrors": 1.0,
         "caught": 10,
-        "correct": 11,
+        "correct": 23,
         "errorMagnitude": {
           "max": 116,
           "mean": 39.3,
@@ -57,17 +625,17 @@
           ]
         },
         "errorRateWilson95": {
-          "high": 0.6763,
-          "low": 0.2834,
-          "point": 0.4762
+          "high": 0.4734,
+          "low": 0.1738,
+          "point": 0.303
         },
         "errors": 10,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.4762,
-        "recorded": 21,
+        "naturalErrorRate": 0.303,
+        "recorded": 33,
         "skipped": 0
       }
     },
@@ -191,6 +759,60 @@
         "recorded": 9,
         "skipped": 0
       },
+      "count/g2": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "count/g3": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
       "count/h": {
         "N": 9,
         "catchRateOnErrors": 1.0,
@@ -223,14 +845,68 @@
         "naturalErrorRate": 0.5556,
         "recorded": 9,
         "skipped": 0
+      },
+      "count/h2": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "count/h3": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
       }
     },
     "byModel": {
       "haiku": {
-        "N": 9,
+        "N": 13,
         "catchRateOnErrors": 1.0,
         "caught": 7,
-        "correct": 2,
+        "correct": 6,
         "errorMagnitude": {
           "max": 4266,
           "mean": 1079.0,
@@ -248,24 +924,24 @@
           ]
         },
         "errorRateWilson95": {
-          "high": 0.9368,
-          "low": 0.4526,
-          "point": 0.7778
+          "high": 0.7679,
+          "low": 0.2914,
+          "point": 0.5385
         },
         "errors": 7,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.7778,
-        "recorded": 9,
+        "naturalErrorRate": 0.5385,
+        "recorded": 13,
         "skipped": 0
       },
       "opus": {
-        "N": 9,
+        "N": 13,
         "catchRateOnErrors": 1.0,
         "caught": 2,
-        "correct": 7,
+        "correct": 11,
         "errorMagnitude": {
           "max": 1,
           "mean": 1.0,
@@ -278,24 +954,24 @@
           ]
         },
         "errorRateWilson95": {
-          "high": 0.5474,
-          "low": 0.0632,
-          "point": 0.2222
+          "high": 0.4224,
+          "low": 0.0433,
+          "point": 0.1538
         },
         "errors": 2,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.2222,
-        "recorded": 9,
+        "naturalErrorRate": 0.1538,
+        "recorded": 13,
         "skipped": 0
       },
       "sonnet": {
-        "N": 9,
+        "N": 13,
         "catchRateOnErrors": 1.0,
         "caught": 4,
-        "correct": 5,
+        "correct": 9,
         "errorMagnitude": {
           "max": 214,
           "mean": 54.25,
@@ -310,17 +986,17 @@
           ]
         },
         "errorRateWilson95": {
-          "high": 0.7334,
-          "low": 0.1888,
-          "point": 0.4444
+          "high": 0.5763,
+          "low": 0.1268,
+          "point": 0.3077
         },
         "errors": 4,
         "falseRejectionRateOnCorrect": 0.0,
         "falseRejections": 0,
         "fault": 0,
         "missed": 0,
-        "naturalErrorRate": 0.4444,
-        "recorded": 9,
+        "naturalErrorRate": 0.3077,
+        "recorded": 13,
         "skipped": 0
       }
     },
@@ -386,6 +1062,60 @@
         "recorded": 12,
         "skipped": 0
       },
+      "g2": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "g3": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
       "h": {
         "N": 12,
         "catchRateOnErrors": 1.0,
@@ -420,13 +1150,68 @@
         "naturalErrorRate": 0.5833,
         "recorded": 12,
         "skipped": 0
+      },
+      "h2": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
+      },
+      "h3": {
+        "N": 3,
+        "catchRateOnErrors": null,
+        "caught": 0,
+        "correct": 3,
+        "errorMagnitude": {
+          "max": null,
+          "mean": null,
+          "median": null,
+          "min": null,
+          "n": 0,
+          "values": []
+        },
+        "errorRateWilson95": {
+          "high": 0.5615,
+          "low": 0.0,
+          "point": 0.0
+        },
+        "errors": 0,
+        "falseRejectionRateOnCorrect": 0.0,
+        "falseRejections": 0,
+        "fault": 0,
+        "missed": 0,
+        "naturalErrorRate": 0.0,
+        "recorded": 3,
+        "skipped": 0
       }
     },
+    "note": "byBand pools independent datasets at a scale; its pooled CI is heterogeneous. byBandModel (per band x model) is the primary homogeneous rate. byDataset shows each independent dataset separately so a band effect is visibly not one dataset's identity.",
     "overall": {
-      "N": 27,
+      "N": 39,
       "catchRateOnErrors": 1.0,
       "caught": 13,
-      "correct": 14,
+      "correct": 26,
       "errorMagnitude": {
         "max": 4266,
         "mean": 597.8462,
@@ -450,27 +1235,42 @@
         ]
       },
       "errorRateWilson95": {
-        "high": 0.6601,
-        "low": 0.3074,
-        "point": 0.4815
+        "high": 0.4902,
+        "low": 0.2063,
+        "point": 0.3333
       },
       "errors": 13,
       "falseRejectionRateOnCorrect": 0.0,
       "falseRejections": 0,
       "fault": 0,
       "missed": 0,
-      "naturalErrorRate": 0.4815,
-      "recorded": 27,
+      "naturalErrorRate": 0.3333,
+      "recorded": 39,
       "skipped": 0
     }
   },
   "aggregateDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-aggregate",
+  "bands": [
+    "f",
+    "g",
+    "h"
+  ],
   "condition": "natural",
   "countDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-scale2",
+  "datasets": [
+    "hard-count-f",
+    "hard-count-g",
+    "hard-count-g2",
+    "hard-count-g3",
+    "hard-count-h",
+    "hard-count-h2",
+    "hard-count-h3"
+  ],
   "episodes": [
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "f",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -491,6 +1291,7 @@
     {
       "absoluteError": 74,
       "attempt": "2",
+      "band": "g",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -511,6 +1312,7 @@
     {
       "absoluteError": 74,
       "attempt": "3",
+      "band": "g",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -531,6 +1333,7 @@
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "g",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -551,6 +1354,7 @@
     {
       "absoluteError": 62,
       "attempt": "2",
+      "band": "h",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -571,6 +1375,7 @@
     {
       "absoluteError": 62,
       "attempt": "3",
+      "band": "h",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -591,6 +1396,7 @@
     {
       "absoluteError": 116,
       "attempt": "1",
+      "band": "h",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -611,6 +1417,7 @@
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "f",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -631,6 +1438,7 @@
     {
       "absoluteError": 0,
       "attempt": "2",
+      "band": "g",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -651,6 +1459,7 @@
     {
       "absoluteError": 0,
       "attempt": "3",
+      "band": "g",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -671,6 +1480,7 @@
     {
       "absoluteError": 1,
       "attempt": "1",
+      "band": "g",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -691,6 +1501,7 @@
     {
       "absoluteError": 0,
       "attempt": "2",
+      "band": "h",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -711,6 +1522,7 @@
     {
       "absoluteError": 0,
       "attempt": "3",
+      "band": "h",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -731,6 +1543,7 @@
     {
       "absoluteError": 1,
       "attempt": "1",
+      "band": "h",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -751,6 +1564,7 @@
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "f",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -771,6 +1585,7 @@
     {
       "absoluteError": 1,
       "attempt": "2",
+      "band": "g",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -791,6 +1606,7 @@
     {
       "absoluteError": 1,
       "attempt": "3",
+      "band": "g",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -811,6 +1627,7 @@
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "g",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -831,6 +1648,7 @@
     {
       "absoluteError": 0,
       "attempt": "2",
+      "band": "h",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -851,6 +1669,7 @@
     {
       "absoluteError": 0,
       "attempt": "3",
+      "band": "h",
       "caught": false,
       "checkedField": "rows",
       "citable": true,
@@ -871,6 +1690,7 @@
     {
       "absoluteError": 1,
       "attempt": "1",
+      "band": "h",
       "caught": true,
       "checkedField": "rows",
       "citable": true,
@@ -889,8 +1709,261 @@
       "verdict_method": "recomputation"
     },
     {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "g",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 788,
+      "condition": "natural",
+      "dataset": "hard-count-g2",
+      "error": false,
+      "family": "count",
+      "file": "episode-haiku-g2.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "g2",
+      "schema_gate": "pass",
+      "truth": 788,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "g",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 762,
+      "condition": "natural",
+      "dataset": "hard-count-g3",
+      "error": false,
+      "family": "count",
+      "file": "episode-haiku-g3.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "g3",
+      "schema_gate": "pass",
+      "truth": 762,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "h",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1520,
+      "condition": "natural",
+      "dataset": "hard-count-h2",
+      "error": false,
+      "family": "count",
+      "file": "episode-haiku-h2.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "h2",
+      "schema_gate": "pass",
+      "truth": 1520,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "h",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1590,
+      "condition": "natural",
+      "dataset": "hard-count-h3",
+      "error": false,
+      "family": "count",
+      "file": "episode-haiku-h3.json",
+      "instructed": false,
+      "model": "haiku",
+      "scale": "h3",
+      "schema_gate": "pass",
+      "truth": 1590,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "g",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 788,
+      "condition": "natural",
+      "dataset": "hard-count-g2",
+      "error": false,
+      "family": "count",
+      "file": "episode-opus-g2.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "g2",
+      "schema_gate": "pass",
+      "truth": 788,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "g",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 762,
+      "condition": "natural",
+      "dataset": "hard-count-g3",
+      "error": false,
+      "family": "count",
+      "file": "episode-opus-g3.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "g3",
+      "schema_gate": "pass",
+      "truth": 762,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "h",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1520,
+      "condition": "natural",
+      "dataset": "hard-count-h2",
+      "error": false,
+      "family": "count",
+      "file": "episode-opus-h2.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "h2",
+      "schema_gate": "pass",
+      "truth": 1520,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "h",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1590,
+      "condition": "natural",
+      "dataset": "hard-count-h3",
+      "error": false,
+      "family": "count",
+      "file": "episode-opus-h3.json",
+      "instructed": false,
+      "model": "opus",
+      "scale": "h3",
+      "schema_gate": "pass",
+      "truth": 1590,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "g",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 788,
+      "condition": "natural",
+      "dataset": "hard-count-g2",
+      "error": false,
+      "family": "count",
+      "file": "episode-sonnet-g2.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "g2",
+      "schema_gate": "pass",
+      "truth": 788,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "g",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 762,
+      "condition": "natural",
+      "dataset": "hard-count-g3",
+      "error": false,
+      "family": "count",
+      "file": "episode-sonnet-g3.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "g3",
+      "schema_gate": "pass",
+      "truth": 762,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "h",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1520,
+      "condition": "natural",
+      "dataset": "hard-count-h2",
+      "error": false,
+      "family": "count",
+      "file": "episode-sonnet-h2.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "h2",
+      "schema_gate": "pass",
+      "truth": 1520,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
+      "absoluteError": 0,
+      "attempt": "1",
+      "band": "h",
+      "caught": false,
+      "checkedField": "rows",
+      "citable": true,
+      "claimed": 1590,
+      "condition": "natural",
+      "dataset": "hard-count-h3",
+      "error": false,
+      "family": "count",
+      "file": "episode-sonnet-h3.json",
+      "instructed": false,
+      "model": "sonnet",
+      "scale": "h3",
+      "schema_gate": "pass",
+      "truth": 1590,
+      "verdict": "accepted",
+      "verdict_method": "recomputation"
+    },
+    {
       "absoluteError": 4266,
       "attempt": "1",
+      "band": "g",
       "caught": true,
       "checkedField": "total",
       "citable": true,
@@ -911,6 +1984,7 @@
     {
       "absoluteError": 2899,
       "attempt": "1",
+      "band": "h",
       "caught": true,
       "checkedField": "total",
       "citable": true,
@@ -931,6 +2005,7 @@
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "g",
       "caught": false,
       "checkedField": "total",
       "citable": true,
@@ -951,6 +2026,7 @@
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "h",
       "caught": false,
       "checkedField": "total",
       "citable": true,
@@ -971,6 +2047,7 @@
     {
       "absoluteError": 0,
       "attempt": "1",
+      "band": "g",
       "caught": false,
       "checkedField": "total",
       "citable": true,
@@ -991,6 +2068,7 @@
     {
       "absoluteError": 214,
       "attempt": "1",
+      "band": "h",
       "caught": true,
       "checkedField": "total",
       "citable": true,
@@ -1009,6 +2087,9 @@
       "verdict_method": "recomputation"
     }
   ],
+  "extraCountDirs": [
+    "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-natural-scale3"
+  ],
   "families": [
     "count",
     "aggregate"
@@ -1023,7 +2104,11 @@
   "scales": [
     "f",
     "g",
-    "h"
+    "g2",
+    "g3",
+    "h",
+    "h2",
+    "h3"
   ],
   "schema": "contractplane.dev/experimental/natural-power-study/v0"
 }

@@ -57,6 +57,7 @@ from .judge_study import (
 )
 from .natural_study import (
     DATASET_SCALE2_TOKENS,
+    DATASET_SCALE3_TOKENS,
     DATASET_SCALE_TOKENS,
     HardCountRecomputer,
     HardSumRecomputer,
@@ -68,6 +69,7 @@ from .natural_study import (
     run_natural_power_study,
     run_natural_scale_study,
     run_natural_study,
+    scale_band,
     wilson_interval,
     write_natural_study,
 )
@@ -107,6 +109,7 @@ __all__ = [
     "ConfigurationError",
     "DATASET_SCALE_TOKENS",
     "DATASET_SCALE2_TOKENS",
+    "DATASET_SCALE3_TOKENS",
     "SUBSTRATES",
     "acp_available",
     "condition_specs",
@@ -154,6 +157,7 @@ __all__ = [
     "run_natural_scale_study",
     "run_natural_study",
     "run_study",
+    "scale_band",
     "wilson_interval",
     "write_natural_study",
     "write_study",
