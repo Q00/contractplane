@@ -135,7 +135,78 @@ capabilities:
       config:
         entry: workers/filter_count_metric.py
         threshold: 10
-roles: []
+  - id: chain-count
+    kind: agent
+    description: >-
+      Step 1 of the agentic chain: count the records of dataset X by inspection
+      (tool-less). Produces a claim verified against the recomputed true count.
+    sideEffects: none
+    inputSchema:
+      type: object
+      required: [datasetX, datasetY]
+      properties:
+        datasetX: {type: string, minLength: 1}
+        datasetY: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, rows]
+      properties:
+        artifact: {type: string, minLength: 1}
+        rows: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: []
+  - id: chain-sum
+    kind: agent
+    description: >-
+      Step 2 of the agentic chain: sum the value field of dataset Y by inspection
+      (tool-less). Produces a claim verified against the recomputed true sum.
+    sideEffects: none
+    inputSchema:
+      type: object
+      required: [datasetX, datasetY]
+      properties:
+        datasetX: {type: string, minLength: 1}
+        datasetY: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, total]
+      properties:
+        artifact: {type: string, minLength: 1}
+        total: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: []
+  - id: chain-derive
+    kind: agent
+    description: >-
+      Step 3 of the agentic chain: combine the model's OWN earlier count and sum
+      claims into a derived total (count + sum). The derived claim is verified
+      against ground truth recomputed end-to-end from the raw datasets.
+    sideEffects: none
+    inputSchema:
+      type: object
+      required: [datasetX, datasetY]
+      properties:
+        datasetX: {type: string, minLength: 1}
+        datasetY: {type: string, minLength: 1}
+      additionalProperties: false
+    outputSchema:
+      type: object
+      required: [artifact, derived]
+      properties:
+        artifact: {type: string, minLength: 1}
+        derived: {type: integer, minimum: 0}
+      additionalProperties: false
+    permissions: []
+roles:
+  - id: chain-analyst
+    description: Tool-less analyst who works the three chain steps in sequence by inspection.
+    capabilities: [chain-count, chain-sum, chain-derive]
+    instructions: >-
+      Count dataset X's records, sum dataset Y's value field, then report the
+      derived total from your own earlier claims. Do not execute code; report your
+      honest best answers as structured data.
 evidence:
   - id: report-artifact
     kind: artifact
@@ -178,6 +249,40 @@ evidence:
         dataset: {type: string, minLength: 1}
         matches: {type: integer, minimum: 0}
         generatedBy: {type: string, const: filter-count-metric}
+      additionalProperties: false
+  - id: chain-count-artifact
+    kind: artifact
+    description: Chain step 1 artifact — the claimed record count of dataset X.
+    schema:
+      type: object
+      required: [dataset, rows, generatedBy]
+      properties:
+        dataset: {type: string, minLength: 1}
+        rows: {type: integer, minimum: 0}
+        generatedBy: {type: string, const: chain-count}
+      additionalProperties: false
+  - id: chain-sum-artifact
+    kind: artifact
+    description: Chain step 2 artifact — the claimed value-field sum of dataset Y.
+    schema:
+      type: object
+      required: [dataset, total, generatedBy]
+      properties:
+        dataset: {type: string, minLength: 1}
+        total: {type: integer, minimum: 0}
+        generatedBy: {type: string, const: chain-sum}
+      additionalProperties: false
+  - id: chain-derived-artifact
+    kind: artifact
+    description: Chain step 3 artifact — the claimed derived total (count + sum).
+    schema:
+      type: object
+      required: [datasetX, datasetY, derived, generatedBy]
+      properties:
+        datasetX: {type: string, minLength: 1}
+        datasetY: {type: string, minLength: 1}
+        derived: {type: integer, minimum: 0}
+        generatedBy: {type: string, const: chain-derive}
       additionalProperties: false
 policies:
   - id: local-evidence
@@ -274,6 +379,43 @@ flows:
         fanout: {mode: singleton}
         requiresEvidence: [filter-count-artifact]
         produces: [filtered]
+  - id: chain
+    description: >-
+      Three-step agentic claim chain: count dataset X, sum dataset Y, then derive
+      count + sum. Each step is independently recompute-verified; the derived step
+      depends on the model's own earlier claims.
+    inputSchema:
+      type: object
+      required: [datasetX, datasetY]
+      properties:
+        datasetX: {type: string, minLength: 1}
+        datasetY: {type: string, minLength: 1}
+      additionalProperties: false
+    stages:
+      - id: count
+        description: Count dataset X's records.
+        capability: chain-count
+        role: chain-analyst
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [chain-count-artifact]
+        produces: [count]
+      - id: sum
+        description: Sum dataset Y's value field.
+        capability: chain-sum
+        role: chain-analyst
+        needs: []
+        fanout: {mode: singleton}
+        requiresEvidence: [chain-sum-artifact]
+        produces: [sum]
+      - id: derive
+        description: Derive count + sum from the model's own earlier claims.
+        capability: chain-derive
+        role: chain-analyst
+        needs: [count, sum]
+        fanout: {mode: singleton}
+        requiresEvidence: [chain-derived-artifact]
+        produces: [derived]
 entrypoints:
   - id: report
     description: Compile and independently verify a report.
@@ -300,3 +442,8 @@ entrypoints:
     flow: filter-count
     keywords: [filter, threshold, count]
     examples: [Count sprint metrics above the threshold.]
+  - id: chain
+    description: Run the three-step agentic claim chain and independently verify each step.
+    flow: chain
+    keywords: [chain, multi-step, derive]
+    examples: [Count X, sum Y, then derive the total.]

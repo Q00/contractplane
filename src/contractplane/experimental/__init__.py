@@ -37,6 +37,17 @@ from .acp_adapter import (
 )
 from .adapter import DispatchResult, LocalProcessAdapter
 from .authority import AuthorityDecision, AuthorityGate, AuthorityGrant
+from .chain_study import (
+    ChainDerivedRecomputer,
+    ChainEpisode,
+    ChainEpisodeError,
+    ChainEpisodeProducer,
+    load_chain_episode,
+    parse_chain_episode,
+    run_chain_study,
+    score_chain,
+    write_chain_study,
+)
 from .episode import (
     Episode,
     EpisodeError,
@@ -111,8 +122,17 @@ __all__ = [
     "AuthorityGate",
     "AuthorityGrant",
     "CONDITIONS",
+    "ChainDerivedRecomputer",
+    "ChainEpisode",
+    "ChainEpisodeError",
+    "ChainEpisodeProducer",
     "ChainRecomputer",
     "CONSISTENCY_STUDY_SCHEMA",
+    "load_chain_episode",
+    "parse_chain_episode",
+    "run_chain_study",
+    "score_chain",
+    "write_chain_study",
     "ConfigurationError",
     "DATASET_SCALE_TOKENS",
     "DATASET_SCALE2_TOKENS",

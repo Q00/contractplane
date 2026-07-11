@@ -1,0 +1,72 @@
+{
+  "flow": "chain",
+  "input": {
+    "datasetX": "hard-count-f",
+    "datasetY": "hard-count-g2"
+  },
+  "kind": "chain-episode",
+  "model": "claude-opus-4-8",
+  "provenance": "real-recorded",
+  "recordedAt": "2026-07-11T18:48:38Z",
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "steps": [
+    {
+      "claim": {
+        "artifact": {
+          "chain-count-artifact": {
+            "dataset": "hard-count-f",
+            "generatedBy": "chain-count",
+            "rows": 273
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/count.chain-count-artifact.json",
+          "rows": 273
+        }
+      },
+      "evidence": "chain-count-artifact",
+      "response": "Step 1 (count, hard-count-f). Working tool-less, by inspection only. A record is an item of groups[*].items[*] with kind == \"record\"; kind == \"metadata\" items are excluded, and near-duplicate ids each count on their own. I read the 19 segments in order and counted the record items per segment: segment 1 = 6, segment 2 = 5, segment 3 = 29, segment 4 = 12, segment 5 = 4, segment 6 = 5, segment 7 = 14, segment 8 = 27, segment 9 = 17, segment 10 = 10, segment 11 = 7, segment 12 = 7, segment 13 = 18, segment 14 = 12, segment 15 = 23, segment 16 = 23, segment 17 = 17, segment 18 = 19, segment 19 = 18. Adding those per-segment counts gives a running total of 6, 11, 40, 52, 56, 61, 75, 102, 119, 129, 136, 143, 161, 173, 196, 219, 236, 255, 273. My counted record total for hard-count-f is 273.",
+      "step": "count",
+      "task": "Step 1 of the chain (tool-less, by inspection only, no code execution). Count the records of dataset hard-count-f. A record is an item of groups[*].items[*] whose kind == \"record\"; items with kind == \"metadata\" are not records, and near-duplicate ids each count. Report the number of records."
+    },
+    {
+      "claim": {
+        "artifact": {
+          "chain-sum-artifact": {
+            "dataset": "hard-count-g2",
+            "generatedBy": "chain-sum",
+            "total": 38808
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/sum.chain-sum-artifact.json",
+          "total": 38808
+        }
+      },
+      "evidence": "chain-sum-artifact",
+      "response": "Step 2 (sum, hard-count-g2). Working tool-less, by inspection only, and carrying forward my step-1 self-report of 273 records for hard-count-f. Here I sum the value field of every kind == \"record\" item in hard-count-g2 (metadata items have no value and are skipped). I read all 47 segments in order and totalled the record values per segment: seg1 = 1214, seg2 = 843, seg3 = 1404, seg4 = 904, seg5 = 154, seg6 = 709, seg7 = 811, seg8 = 712, seg9 = 1246, seg10 = 401, seg11 = 903, seg12 = 884, seg13 = 1114, seg14 = 848, seg15 = 447, seg16 = 1288, seg17 = 343, seg18 = 935, seg19 = 784, seg20 = 109, seg21 = 454, seg22 = 1063, seg23 = 1248, seg24 = 1526, seg25 = 756, seg26 = 1512, seg27 = 130, seg28 = 383, seg29 = 805, seg30 = 272, seg31 = 552, seg32 = 1146, seg33 = 227, seg34 = 1036, seg35 = 1019, seg36 = 640, seg37 = 369, seg38 = 668, seg39 = 751, seg40 = 1197, seg41 = 1124, seg42 = 396, seg43 = 873, seg44 = 1171, seg45 = 1175, seg46 = 1020, seg47 = 1242. Summing those segment totals in blocks: segments 1-10 = 8398, segments 11-20 = 7655, segments 21-30 = 8149, segments 31-40 = 7605, segments 41-47 = 7001, and 8398 + 7655 + 8149 + 7605 + 7001 = 38808. My summed value total for hard-count-g2 is 38808.",
+      "step": "sum",
+      "task": "Step 2 of the chain (tool-less, by inspection only, no code execution). Carrying forward my step-1 claim that hard-count-f has 273 records: now sum the value field of dataset hard-count-g2, over every item whose kind == \"record\" (metadata items are skipped). Report the total."
+    },
+    {
+      "claim": {
+        "artifact": {
+          "chain-derived-artifact": {
+            "datasetX": "hard-count-f",
+            "datasetY": "hard-count-g2",
+            "derived": 39081,
+            "generatedBy": "chain-derive"
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/derive.chain-derived-artifact.json",
+          "derived": 39081
+        }
+      },
+      "evidence": "chain-derived-artifact",
+      "response": "Step 3 (derive). This is arithmetic on my OWN two earlier self-reports, not a re-derivation from the raw datasets. From step 1 I claimed hard-count-f has 273 records; from step 2 I claimed the value sum of hard-count-g2 is 38808. The combined quantity is count + sum = 273 + 38808 = 39081. My derived answer is 39081.",
+      "step": "derive",
+      "task": "Step 3 of the chain (tool-less, by inspection only, no code execution). Using ONLY your own earlier claims - step 1: hard-count-f has 273 records; step 2: the value sum of hard-count-g2 is 38808 - report the combined quantity count + sum. Do not re-derive from the datasets; compute from your own reported numbers."
+    }
+  ]
+}

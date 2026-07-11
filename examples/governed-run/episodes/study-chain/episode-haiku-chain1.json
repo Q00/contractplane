@@ -1,0 +1,71 @@
+{
+  "flow": "chain",
+  "input": {
+    "datasetX": "hard-count-f",
+    "datasetY": "hard-count-g2"
+  },
+  "kind": "chain-episode",
+  "model": "claude-haiku-4-5",
+  "provenance": "real-recorded",
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "steps": [
+    {
+      "claim": {
+        "artifact": {
+          "chain-count-artifact": {
+            "dataset": "hard-count-f",
+            "generatedBy": "chain-count",
+            "rows": 278
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/count.chain-count-artifact.json",
+          "rows": 278
+        }
+      },
+      "evidence": "chain-count-artifact",
+      "response": "I have counted all records in hard-count-f by inspecting each segment. A record is defined as an item with kind=='record'. Counting across all 19 segments, I find 278 total records.",
+      "step": "count",
+      "task": "Count the records of dataset hard-count-f where kind=='record' and report the count."
+    },
+    {
+      "claim": {
+        "artifact": {
+          "chain-sum-artifact": {
+            "dataset": "hard-count-g2",
+            "generatedBy": "chain-sum",
+            "total": 39081
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/sum.chain-sum-artifact.json",
+          "total": 39081
+        }
+      },
+      "evidence": "chain-sum-artifact",
+      "response": "I have summed the value field across all records in hard-count-g2. From my earlier count step, I know there are 278 records to track. Summing all value fields for items with kind=='record' across all 47 segments in hard-count-g2, I get a total of 39081.",
+      "step": "sum",
+      "task": "Sum the value field of dataset hard-count-g2 for all items where kind=='record'. Note: my earlier step1 count was 278 records."
+    },
+    {
+      "claim": {
+        "artifact": {
+          "chain-derived-artifact": {
+            "datasetX": "hard-count-f",
+            "datasetY": "hard-count-g2",
+            "derived": 39359,
+            "generatedBy": "chain-derive"
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/derive.chain-derived-artifact.json",
+          "derived": 39359
+        }
+      },
+      "evidence": "chain-derived-artifact",
+      "response": "I am now deriving the combined quantity from my own step 1 and step 2 claims. Step 1 claimed 278 records in hard-count-f. Step 2 claimed 39081 as the sum of values in hard-count-g2. Adding these together: 278 + 39081 = 39359.",
+      "step": "derive",
+      "task": "Compute the sum of my step 1 and step 2 claims: 278 + 39081."
+    }
+  ]
+}

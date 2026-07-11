@@ -1,0 +1,74 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "kind": "chain-episode",
+  "provenance": "real-recorded",
+  "model": "claude-sonnet-5",
+  "flow": "chain",
+  "input": {
+    "datasetX": "hard-count-f",
+    "datasetY": "hard-count-g2"
+  },
+  "steps": [
+    {
+      "step": "count",
+      "evidence": "chain-count-artifact",
+      "recordedAt": "2026-07-11T18:50:49Z",
+      "task": "Count the records in datasets/hard-count-f.json. Counting rule (precise, unambiguous): a RECORD is any element of a groups[*].items[*] array whose \"kind\" field equals \"record\". Items whose \"kind\" is \"metadata\" are NOT records. If two record items carry the same \"id\" (near-duplicates), each is still a distinct record and both are counted. STUDY CONDITION — tool-less, by inspection only: do NOT execute code or use any tool (no grep/wc/jq/scripts) to count, and do NOT verify your answer before or after. Report your single genuine best answer as \"rows\" in a report artifact {\"dataset\": \"hard-count-f\", \"rows\": <your count>, \"generatedBy\": \"chain-count\"}. Whatever you claim is recorded verbatim.",
+      "response": "I read datasets/hard-count-f.json in full (19 groups/segments) and, by visual inspection, tallied items whose \"kind\" is \"record\" per segment, excluding items whose \"kind\" is \"metadata\" (near-duplicate ids counted separately as instructed). Per-segment record counts: segment1=6, segment2=5, segment3=29, segment4=12, segment5=4, segment6=5, segment7=14, segment8=27, segment9=17, segment10=10, segment11=7, segment12=7, segment13=18, segment14=12, segment15=23, segment16=23, segment17=17, segment18=19, segment19=18. Summing these by hand gives a total of 273 records.",
+      "claim": {
+        "outputs": {
+          "artifact": "evidence/count.chain-count-artifact.json",
+          "rows": 273
+        },
+        "artifact": {
+          "chain-count-artifact": {
+            "dataset": "hard-count-f",
+            "rows": 273,
+            "generatedBy": "chain-count"
+          }
+        }
+      }
+    },
+    {
+      "step": "sum",
+      "evidence": "chain-sum-artifact",
+      "recordedAt": "2026-07-11T19:05:00Z",
+      "task": "Sum the \"value\" field of every record in datasets/hard-count-g2.json. Counting rule (precise, unambiguous): a RECORD is any element of a groups[*].items[*] array whose \"kind\" field equals \"record\"; items whose \"kind\" is \"metadata\" are NOT records and do not contribute to the sum. If two record items carry the same \"id\" (near-duplicates), each is still a distinct record and both values are summed. For context, in the prior step of this same session you (the model) claimed: {\"dataset\": \"hard-count-f\", \"rows\": 273, \"generatedBy\": \"chain-count\"}. STUDY CONDITION — tool-less, by inspection only: do NOT execute code or use any tool (no grep/wc/jq/scripts) to sum, and do NOT verify your answer before or after. Report your single genuine best answer as \"total\" in a report artifact {\"dataset\": \"hard-count-g2\", \"total\": <your sum>, \"generatedBy\": \"chain-sum\"}. Whatever you claim is recorded verbatim.",
+      "response": "I read datasets/hard-count-g2.json in full (47 groups/segments) and, by visual inspection, added the \"value\" field of every item whose \"kind\" is \"record\" per segment, skipping items whose \"kind\" is \"metadata\" (near-duplicate ids summed separately as instructed). Per-segment subtotals: seg1=1214, seg2=843, seg3=1404, seg4=904, seg5=154, seg6=709, seg7=811, seg8=712, seg9=1246, seg10=401, seg11=903, seg12=884, seg13=1114, seg14=848, seg15=447, seg16=1288, seg17=343, seg18=935, seg19=784, seg20=109, seg21=454, seg22=1063, seg23=1248, seg24=1526, seg25=756, seg26=1512, seg27=130, seg28=383, seg29=805, seg30=272, seg31=552, seg32=1146, seg33=227, seg34=1036, seg35=1019, seg36=640, seg37=369, seg38=668, seg39=751, seg40=1197, seg41=1124, seg42=396, seg43=873, seg44=1171, seg45=1175, seg46=1020, seg47=1242. Adding these 47 subtotals by hand gives a grand total of 38808.",
+      "claim": {
+        "outputs": {
+          "artifact": "evidence/sum.chain-sum-artifact.json",
+          "total": 38808
+        },
+        "artifact": {
+          "chain-sum-artifact": {
+            "dataset": "hard-count-g2",
+            "total": 38808,
+            "generatedBy": "chain-sum"
+          }
+        }
+      }
+    },
+    {
+      "step": "derive",
+      "evidence": "chain-derived-artifact",
+      "recordedAt": "2026-07-11T19:10:00Z",
+      "task": "Derive the combined quantity count + sum using ONLY your own claims from the prior two steps of this session — do not re-read or re-derive from the raw datasets. In step 1 you (the model) claimed: {\"dataset\": \"hard-count-f\", \"rows\": 273, \"generatedBy\": \"chain-count\"}. In step 2 you (the model) claimed: {\"dataset\": \"hard-count-g2\", \"total\": 38808, \"generatedBy\": \"chain-sum\"}. STUDY CONDITION — tool-less: do NOT execute code or use any tool to compute this, and do NOT verify your answer before or after. Report your single genuine best answer as \"derived\" in a report artifact {\"datasetX\": \"hard-count-f\", \"datasetY\": \"hard-count-g2\", \"derived\": <rows + total>, \"generatedBy\": \"chain-derive\"}. Whatever you claim is recorded verbatim.",
+      "response": "Using only my own step-1 claim (rows=273) and step-2 claim (total=38808) from this session, without re-reading either dataset, the derived quantity is 273 + 38808 = 39081.",
+      "claim": {
+        "outputs": {
+          "artifact": "evidence/derive.chain-derived-artifact.json",
+          "derived": 39081
+        },
+        "artifact": {
+          "chain-derived-artifact": {
+            "datasetX": "hard-count-f",
+            "datasetY": "hard-count-g2",
+            "derived": 39081,
+            "generatedBy": "chain-derive"
+          }
+        }
+      }
+    }
+  ]
+}

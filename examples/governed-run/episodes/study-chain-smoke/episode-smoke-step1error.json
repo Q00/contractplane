@@ -1,0 +1,71 @@
+{
+  "flow": "chain",
+  "input": {
+    "datasetX": "hard-count-f",
+    "datasetY": "hard-count-g2"
+  },
+  "kind": "chain-episode",
+  "model": "synthetic-smoke/none",
+  "provenance": "synthetic-smoke",
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "steps": [
+    {
+      "claim": {
+        "artifact": {
+          "chain-count-artifact": {
+            "dataset": "hard-count-f",
+            "generatedBy": "chain-count",
+            "rows": 280
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/count.chain-count-artifact.json",
+          "rows": 280
+        }
+      },
+      "evidence": "chain-count-artifact",
+      "response": "SYNTHETIC SMOKE step count: rows=280.",
+      "step": "count",
+      "task": "SYNTHETIC SMOKE step count (not real model output; do not cite)."
+    },
+    {
+      "claim": {
+        "artifact": {
+          "chain-sum-artifact": {
+            "dataset": "hard-count-g2",
+            "generatedBy": "chain-sum",
+            "total": 38808
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/sum.chain-sum-artifact.json",
+          "total": 38808
+        }
+      },
+      "evidence": "chain-sum-artifact",
+      "response": "SYNTHETIC SMOKE step sum: total=38808.",
+      "step": "sum",
+      "task": "SYNTHETIC SMOKE step sum (not real model output; do not cite)."
+    },
+    {
+      "claim": {
+        "artifact": {
+          "chain-derived-artifact": {
+            "datasetX": "hard-count-f",
+            "datasetY": "hard-count-g2",
+            "derived": 39088,
+            "generatedBy": "chain-derive"
+          }
+        },
+        "outputs": {
+          "artifact": "evidence/derive.chain-derived-artifact.json",
+          "derived": 39088
+        }
+      },
+      "evidence": "chain-derived-artifact",
+      "response": "SYNTHETIC SMOKE step derive: derived=39088.",
+      "step": "derive",
+      "task": "SYNTHETIC SMOKE step derive (not real model output; do not cite)."
+    }
+  ]
+}

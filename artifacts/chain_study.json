@@ -1,0 +1,161 @@
+{
+  "schema": "contractplane.dev/experimental/chain-study/v0",
+  "note": "EXPERIMENTAL multi-step agentic claim-chain study. Each of the three steps is independently recompute-verified through the same kernel; a wrong early step halts the chain (blast-radius containment). Rows derive from real replayed chain episodes only; placeholders are skipped, never fabricated; synthetic-smoke fixtures are not citable.",
+  "studyDir": "examples/governed-run/episodes/study-chain",
+  "steps": [
+    "count",
+    "sum",
+    "derive"
+  ],
+  "episodes": [
+    {
+      "file": "episode-haiku-chain1.json",
+      "model": "claude-haiku-4-5",
+      "provenance": "real-recorded",
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "steps": [
+        {
+          "step": "count",
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "claimed": 278,
+          "truth": 273,
+          "error": true,
+          "verdict": "rejected"
+        },
+        {
+          "step": "sum",
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "claimed": 39081,
+          "truth": 38808,
+          "error": true,
+          "verdict": "not-reached"
+        },
+        {
+          "step": "derive",
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "claimed": 39359,
+          "truth": 39081,
+          "error": true,
+          "verdict": "not-reached"
+        }
+      ],
+      "governedResult": "rejected",
+      "haltedAtStep": "count",
+      "firstErrorStep": "count",
+      "derivedClaim": 39359,
+      "derivedTruth": 39081,
+      "derivedFromOwnArithmetic": 39359,
+      "derivedMatchesOwnArithmetic": true,
+      "errorPropagatedIntoFinalClaim": true,
+      "blastRadiusContained": true
+    },
+    {
+      "file": "episode-opus-chain1.json",
+      "model": "claude-opus-4-8",
+      "provenance": "real-recorded",
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "steps": [
+        {
+          "step": "count",
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "claimed": 273,
+          "truth": 273,
+          "error": false,
+          "verdict": "accepted"
+        },
+        {
+          "step": "sum",
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "claimed": 38808,
+          "truth": 38808,
+          "error": false,
+          "verdict": "accepted"
+        },
+        {
+          "step": "derive",
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "claimed": 39081,
+          "truth": 39081,
+          "error": false,
+          "verdict": "accepted"
+        }
+      ],
+      "governedResult": "succeeded",
+      "haltedAtStep": null,
+      "firstErrorStep": null,
+      "derivedClaim": 39081,
+      "derivedTruth": 39081,
+      "derivedFromOwnArithmetic": 39081,
+      "derivedMatchesOwnArithmetic": true,
+      "errorPropagatedIntoFinalClaim": false,
+      "blastRadiusContained": false
+    },
+    {
+      "file": "episode-sonnet-chain1.json",
+      "model": "claude-sonnet-5",
+      "provenance": "real-recorded",
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "steps": [
+        {
+          "step": "count",
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "claimed": 273,
+          "truth": 273,
+          "error": false,
+          "verdict": "accepted"
+        },
+        {
+          "step": "sum",
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "claimed": 38808,
+          "truth": 38808,
+          "error": false,
+          "verdict": "accepted"
+        },
+        {
+          "step": "derive",
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "claimed": 39081,
+          "truth": 39081,
+          "error": false,
+          "verdict": "accepted"
+        }
+      ],
+      "governedResult": "succeeded",
+      "haltedAtStep": null,
+      "firstErrorStep": null,
+      "derivedClaim": 39081,
+      "derivedTruth": 39081,
+      "derivedFromOwnArithmetic": 39081,
+      "derivedMatchesOwnArithmetic": true,
+      "errorPropagatedIntoFinalClaim": false,
+      "blastRadiusContained": false
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "recorded": 3,
+    "skipped": 0,
+    "error": 0,
+    "chainsFullyAccepted": 2,
+    "chainsRejected": 1,
+    "earlyErrorChains": 1,
+    "earlyErrorsPropagatedInClaim": 1,
+    "earlyErrorsContainedByGovernance": 1
+  }
+}
