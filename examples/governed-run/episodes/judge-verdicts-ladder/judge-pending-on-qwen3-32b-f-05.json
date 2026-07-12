@@ -1,0 +1,17 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "placeholder",
+  "status": "unrecorded",
+  "condition": "llm-judge-tool-less",
+  "instructed": false,
+  "intendedJudgeModel": "claude-opus-4-8",
+  "producerModel": "qwen3:32b",
+  "dataset": "hard-count-f",
+  "datasetPath": "datasets/hard-count-f.json",
+  "sourceEpisode": "episode-qwen3-32b-f-05.json",
+  "claimedRows": 265,
+  "verdict": null,
+  "judgeRecount": null,
+  "rationale": null,
+  "task": "You are an LLM-as-judge verifier. A producer model reported a record count for the caller-owned dataset datasets/hard-count-f.json. Producer claim: rows = 265. Decide whether to accept or reject that claim.\n\nCounting rule (precise, unambiguous; identical to hard-count-a): a RECORD is any element of groups[*].items[*] whose \"kind\" field equals \"record\". Items whose \"kind\" equals \"metadata\" are NOT records, even though they share the same shape. If two records carry the same \"id\" (near-duplicates), each is still a distinct record and both are counted.\n\nJUDGE CONDITION -- tool-less / blind (mirrors the producer condition): read datasets/hard-count-f.json and evaluate the claim BY INSPECTION only. Do NOT execute code, run scripts, or use any counting tool, before or after -- exactly the condition the producer worked under. You are NOT told the true count. Record your verdict (\"accept\" or \"reject\"), your own recount if you make one (\"judgeRecount\"), and a \"rationale\". Whatever you decide is recorded verbatim; do not self-correct with code."
+}
