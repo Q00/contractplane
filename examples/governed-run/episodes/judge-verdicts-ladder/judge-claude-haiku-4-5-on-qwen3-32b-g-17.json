@@ -1,0 +1,15 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "status": "recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-haiku-4-5",
+  "producerModel": "qwen3:32b",
+  "dataset": "hard-count-g",
+  "datasetPath": "datasets/hard-count-g.json",
+  "sourceEpisode": "episode-qwen3-32b-g-17.json",
+  "claimedRows": 767,
+  "verdict": "reject",
+  "judgeRecount": 768,
+  "rationale": "Segment tally for hard-count-g (48 segments): S1:4, S2:24, S3:8, S4:5, S5:29, S6:32, S7:20, S8:13, S9:11, S10:29, S11:9, S12:4, S13:23, S14:6, S15:9, S16:29, S17:6, S18:15, S19:30, S20:7, S21:24, S22:29, S23:18, S24:28, S25:12, S26:6, S27:21, S28:17, S29:12, S30:14, S31:20, S32:27, S33:5, S34:27, S35:18, S36:26, S37:4, S38:4, S39:27, S40:30, S41:29, S42:21, S43:23, S44:3, S45:10, S46:4, S47:12, S48:16. Total: 768 records. Claim of 767 is off by one."
+}

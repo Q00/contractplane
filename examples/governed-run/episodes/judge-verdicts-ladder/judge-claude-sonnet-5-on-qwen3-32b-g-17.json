@@ -1,0 +1,15 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-sonnet-5",
+  "producerModel": "qwen3:32b",
+  "dataset": "hard-count-g",
+  "datasetPath": "datasets/hard-count-g.json",
+  "sourceEpisode": "episode-qwen3-32b-g-17.json",
+  "claimedRows": 767,
+  "verdict": "reject",
+  "judgeRecount": 754,
+  "rationale": "Single genuine tool-less pass over datasets/hard-count-g.json (Read tool only, no code/wc/grep/jq). Walked all 48 groups[*].items[*] by inspection, counting kind=='record' (metadata excluded, near-duplicate ids each counted separately). Per-segment record tallies (segment 1-48): 4, 24, 8, 5, 28, 30, 18, 11, 9, 28, 8, 4, 20, 6, 8, 28, 5, 15, 29, 5, 22, 28, 17, 26, 14, 6, 19, 15, 9, 13, 19, 26, 4, 26, 18, 27, 4, 4, 25, 28, 29, 20, 22, 3, 8, 4, 11, 14. Sum = 754. Claimed rows = 767, which is 13 more than my recount -> reject.",
+  "status": "recorded"
+}

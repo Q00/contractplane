@@ -1,0 +1,15 @@
+{
+  "schema": "contractplane.dev/experimental/judge-verdict/v0",
+  "provenance": "real-recorded",
+  "status": "recorded",
+  "condition": "llm-judge-tool-less",
+  "judgeModel": "claude-opus-4-8",
+  "producerModel": "qwen3:32b",
+  "dataset": "hard-count-f",
+  "datasetPath": "datasets/hard-count-f.json",
+  "sourceEpisode": "episode-qwen3-32b-f-05.json",
+  "claimedRows": 265,
+  "verdict": "reject",
+  "judgeRecount": 273,
+  "rationale": "Recount from my single genuine tool-less inspection pass over datasets/hard-count-f.json, counting kind=='record' per segment (metadata excluded; near-duplicate ids each counted): seg1=6, seg2=5, seg3=29, seg4=12, seg5=4, seg6=5, seg7=14, seg8=27, seg9=17, seg10=10, seg11=7, seg12=7, seg13=18, seg14=12, seg15=23, seg16=23, seg17=17, seg18=19, seg19=18 = 273. Claim 265 != 273 (off by -8), so reject."
+}
