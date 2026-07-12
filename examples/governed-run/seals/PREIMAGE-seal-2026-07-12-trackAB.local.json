@@ -1,0 +1,20 @@
+{
+  "schema": "producer-study-seal/v0-preimage",
+  "salt": "fc5012bd3246cf44e9f51a865ae5f063",
+  "truths": {
+    "hard-count-f:count": 273,
+    "hard-count-f:sum": 13255,
+    "hard-count-g:count": 754,
+    "hard-count-g:sum": 37496,
+    "hard-count-g2:count": 788,
+    "hard-count-g2:sum": 38808,
+    "hard-count-g3:count": 762,
+    "hard-count-g3:sum": 38096,
+    "hard-count-h:count": 1551,
+    "hard-count-h:sum": 77874,
+    "hard-count-h2:count": 1520,
+    "hard-count-h2:sum": 76440,
+    "hard-count-h3:count": 1590,
+    "hard-count-h3:sum": 77360
+  }
+}

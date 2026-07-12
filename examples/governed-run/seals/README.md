@@ -16,4 +16,4 @@ the (small) truth space from the committed hash. Module:
 `src/contractplane/experimental/sealing.py`.
 
 Reveal log:
-- (none yet — pending Track A/B completion)
+- 2026-07-12: seal-2026-07-12-trackAB REVEALED after both tracks completed (Track B GPU ladder + think arm, e18/e21; Track A OpenAI family, e22; ladder judge corpus, e19). Verification: matches=true.
