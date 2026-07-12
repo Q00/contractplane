@@ -45,6 +45,7 @@ def _load(name: str):
 
 HARV = _load("local_harvest")
 PROTO = _load("harvest_protocol")
+GPU = _load("gpu_harvest")
 
 
 # --------------------------------------------------------------------------- #
@@ -61,6 +62,31 @@ def test_shared_prompt_builder_matches_executed_harvester_byte_for_byte() -> Non
     for dataset in ("hard-count-f", "hard-count-g", "hard-count-h2"):
         assert PROTO.build_task(dataset) == HARV.build_task(dataset)
         assert PROTO.build_prompt(dataset, sample) == HARV.build_prompt(dataset, sample)
+
+
+def test_gpu_harvester_inherits_the_executed_condition() -> None:
+    """The Track B wrapper must not fork the eval condition: its task text comes
+    from the executed harvester (itself drift-guarded), only condition variables
+    (model/think/num_ctx/num_predict) change and are recorded per episode."""
+    ep = GPU.make_episode(
+        dataset="hard-count-f", attempt="01", model="qwen3:32b",
+        response_text="answer", rows=273, method="json-rows",
+        gen_params={"seed": 1, "temperature": 0.6, "num_ctx": 40960,
+                    "think": True, "numPredict": 16384, "decodeCapHit": False},
+    )
+    assert ep["task"] == PROTO.build_task("hard-count-f")
+    assert ep["modelShort"] == "qwen3-32b"
+    assert ep["model"] == "qwen3:32b"
+    assert ep["provenance"] == "real-recorded"
+    assert ep["generationParams"]["think"] is True
+    assert ep["generationParams"]["numPredict"] == 16384
+
+
+def test_gpu_harvester_naming_and_short_tokens(tmp_path: Path) -> None:
+    assert GPU.model_short_of("qwen3:14b") == "qwen3-14b"
+    assert GPU.model_short_of("llama3.1:70b") == "llama3.1-70b"
+    path = GPU.episode_path(tmp_path, "qwen3-14b", "g", "07")
+    assert path.name == "episode-qwen3-14b-g-07.json"
 
 
 # --------------------------------------------------------------------------- #
