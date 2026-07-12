@@ -82,6 +82,11 @@ from .ladder_judge_study import (
     select_ladder_claims,
     write_ladder_judge_study,
 )
+from .ladder_consistency_study import (
+    LADDER_CONSISTENCY_STUDY_SCHEMA,
+    run_ladder_consistency_study,
+    write_ladder_consistency_study,
+)
 from .sealing import build_seal, commitment_of, verify_seal
 from .natural_study import (
     DATASET_SCALE2_TOKENS,
@@ -186,13 +191,16 @@ __all__ = [
     "write_judge_comparison",
     "LADDER_CLAIM_COUNT",
     "LADDER_JUDGE_STUDY_SCHEMA",
+    "LADDER_CONSISTENCY_STUDY_SCHEMA",
     "LadderSelectionError",
     "build_ladder_placeholder",
     "ladder_judge_filename",
     "parse_ladder_judge_filename",
     "run_ladder_judge_study",
+    "run_ladder_consistency_study",
     "select_ladder_claims",
     "write_ladder_judge_study",
+    "write_ladder_consistency_study",
     "LocalProcessAdapter",
     "MODEL_SHORTS",
     "NATURAL_POWER_STUDY_SCHEMA",

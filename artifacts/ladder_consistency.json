@@ -1,0 +1,312 @@
+{
+  "artifactPath": "/Users/jaegyu.lee/Project/contractplane/artifacts/local_gpu_family_study.json",
+  "combinedConsistencyTier": {
+    "combined": {
+      "abstainedOnErrors": 3,
+      "catchRateOnErrors": 0.8125,
+      "caughtOnErrors": "13/16",
+      "correct": 5,
+      "errors": 16,
+      "falseRejectionsOnCorrect": "0/5"
+    },
+    "ladder": {
+      "abstainedOnErrors": 0,
+      "catchRateOnErrors": 1.0,
+      "caughtOnErrors": "12/12",
+      "correct": 0,
+      "errors": 12,
+      "falseRejectionsOnCorrect": "0/0"
+    },
+    "note": "The cross-judge consistency verifier scored over the union of the scale2 errors and the ladder errors. Every ladder claim is an error, so its false-rejection denominator is 0; the false-rejection evidence stays with the scale2 corpus (5 correct claims). The combined error row pools the catch and abstain counts across both corpora.",
+    "scale2": {
+      "abstainedOnErrors": 3,
+      "catchRateOnErrors": 0.25,
+      "caughtOnErrors": "1/4",
+      "correct": 5,
+      "errors": 4,
+      "falseRejectionsOnCorrect": "0/5"
+    },
+    "verifier": "crossJudgeMajorityRecount"
+  },
+  "gpuStudyDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/study-local-gpu",
+  "judgeDir": "/Users/jaegyu.lee/Project/contractplane/examples/governed-run/episodes/judge-verdicts-ladder",
+  "ladderCorrect": 0,
+  "ladderCrossJudgeMajorityRecount": {
+    "aggregate": {
+      "abstainedOnErrors": 0,
+      "abstentions": 0,
+      "catchRateOnErrors": 1.0,
+      "caughtOnErrors": "12/12",
+      "correct": 0,
+      "errors": 12,
+      "falseRejectionRateOnCorrect": null,
+      "falseRejectionsOnCorrect": "0/0"
+    },
+    "description": "Three recorded ladder judge recounts vote per claim; abstain->accept when no two agree. Reject iff the majority recount disagrees with the producer's claim. Same rule as the scale2 cross-judge majority-recount verifier.",
+    "perClaim": [
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 274,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:14b",
+        "rank": 1,
+        "stem": "qwen3-14b-f-13",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 274,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:14b",
+        "rank": 2,
+        "stem": "qwen3-14b-f-14",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 274,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:32b",
+        "rank": 3,
+        "stem": "qwen3-32b-f-03",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 275,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:14b",
+        "rank": 4,
+        "stem": "qwen3-14b-f-02",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 271,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:32b",
+        "rank": 5,
+        "stem": "qwen3-32b-f-08",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 266,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:14b",
+        "rank": 6,
+        "stem": "qwen3-14b-f-09",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 265,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:32b",
+        "rank": 7,
+        "stem": "qwen3-32b-f-05",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 281,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:32b",
+        "rank": 8,
+        "stem": "qwen3-32b-f-16",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 264,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:32b",
+        "rank": 9,
+        "stem": "qwen3-32b-f-20",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 263,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:32b",
+        "rank": 10,
+        "stem": "qwen3-32b-f-17",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 284,
+        "dataset": "hard-count-f",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 273,
+          "claude-opus-4-8": 273,
+          "claude-sonnet-5": 273
+        },
+        "majorityRecount": 273,
+        "producer": "qwen3:32b",
+        "rank": 11,
+        "stem": "qwen3-32b-f-04",
+        "truth": 273,
+        "verdict": "reject"
+      },
+      {
+        "abstained": false,
+        "caught": true,
+        "claimed": 767,
+        "dataset": "hard-count-g",
+        "error": true,
+        "falseReject": false,
+        "judgeRecounts": {
+          "claude-haiku-4-5": 768,
+          "claude-opus-4-8": 754,
+          "claude-sonnet-5": 754
+        },
+        "majorityRecount": 754,
+        "producer": "qwen3:32b",
+        "rank": 12,
+        "stem": "qwen3-32b-g-17",
+        "truth": 754,
+        "verdict": "reject"
+      }
+    ],
+    "withinDatasetRecountSharing": {
+      "claimsPerDataset": {
+        "hard-count-f": 11,
+        "hard-count-g": 1
+      },
+      "distinctRecountsPerJudgePerDataset": {
+        "hard-count-f": {
+          "claude-haiku-4-5": [
+            273
+          ],
+          "claude-opus-4-8": [
+            273
+          ],
+          "claude-sonnet-5": [
+            273
+          ]
+        },
+        "hard-count-g": {
+          "claude-haiku-4-5": [
+            768
+          ],
+          "claude-opus-4-8": [
+            754
+          ],
+          "claude-sonnet-5": [
+            754
+          ]
+        }
+      },
+      "note": "Each judge tier recorded one genuine recount per dataset (single-pass-per-dataset), so every same-dataset ladder claim's cross-judge vote reuses that one recount. The vote still confronts each claim's own claimed value; the recount agreement is a shared within-dataset property, not independent per-claim evidence.",
+      "singlePassPerDataset": true
+    }
+  },
+  "ladderErrors": 12,
+  "note": "EXPERIMENTAL cross-judge consistency-vote verifier extended to the GPU-ladder judged corpus (no fresh sampling). For each of the 12 ladder claims the three recorded judge recounts vote; if >= 2 of 3 agree on a number the verdict is reject iff the producer's claim differs from that majority recount, else ABSTAIN (accept-by-default). Mirrors consistency_study._cross_judge exactly. DESIGN PROPERTY (stated, not hidden): the ladder judge grid recorded one genuine pass per dataset per judge tier, so within a dataset every claim's cross-judge vote shares that judge's single recount -- all 11 hard-count-f claims are decided by the same recount triple (273/273/273) and the one hard-count-g claim by another. The vote still confronts each claim's own claimed value. Combined with the scale2 cross-judge tier (1/4, abstain 3) this scores the consistency verifier on 16 errors.",
+  "schema": "contractplane.dev/experimental/ladder-consistency-verifier/v0"
+}
