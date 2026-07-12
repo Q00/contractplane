@@ -1,0 +1,24 @@
+{
+  "schema": "producer-study-seal/v0",
+  "algorithm": "sha256-over-canonical-json",
+  "sealedAt": "2026-07-12T02:59:01Z",
+  "scope": "Ground truths (record counts and value sums) for the hard-count datasets used by the parallel harvest tracks (Track A: OpenAI family; Track B: GPU local ladder). Sealed before any recording in either track.",
+  "truthKeys": [
+    "hard-count-f:count",
+    "hard-count-f:sum",
+    "hard-count-g2:count",
+    "hard-count-g2:sum",
+    "hard-count-g3:count",
+    "hard-count-g3:sum",
+    "hard-count-g:count",
+    "hard-count-g:sum",
+    "hard-count-h2:count",
+    "hard-count-h2:sum",
+    "hard-count-h3:count",
+    "hard-count-h3:sum",
+    "hard-count-h:count",
+    "hard-count-h:sum"
+  ],
+  "commitment": "8026bf0c44724282e6958658859d6f03f6a92cc7312c203f03c4907e1b6ad67e",
+  "revealPolicy": "The preimage file (truths + salt) is published only after every recording in scope is complete; recomputing the commitment over the canonical JSON encoding must reproduce the committed hash."
+}

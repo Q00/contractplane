@@ -71,6 +71,7 @@ from .judge_study import (
     validate_judge_fixture,
     write_judge_comparison,
 )
+from .sealing import build_seal, commitment_of, verify_seal
 from .natural_study import (
     DATASET_SCALE2_TOKENS,
     DATASET_SCALE3_TOKENS,
@@ -85,6 +86,7 @@ from .natural_study import (
     fisher_exact_two_sided,
     parse_natural_filename,
     parse_scale_filename,
+    run_family_study,
     run_local_study,
     run_natural_power_study,
     run_natural_scale_study,
@@ -142,6 +144,10 @@ __all__ = [
     "DATASET_SCALE3_TOKENS",
     "FRONTIER_NATURAL_RATES",
     "LOCAL_STUDY_SCHEMA",
+    "build_seal",
+    "commitment_of",
+    "verify_seal",
+    "run_family_study",
     "run_local_study",
     "SUBSTRATES",
     "acp_available",

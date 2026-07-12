@@ -985,6 +985,88 @@ def run_local_study(
     }
 
 
+def _family_frontier_comparison(
+    per_model: dict[str, dict[str, Any]], *, family: str
+) -> dict[str, Any]:
+    """Capability comparison rows: recorded Anthropic frontier tiers + every model
+    in this family run (one row per model, rates recomputed from this study)."""
+    tiers = [
+        {
+            "model": model,
+            "tier": "frontier",
+            "errors": rate["errors"],
+            "episodes": rate["episodes"],
+            "naturalErrorRate": _rate(rate["errors"], rate["episodes"]),
+        }
+        for model, rate in FRONTIER_NATURAL_RATES.items()
+    ]
+    for model in sorted(per_model):
+        stats = per_model[model]
+        tiers.append(
+            {
+                "model": model,
+                "tier": family,
+                "errors": stats.get("errors"),
+                "episodes": stats.get("recorded"),
+                "naturalErrorRate": stats.get("naturalErrorRate"),
+                "catchRateOnErrors": stats.get("catchRateOnErrors"),
+                "falseRejections": stats.get("falseRejections"),
+                "parseFailures": stats.get("parseFailures"),
+            }
+        )
+    return {
+        "note": (
+            "Natural error rate by model-capability tier: recorded frontier grids "
+            "(opus/sonnet/haiku) vs every model recorded in this family study. "
+            "Frontier counts are the sibling grids' recorded values; family rows are "
+            "recomputed from this study's replay."
+        ),
+        "byTier": tiers,
+    }
+
+
+def run_family_study(
+    study_dir: str | Path,
+    *,
+    pack_dir: Path,
+    plan: ExecutionPlan,
+    recomputer: HardCountRecomputer | Recomputer,
+    family: str,
+) -> dict[str, Any]:
+    """Replay a multi-model harvest (e.g. an OpenAI luna/terra/sol grid, or a GPU
+    local-model ladder) through the identical governed path.
+
+    Same episode handling as :func:`run_local_study` (content-derived dataset/model,
+    placeholder skipping, parse-failure routing, per-dataset stats), plus per-model
+    and per-model-per-dataset aggregation and a family-aware frontier comparison so
+    a single artifact carries the whole capability curve extension.
+    """
+    report = run_local_study(
+        study_dir, pack_dir=pack_dir, plan=plan, recomputer=recomputer, model=family
+    )
+    episodes = report["episodes"]
+    models = sorted({e.get("model") for e in episodes if e.get("model")})
+    datasets = report["datasets"]
+    per_model = {
+        m: _local_stats([e for e in episodes if e.get("model") == m]) for m in models
+    }
+    report["family"] = family
+    report["aggregate"]["perModel"] = per_model
+    report["aggregate"]["perModelDataset"] = {
+        m: {
+            d: _local_stats(
+                [e for e in episodes if e.get("model") == m and e.get("dataset") == d]
+            )
+            for d in datasets
+        }
+        for m in models
+    }
+    report["aggregate"]["frontierComparison"] = _family_frontier_comparison(
+        per_model, family=family
+    )
+    return report
+
+
 def _example_paths() -> tuple[Path, Path, Path, Path]:
     repo_root = Path(__file__).resolve().parents[3]
     pack_dir = repo_root / "examples" / "governed-run"
