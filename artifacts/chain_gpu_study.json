@@ -1,0 +1,253 @@
+{
+  "episodes": [
+    {
+      "blastRadiusContained": true,
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "derivedClaim": 10301,
+      "derivedFromOwnArithmetic": 10301,
+      "derivedMatchesOwnArithmetic": true,
+      "derivedTruth": 39081,
+      "errorPropagatedIntoFinalClaim": true,
+      "file": "episode-qwen3-14b-chain1.json",
+      "firstErrorStep": "count",
+      "governedResult": "rejected",
+      "haltedAtStep": "count",
+      "model": "qwen3:14b",
+      "provenance": "real-recorded",
+      "steps": [
+        {
+          "claimed": 453,
+          "error": true,
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "step": "count",
+          "truth": 273,
+          "verdict": "rejected"
+        },
+        {
+          "claimed": 9848,
+          "error": true,
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "step": "sum",
+          "truth": 38808,
+          "verdict": "not-reached"
+        },
+        {
+          "claimed": 10301,
+          "error": true,
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "step": "derive",
+          "truth": 39081,
+          "verdict": "not-reached"
+        }
+      ]
+    },
+    {
+      "blastRadiusContained": true,
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "derivedClaim": 7105,
+      "derivedFromOwnArithmetic": 7105,
+      "derivedMatchesOwnArithmetic": true,
+      "derivedTruth": 39081,
+      "errorPropagatedIntoFinalClaim": true,
+      "file": "episode-qwen3-14b-chain2.json",
+      "firstErrorStep": "count",
+      "governedResult": "rejected",
+      "haltedAtStep": "count",
+      "model": "qwen3:14b",
+      "provenance": "real-recorded",
+      "steps": [
+        {
+          "claimed": 221,
+          "error": true,
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "step": "count",
+          "truth": 273,
+          "verdict": "rejected"
+        },
+        {
+          "claimed": 6884,
+          "error": true,
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "step": "sum",
+          "truth": 38808,
+          "verdict": "not-reached"
+        },
+        {
+          "claimed": 7105,
+          "error": true,
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "step": "derive",
+          "truth": 39081,
+          "verdict": "not-reached"
+        }
+      ]
+    },
+    {
+      "blastRadiusContained": true,
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "derivedClaim": 9188,
+      "derivedFromOwnArithmetic": 9188,
+      "derivedMatchesOwnArithmetic": true,
+      "derivedTruth": 39081,
+      "errorPropagatedIntoFinalClaim": true,
+      "file": "episode-qwen3-32b-chain1.json",
+      "firstErrorStep": "count",
+      "governedResult": "rejected",
+      "haltedAtStep": "count",
+      "model": "qwen3:32b",
+      "provenance": "real-recorded",
+      "steps": [
+        {
+          "claimed": 254,
+          "error": true,
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "step": "count",
+          "truth": 273,
+          "verdict": "rejected"
+        },
+        {
+          "claimed": 8934,
+          "error": true,
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "step": "sum",
+          "truth": 38808,
+          "verdict": "not-reached"
+        },
+        {
+          "claimed": 9188,
+          "error": true,
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "step": "derive",
+          "truth": 39081,
+          "verdict": "not-reached"
+        }
+      ]
+    },
+    {
+      "blastRadiusContained": true,
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "derivedClaim": 29150,
+      "derivedFromOwnArithmetic": 26765,
+      "derivedMatchesOwnArithmetic": false,
+      "derivedTruth": 39081,
+      "errorPropagatedIntoFinalClaim": true,
+      "file": "episode-qwen3-32b-chain2.json",
+      "firstErrorStep": "count",
+      "governedResult": "rejected",
+      "haltedAtStep": "count",
+      "model": "qwen3:32b",
+      "provenance": "real-recorded",
+      "steps": [
+        {
+          "claimed": 265,
+          "error": true,
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "step": "count",
+          "truth": 273,
+          "verdict": "rejected"
+        },
+        {
+          "claimed": 26500,
+          "error": true,
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "step": "sum",
+          "truth": 38808,
+          "verdict": "not-reached"
+        },
+        {
+          "claimed": 29150,
+          "error": true,
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "step": "derive",
+          "truth": 39081,
+          "verdict": "not-reached"
+        }
+      ]
+    },
+    {
+      "blastRadiusContained": true,
+      "citable": true,
+      "datasetX": "hard-count-f",
+      "datasetY": "hard-count-g2",
+      "derivedClaim": 12862,
+      "derivedFromOwnArithmetic": 5782,
+      "derivedMatchesOwnArithmetic": false,
+      "derivedTruth": 39081,
+      "errorPropagatedIntoFinalClaim": true,
+      "file": "episode-qwen3-8b-chain2.json",
+      "firstErrorStep": "count",
+      "governedResult": "rejected",
+      "haltedAtStep": "count",
+      "model": "qwen3:8b",
+      "provenance": "real-recorded",
+      "steps": [
+        {
+          "claimed": 119,
+          "error": true,
+          "evidence": "chain-count-artifact",
+          "field": "rows",
+          "step": "count",
+          "truth": 273,
+          "verdict": "rejected"
+        },
+        {
+          "claimed": 5663,
+          "error": true,
+          "evidence": "chain-sum-artifact",
+          "field": "total",
+          "step": "sum",
+          "truth": 38808,
+          "verdict": "not-reached"
+        },
+        {
+          "claimed": 12862,
+          "error": true,
+          "evidence": "chain-derived-artifact",
+          "field": "derived",
+          "step": "derive",
+          "truth": 39081,
+          "verdict": "not-reached"
+        }
+      ]
+    }
+  ],
+  "note": "EXPERIMENTAL multi-step agentic claim-chain study. Each of the three steps is independently recompute-verified through the same kernel; a wrong early step halts the chain (blast-radius containment). Rows derive from real replayed chain episodes only; placeholders are skipped, never fabricated; synthetic-smoke fixtures are not citable.",
+  "schema": "contractplane.dev/experimental/chain-study/v0",
+  "steps": [
+    "count",
+    "sum",
+    "derive"
+  ],
+  "studyDir": "examples/governed-run/episodes/study-chain-gpu",
+  "summary": {
+    "chainsFullyAccepted": 0,
+    "chainsRejected": 5,
+    "earlyErrorChains": 5,
+    "earlyErrorsContainedByGovernance": 5,
+    "earlyErrorsPropagatedInClaim": 5,
+    "error": 0,
+    "recorded": 5,
+    "skipped": 0,
+    "total": 5
+  }
+}

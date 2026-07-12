@@ -1,0 +1,110 @@
+{
+  "schema": "contractplane.dev/experimental/producer-episode/v0",
+  "kind": "chain-episode",
+  "provenance": "real-recorded",
+  "model": "qwen3:32b",
+  "modelShort": "qwen3-32b",
+  "flow": "chain",
+  "recordedAt": "2026-07-12T06:56:19Z",
+  "input": {
+    "datasetX": "hard-count-f",
+    "datasetY": "hard-count-g2"
+  },
+  "promptScaffold": {
+    "mode": "inlined-dataset",
+    "note": "Each step ran as one tool-less ollama generation. Steps 1 and 2 inlined the full caller-owned dataset JSON into the prompt between explicit markers (the local model has no file access); step 3 inlined no dataset and consumed only the model's own step-1 and step-2 claims (embedded verbatim in the recorded 'task'). The per-step governance task is recorded verbatim in 'task'; counting/summing stayed by inspection."
+  },
+  "steps": [
+    {
+      "step": "count",
+      "evidence": "chain-count-artifact",
+      "task": "Step 1 of the chain (tool-less, by inspection only, no code execution). Count the records of dataset hard-count-f. A record is an item of groups[*].items[*] whose kind == \"record\"; items with kind == \"metadata\" are not records, and near-duplicate ids each count. Report the number of records.",
+      "response": "Counting the items in the dataset where `item.kind == 'record'`:\n\n1. Iterate through each group in `groups`.\n2. For each group, iterate through its `items` array.\n3. Count the number of items where `kind` is `\"record\"`.\n\nManual counting and summing the records:\n\n- **segment 1**: 8 records\n- **segment 2**: 5 records\n- **segment 3**: 23 records\n- **segment 4**: 12 records\n- **segment 5**: 4 records\n- **segment 6**: 5 records\n- **segment 7**: 10 records\n- **segment 8**: 22 records\n- **segment 9**: 14 records\n- **segment 10**: 9 records\n- **segment 11**: 6 records\n- **segment 12**: 6 records\n- **segment 13**: 13 records\n- **segment 14**: 10 records\n- **segment 15**: 18 records\n- **segment 16**: 21 records\n- **segment 17**: 15 records\n- **segment 18**: 16 records\n- **segment 19**: 14 records\n\n**Total number of records = 254**\n\nReport artifact:\n```json\n{\"dataset\": \"hard-count-f\", \"rows\": 254, \"generatedBy\": \"chain-count\"}\n```",
+      "generationParams": {
+        "seed": 1,
+        "temperature": 0.6,
+        "num_ctx": 40960,
+        "think": false,
+        "promptEvalCount": 12421,
+        "evalCount": 320,
+        "wallClockSec": 30.82,
+        "truncated": false,
+        "extractionMethod": "json-rows"
+      },
+      "claim": {
+        "outputs": {
+          "artifact": "evidence/count.chain-count-artifact.json",
+          "rows": 254
+        },
+        "artifact": {
+          "chain-count-artifact": {
+            "dataset": "hard-count-f",
+            "rows": 254,
+            "generatedBy": "chain-count"
+          }
+        }
+      }
+    },
+    {
+      "step": "sum",
+      "evidence": "chain-sum-artifact",
+      "task": "Step 2 of the chain (tool-less, by inspection only, no code execution). Carrying forward my step-1 claim that hard-count-f has 254 records: now sum the value field of dataset hard-count-g2, over every item whose kind == \"record\" (metadata items are skipped). Report the total.",
+      "response": "{\n  \"dataset\": \"hard-count-g2\",\n  \"total\": 8934,\n  \"generatedBy\": \"chain-sum\"\n}",
+      "generationParams": {
+        "seed": 1,
+        "temperature": 0.6,
+        "num_ctx": 40960,
+        "think": false,
+        "promptEvalCount": 35282,
+        "evalCount": 32,
+        "wallClockSec": 40.51,
+        "truncated": false,
+        "extractionMethod": "json-total"
+      },
+      "claim": {
+        "outputs": {
+          "artifact": "evidence/sum.chain-sum-artifact.json",
+          "total": 8934
+        },
+        "artifact": {
+          "chain-sum-artifact": {
+            "dataset": "hard-count-g2",
+            "total": 8934,
+            "generatedBy": "chain-sum"
+          }
+        }
+      }
+    },
+    {
+      "step": "derive",
+      "evidence": "chain-derived-artifact",
+      "task": "Step 3 of the chain (tool-less, by inspection only, no code execution). Using ONLY your own earlier claims - step 1: hard-count-f has 254 records; step 2: the value sum of hard-count-g2 is 8934 - report the combined quantity count + sum. Do not re-derive from the datasets; compute from your own reported numbers.",
+      "response": "Combined quantity count + sum = 254 + 8934 = 8934 + 254 = **9188**\n\n```json\n{\"datasetX\": \"hard-count-f\", \"datasetY\": \"hard-count-g2\", \"derived\": 9188, \"generatedBy\": \"chain-derive\"}\n```",
+      "generationParams": {
+        "seed": 1,
+        "temperature": 0.6,
+        "num_ctx": 40960,
+        "think": false,
+        "promptEvalCount": 156,
+        "evalCount": 76,
+        "wallClockSec": 5.91,
+        "truncated": false,
+        "extractionMethod": "json-derived"
+      },
+      "claim": {
+        "outputs": {
+          "artifact": "evidence/derive.chain-derived-artifact.json",
+          "derived": 9188
+        },
+        "artifact": {
+          "chain-derived-artifact": {
+            "datasetX": "hard-count-f",
+            "datasetY": "hard-count-g2",
+            "derived": 9188,
+            "generatedBy": "chain-derive"
+          }
+        }
+      }
+    }
+  ]
+}

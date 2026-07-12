@@ -30,6 +30,7 @@ PACK = load_domain_pack(PACK_DIR / "domainpack.yaml")
 DATASETS_DIR = PACK_DIR / "datasets"
 CHAIN_DIR = PACK_DIR / "episodes" / "study-chain"
 CHAIN_SMOKE_DIR = PACK_DIR / "episodes" / "study-chain-smoke"
+CHAIN_GPU_DIR = PACK_DIR / "episodes" / "study-chain-gpu"
 
 # Pinned truths for the chain datasets (X=hard-count-f, Y=hard-count-g2).
 TRUE_COUNT = 273
@@ -118,6 +119,52 @@ def test_chain_grid_is_fully_recorded_with_pinned_outcomes() -> None:
     assert report["summary"]["earlyErrorChains"] == 1
     assert report["summary"]["earlyErrorsContainedByGovernance"] == 1
     assert report["summary"]["earlyErrorsPropagatedInClaim"] == 1
+
+
+def test_gpu_chain_grid_scores_early_error_containment() -> None:
+    # The local-GPU chains (qwen3:8b/14b/32b, scripted by tools/chain_harvest.py) are
+    # real-recorded; pin the governed outcomes as a regression guard.
+    summary = _study(CHAIN_GPU_DIR)["summary"]
+    assert summary["total"] == 5
+    assert summary["recorded"] == 5
+    assert summary["skipped"] == 0
+    assert summary["error"] == 0
+    assert summary["chainsFullyAccepted"] == 0
+    assert summary["chainsRejected"] == 5
+    # Every local-GPU chain miscounts step 1, so every chain is an early-error chain whose
+    # wrong count both propagates into the model's OWN derived claim (what an ungoverned
+    # chain accepts) and is contained by per-step governance (the derived output is never
+    # accepted).
+    assert summary["earlyErrorChains"] == 5
+    assert summary["earlyErrorsPropagatedInClaim"] == 5
+    assert summary["earlyErrorsContainedByGovernance"] == 5
+
+
+def test_gpu_chain_halts_at_count_before_derive_for_every_chain() -> None:
+    report = _study(CHAIN_GPU_DIR)
+    assert len(report["episodes"]) == 5
+    for episode in report["episodes"]:
+        assert "steps" in episode, episode  # every fixture recorded and replayable
+        steps = {s["step"]: s for s in episode["steps"]}
+        assert steps["count"]["error"] is True and steps["count"]["verdict"] == "rejected"
+        assert steps["sum"]["verdict"] == "not-reached"
+        assert steps["derive"]["verdict"] == "not-reached"
+        assert episode["governedResult"] == "rejected"
+        assert episode["haltedAtStep"] == "count"
+        assert episode["firstErrorStep"] == "count"
+        assert episode["errorPropagatedIntoFinalClaim"] is True
+        assert episode["blastRadiusContained"] is True
+
+
+def test_gpu_chain_abort_record_is_excluded_from_scoring() -> None:
+    # A chain whose step yielded no parsable integer is recorded as aborted-*.json (never
+    # episode-*.json), so the scorer's episode-*.json glob never replays a truncated chain.
+    aborted = list(CHAIN_GPU_DIR.glob("aborted-*.json"))
+    assert aborted, "expected at least one recorded chain-abort record"
+    report = _study(CHAIN_GPU_DIR)
+    scored_files = {e["file"] for e in report["episodes"]}
+    assert all(p.name not in scored_files for p in aborted)
+    assert report["summary"]["total"] == len(list(CHAIN_GPU_DIR.glob("episode-*.json")))
 
 
 def test_chain_placeholder_fixture_refuses_replay(tmp_path: Path) -> None:
